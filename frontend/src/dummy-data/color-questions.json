@@ -5,7 +5,7 @@
         "answerChoices": ["Purple", "Green", "Orange", "Yellow"],
         "answer": "Purple",
         "imageUrl": "https://static.wikia.nocookie.net/colors/images/9/9d/Violet_-7F00FF.png/revision/latest?cb=20240706212435",
-        "difficulty": "easy"
+        "difficulty": 0
     },
     {
         "id": 2,
@@ -13,7 +13,7 @@
         "answerChoices": ["Green", "Purple", "Blue", "Orange"],
         "answer": "Blue",
         "imageUrl": "https://static.wikia.nocookie.net/aesthetics/images/a/a3/Pure_blue.png/revision/latest/thumbnail/width/360/height/450?cb=20210323184329",
-        "difficulty": "easy"
+        "difficulty": 0
     },
     {
         "id": 3,
@@ -21,7 +21,7 @@
         "answerChoices": ["Orange", "Green", "Purple", "Red"],
         "answer": "Green",
         "imageUrl": "https://colourlex.com/wp-content/uploads/2021/02/Emerald-green-painted-swatch.jpg",
-        "difficulty": "easy"
+        "difficulty": 0
     },
     {
         "id": 4,
@@ -29,7 +29,7 @@
         "answerChoices": ["Red", "Blue", "Yellow", "Black"],
         "answer": "Blue",
         "imageUrl": "https://static.vecteezy.com/system/resources/thumbnails/037/980/962/small_2x/ai-generated-serene-of-lone-tree-standing-partially-submerged-in-calm-body-of-water-with-the-gradient-hues-of-sunset-or-sunrise-reflecting-on-the-water-surface-ai-generated-photo.jpg",
-        "difficulty": "intermediate"
+        "difficulty": 1
     },
     {
         "id": 5,
@@ -37,7 +37,7 @@
         "answerChoices": ["Red", "Blue", "Yellow", "Purple"],
         "answer": "Red",
         "imageUrl": "https://colourlex.com/wp-content/uploads/2021/02/Emerald-green-painted-swatch.jpg",
-        "difficulty": "intermediate"
+        "difficulty": 1
     },
     {
         "id": 6,
@@ -45,7 +45,7 @@
         "answerChoices": ["Red and Green", "Blue and Orange", "Yellow and Purple", "All of the above"],
         "answer": "All of the above",
         "imageUrl": "https://d3ui957tjb5bqd.cloudfront.net/uploads/2021/07/25090656/basic-colour-wheel.png",
-        "difficulty": "advanced"
+        "difficulty": 2
     },
     {
         "id": 7,
@@ -53,6 +53,6 @@
         "answerChoices": ["Green", "Blue", "Purple", "Orange"],
         "answer": "Purple",
         "imageUrl": "https://static.vecteezy.com/system/resources/previews/023/575/432/non_2x/a-regal-and-elegant-golden-crown-hangs-in-mid-air-against-a-pure-and-crystal-clear-background-exuding-a-sense-of-supremacy-and-majesty-generative-ai-png.png",
-        "difficulty": "advanced"
+        "difficulty": 2
     }
 ]
