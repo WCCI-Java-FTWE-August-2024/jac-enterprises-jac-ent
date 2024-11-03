@@ -1,0 +1,38 @@
+[
+    {
+        "numerator": 5,
+        "denominator": 3,
+        "operation": "addition",
+        "difficulty": "beginner"
+    },
+    {
+        "numerator": 9,
+        "denominator": 4,
+        "operation": "subtraction",
+        "difficulty": "beginner"
+    },
+    {
+        "numerator": 7,
+        "denominator": 8,
+        "operation": "multiplication",
+        "difficulty": "intermediate"
+    },
+    {
+        "numerator": 12,
+        "denominator": 4,
+        "operation": "division",
+        "difficulty": "intermediate"
+    },
+    {
+        "numerator": 143,
+        "denominator": 57,
+        "operation": "addition",
+        "difficulty": "advanced"
+    },
+    {
+        "numerator": 364,
+        "denominator": 91,
+        "operation": "division",
+        "difficulty": "advanced"
+    }
+]
