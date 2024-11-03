@@ -8,7 +8,7 @@ function Animal() {
         <div>
             <div className="page-top">
                 <Link to="/"><img src="https://cdn.pixabay.com/photo/2012/04/02/16/03/back-24838_1280.png" alt="Back button"/></Link>
-                <h2>Animals</h2>
+                <h2>Animal Zone</h2>
             </div>
         </div>
         
