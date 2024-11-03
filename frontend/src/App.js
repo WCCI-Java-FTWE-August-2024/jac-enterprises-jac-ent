@@ -8,7 +8,7 @@ import Math from "./math/Math";
 import Color from "./color/Color";
 import Animal from "./animal/Animal";
 import EasyMath from "./math/EasyMath";
-import logo from './images/jac-logo.png';
+import logo from './images/jac-logo-text.png';
 
 function App() {
   return (
@@ -17,9 +17,9 @@ function App() {
         <nav className="nav">
           <ul className="nav-list">
             <li><Link to="/"><img src={logo} alt="Home button logo" /></Link></li>
-            <li><Link to="/math/Math">Math</Link></li> |
-            <li><Link to="color/Color">Colors</Link></li> |
-            <li><Link to="/animal/Animal">Animals</Link></li> |
+            <li><Link to="/math/Math">Math Zone</Link></li> |
+            <li><Link to="color/Color">Color Zone</Link></li> |
+            <li><Link to="/animal/Animal">Animal Zone</Link></li> |
             <li><Link to="/About">About</Link></li> |
             <li><Link to="/SignIn">Sign In</Link></li>
           </ul>
