@@ -54,33 +54,50 @@ public class ColorService {
         ));
     }
 
-    // The method to get all the questions
+    /**
+     * Retrieves all color questions.
+     * 
+     * @return a list of all ColorModel questions.
+     */
     public List<ColorModel> getAllQuestions() {
         return questions;
     }
 
-    // The method to get a random question based on the difficulty
-    public ColorModel getRandomQuestionByDifficulty(DifficultyLevel difficulty){
-        // Step 1: Create a new list to store matching questions
+    /**
+     * Retrieves a random question of the specified difficulty level.
+     * 
+     * @param difficulty the difficulty level of the question (e.g., BEGINNER, INTERMEDIATE, ADVANCED).
+     * @return a random ColorModel question that matches the specified difficulty level,
+     *         or null if no questions of that difficulty are found.
+     */
+    public ColorModel getRandomQuestionByDifficulty(DifficultyLevel difficulty) {
+        
+        // Step 1: Create a new list to store questions matching the specified difficulty
         List<ColorModel> filteredQuestions = new ArrayList<>();
-            // Step 2: Loop through each question in the main list
+        
+        // Step 2: Loop through each question in the main list of questions
         for (ColorModel question : questions) {
+            
             // Step 3: Check if the question's difficulty matches the specified level
             if (question.getDifficulty() == difficulty) {
-                // Step 4: If it matches, add it to the filtered list
+                
+                // Step 4: If it matches, add the question to the filtered list
                 filteredQuestions.add(question);
             }
         }
 
-        // Now, the filteredQuestions has only the questions of the specific difficulty
+        // At this point, filteredQuestions contains only questions with the specified difficulty
 
-        // Select and returns a random question from the filteredQuestions
+        // Step 5: Select and return a random question from filteredQuestions, if any are available
         if (!filteredQuestions.isEmpty()) {
             Random random = new Random();
-            int randomNumber = random.nextInt(filteredQuestions.size());
-            return filteredQuestions.get(randomNumber);
+            
+            // Generate a random index within the range of filteredQuestions
+            int randomIndex = random.nextInt(filteredQuestions.size());
+            
+            return filteredQuestions.get(randomIndex); // Return the randomly selected question
         } else {
-            return null; // No questions found for this difficulty
+            return null; // Return null if no questions of the specified difficulty were found
         }
     }
 
