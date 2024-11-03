@@ -42,9 +42,9 @@ public class UserController {
         .orElse(ResponseEntity.notFound().build());
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{id}") //ToDo: Need to check ID
     public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User user) {
-        user.setId(id);
+
         User updatedUser = userService.updateUser(user);
         return ResponseEntity.ok(updatedUser); 
     }
