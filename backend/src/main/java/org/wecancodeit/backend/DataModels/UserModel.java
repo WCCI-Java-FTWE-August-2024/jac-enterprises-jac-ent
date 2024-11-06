@@ -15,6 +15,11 @@ import jakarta.validation.constraints.Size;
 public class UserModel {
 
     // ###### Constructor
+
+    public UserModel() {
+        super();
+    }
+    
     // Constructor for creating a new UserModel instance with specified fields
     public UserModel(Long id, String username, String password, int age) {
         this.id = id; // Assigning the user's ID
