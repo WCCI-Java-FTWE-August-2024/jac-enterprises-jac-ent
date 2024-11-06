@@ -16,38 +16,44 @@ public class ColorService {
 
         // The Hardcoded in questions with IDs to identify them by
 
-        // ----------------------------Beginner--------------------------
+        // ---------------------------------------------------------------------------------------------------------
+        // ----------------------------------------------------Beginner---------------------------------------------
+        // ---------------------------------------------------------------------------------------------------------
         questions.add(new ColorModel(
-                1L, // Unique ID for this question. "L" marks it as a long
-                "What color do you get when you mix red and yellow?",
-                Arrays.asList("Orange", "Green", "Purple", "Brown"),
-                "Orange",
-                "/images/colors/orange.jpg",
-                DifficultyLevel.Beginner));
+            1L, // Unique ID for this question. "L" marks it as a long
+            "What color do you get when you mix red and yellow?",
+            Arrays.asList("Orange", "Green", "Purple", "Brown"),
+            "Orange",
+            "/images/colors/orange.jpg",
+            DifficultyLevel.Beginner
+        ));
 
         questions.add(new ColorModel(
-                2L,
-                "What color do you get when you mix blue and yellow?",
-                Arrays.asList("Green", "Purple", "Orange", "Gray"),
-                "Green",
-                "/images/colors/green.jpg",
-                DifficultyLevel.Beginner));
+            2L, 
+            "What color do you get when you mix blue and yellow?",
+            Arrays.asList("Green", "Purple", "Orange", "Gray"),
+            "Green",
+            "/images/colors/green.jpg",
+            DifficultyLevel.Beginner
+        ));
         // ----------------------------Intermediate--------------------------
         questions.add(new ColorModel(
-                3L,
-                "Which color is associated with calm and peace?",
-                Arrays.asList("Red", "Blue", "Green", "Yellow"),
-                "Blue",
-                "/images/colors/blue.jpg",
-                DifficultyLevel.Intermediate));
+            3L,
+            "Which color is associated with calm and peace?",
+            Arrays.asList("Red", "Blue", "Green", "Yellow"),
+            "Blue",
+            "/images/colors/blue.jpg",
+            DifficultyLevel.Intermediate
+        ));
         // -----------------------------Advanced-----------------------------
         questions.add(new ColorModel(
-                4L,
-                "What is the complementary color of green?",
-                Arrays.asList("Red", "Orange", "Purple", "Blue"),
-                "Red",
-                "/images/colors/green-red.jpg",
-                DifficultyLevel.Advanced));
+            4L,
+            "What is the complementary color of green?",
+            Arrays.asList("Red", "Orange", "Purple", "Blue"),
+            "Red",
+            "/images/colors/green-red.jpg",
+            DifficultyLevel.Advanced
+        ));
     }
 
     /**
@@ -62,10 +68,8 @@ public class ColorService {
     /**
      * Retrieves a random question of the specified difficulty level.
      * 
-     * @param difficulty the difficulty level of the question (e.g., BEGINNER,
-     *                   INTERMEDIATE, ADVANCED).
-     * @return a random ColorModel question that matches the specified difficulty
-     *         level,
+     * @param difficulty the difficulty level of the question (e.g., BEGINNER, INTERMEDIATE, ADVANCED).
+     * @return a random ColorModel question that matches the specified difficulty level,
      *         or null if no questions of that difficulty are found.
      */
     public ColorModel getRandomQuestionByDifficulty(DifficultyLevel difficulty) {
