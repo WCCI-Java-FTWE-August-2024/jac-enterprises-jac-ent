@@ -29,14 +29,14 @@ public class MathProblemService {
         Operation result = Operation.Addition; // Default operation
         switch (difficulty) {
             case Beginner: { // For beginner level, allow only addition
-                int i = random.nextInt(0, 1); // Randomly choose an operation index (0 for addition)
+                int i = random.nextInt(0, 1); // Randomly choose an operation index (0 for addition 1 for subtraction)
                 result = Operation.values()[i]; // Set the operation
                 break;
             }
             case Advanced:
             case Intermediate: { // For intermediate and advanced levels, allow multiple operations
-                int i = random.nextInt(0, 3); // Randomly choose an operation index (0-2 for addition, subtraction,
-                                              // multiplication)
+                int i = random.nextInt(0, 3); // Randomly choose an operation index (0-3 for addition, subtraction,multiplication and division)
+                
                 result = Operation.values()[i]; // Set the operation
                 break;
             }
