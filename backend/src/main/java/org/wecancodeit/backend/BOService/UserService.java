@@ -1,24 +1,37 @@
 package org.wecancodeit.backend.BOService;
 
+import java.util.List;
 import java.util.Optional;
 
-import org.apache.catalina.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.wecancodeit.backend.DataModels.UserModel;
 import org.wecancodeit.backend.Repositories.UserRepository;
+
+import jakarta.annotation.Resource;
 
 // Service class for managing user-related operations
 @Service
 public class UserService {
 
-    @Autowired
+    @Resource
     private UserRepository userRepository; // Injected UserRepository for database access
 
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+
+    public List<UserModel> getAll() {
+
+        return userRepository.findAll();
+    }
+
+
     // Method to register a new user
-    public User registerUser(User user) throws Exception {
+    public UserModel registerUser(UserModel user) throws Exception {
         // Check if the username is already taken
-        User checkUser = findUserByUsername(user.getUsername());
-        if (checkUser != null) { // If a user with the same username exists
+        List<UserModel> checkUser = findUserByUsername(user.getUsername());
+        if (checkUser != null && checkUser.size() > 0) { // If a user with the same username exists
             throw new Exception("Username is taken. Please use another. "); // Throw an exception
         }
 
@@ -27,19 +40,19 @@ public class UserService {
     }
 
     // Method to find a user by username (case-insensitive)
-    public User findUserByUsername(String username) {
+    public List<UserModel> findUserByUsername(String username) {
         // Return the user found by the username, ignoring case
         return userRepository.findByUsernameIgnoreCase(username);
     }
 
     // Method to find a user by their ID
-    public Optional<User> findUserById(Long id) {
+    public Optional<UserModel> findUserById(Long id) {
         // Return an Optional containing the user if found
         return userRepository.findById(id);
     }
 
     // Method to update a user's information
-    public User updateUser(User user) {
+    public UserModel updateUser(UserModel user) {
         // Save the updated user to the database
         return userRepository.save(user);
     }
