@@ -1,15 +1,18 @@
 package org.wecancodeit.backend.Repositories;
 
-import org.apache.catalina.User;
+
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.wecancodeit.backend.DataModels.UserModel;
+
+
 
 // Repository interface for managing User entities
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<UserModel, Long> {
 
     // Method to find a user by their username
-    User findByUsername(String username);
+    List<UserModel> findByUsernameIgnoreCase(String username);
 
-    // // Method to find a user by their ID
-    // User findByID(Long id);
 }
 
