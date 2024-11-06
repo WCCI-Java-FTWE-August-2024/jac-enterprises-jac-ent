@@ -36,7 +36,7 @@ public class AnimalQuestionController {
      * @param difficulty The specified difficulty level to filter questions by.
      * @return A ResponseEntity containing the animal question if found, or a NOT_FOUND status if not.
      */
-    @GetMapping("/animals/{difficulty}") // Mapping for GET requests to "/api/v1/animals/{difficulty}"
+    @GetMapping("/animals") // Mapping for GET requests to "/api/v1/animals/{difficulty}"
     public ResponseEntity<AnimalQuestionModel> getRandomAnimalQuestion(@PathVariable DifficultyLevel difficulty) {
 
         // Retrieve a random question by difficulty level from the service
