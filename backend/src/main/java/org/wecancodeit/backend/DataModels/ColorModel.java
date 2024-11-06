@@ -5,13 +5,17 @@ import org.wecancodeit.backend.Enums.DifficultyLevel;
 import jakarta.persistence.*;
 
 /**
- * Entity representing a color-related question, including question text, answer choices, 
+ * Entity representing a color-related question, including question text, answer
+ * choices,
  * correct answer, image URL, and difficulty level.
  */
 @Entity
 public class ColorModel {
 
-    /** Unique identifier for each question (auto-generated when saved in a database). */
+    /**
+     * Unique identifier for each question (auto-generated when saved in a
+     * database).
+     */
     @Id
     private Long id;
 
@@ -19,7 +23,9 @@ public class ColorModel {
     @ElementCollection
     private List<String> answerChoices;
 
-    /** Difficulty level of the question (e.g., BEGINNER, INTERMEDIATE, ADVANCED). */
+    /**
+     * Difficulty level of the question (e.g., BEGINNER, INTERMEDIATE, ADVANCED).
+     */
     private DifficultyLevel difficulty;
 
     /** Text of the question being asked. */
@@ -34,7 +40,8 @@ public class ColorModel {
     /**
      * Default constructor required by JPA.
      */
-    public ColorModel() {}
+    public ColorModel() {
+    }
 
     /**
      * Constructs a new ColorModel question with specified details.
@@ -46,7 +53,8 @@ public class ColorModel {
      * @param imageUrl      the URL of an image related to the question
      * @param difficulty    the difficulty level of the question
      */
-    public ColorModel(Long id, String questionText, List<String> answerChoices, String answer, String imageUrl, DifficultyLevel difficulty) {
+    public ColorModel(Long id, String questionText, List<String> answerChoices, String answer, String imageUrl,
+            DifficultyLevel difficulty) {
         this.id = id;
         this.questionText = questionText;
         this.answerChoices = answerChoices;

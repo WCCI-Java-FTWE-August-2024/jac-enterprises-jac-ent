@@ -35,8 +35,9 @@ public class MathProblemService {
             }
             case Advanced:
             case Intermediate: { // For intermediate and advanced levels, allow multiple operations
-                int i = random.nextInt(0, 3); // Randomly choose an operation index (0-3 for addition, subtraction,multiplication and division)
-                
+                int i = random.nextInt(0, 3); // Randomly choose an operation index (0-3 for addition,
+                                              // subtraction,multiplication and division)
+
                 result = Operation.values()[i]; // Set the operation
                 break;
             }

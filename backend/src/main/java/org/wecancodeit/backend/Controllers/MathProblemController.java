@@ -16,7 +16,8 @@ public class MathProblemController {
     /**
      * Endpoint to generate a math problem based on the difficulty level
      *
-     * @param difficulty The difficulty level for the problem (e.g., BEGINNER, INTERMEDIATE, ADVANCED)
+     * @param difficulty The difficulty level for the problem (e.g., BEGINNER,
+     *                   INTERMEDIATE, ADVANCED)
      * @return The generated MathProblemDTO as JSON
      */
     @GetMapping("/")

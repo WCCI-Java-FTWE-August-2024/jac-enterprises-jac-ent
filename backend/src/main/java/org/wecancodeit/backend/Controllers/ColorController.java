@@ -38,14 +38,16 @@ public class ColorController {
      * 
      * Endpoint: GET /api/v1/color/
      * 
-     * @param difficulty the difficulty level of the question (e.g., BEGINNER, INTERMEDIATE, ADVANCED)
+     * @param difficulty the difficulty level of the question (e.g., BEGINNER,
+     *                   INTERMEDIATE, ADVANCED)
      *                   provided as a query parameter.
-     * @return a ResponseEntity containing the ColorModel question. 
-     *         Returns 200 OK with the question if found, or 404 NOT FOUND if no question matches the difficulty.
+     * @return a ResponseEntity containing the ColorModel question.
+     *         Returns 200 OK with the question if found, or 404 NOT FOUND if no
+     *         question matches the difficulty.
      */
     @GetMapping("/")
     public ResponseEntity<ColorModel> getRandomQuestionByDifficulty(@RequestParam DifficultyLevel difficulty) {
-        
+
         // Call the service method to get a random question of the specified difficulty
         ColorModel question = colorService.getRandomQuestionByDifficulty(difficulty);
 
