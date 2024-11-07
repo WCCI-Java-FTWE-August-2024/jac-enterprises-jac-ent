@@ -8,13 +8,16 @@ import org.wecancodeit.backend.Enums.DifficultyLevel;
 
 import jakarta.annotation.Resource;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
-@RequestMapping({"api/v1/animals"}) // Define the base URL for all endpoints in this controller
+@RequestMapping("api/v1/animals") // Define the base URL for all endpoints in this controller
 public class AnimalQuestionController {
 
     @Resource // Injecting the AnimalQuestionService dependency
@@ -30,17 +33,18 @@ public class AnimalQuestionController {
         this.animalQuestionService = animalQuestionService;
     }
 
+   
     /**
      * Endpoint to retrieve a random animal question based on difficulty level.
      *
      * @param difficulty The specified difficulty level to filter questions by.
      * @return A ResponseEntity containing the animal question if found, or a NOT_FOUND status if not.
      */
-    @GetMapping("/animals") // Mapping for GET requests to "/api/v1/animals/{difficulty}"
-    public ResponseEntity<AnimalQuestionModel> getRandomAnimalQuestion(@PathVariable DifficultyLevel difficulty) {
-
+    @GetMapping("/{difficulty}") // Mapping for GET requests to "/api/v1/animals/{difficulty}"
+    public ResponseEntity<AnimalQuestionModel> getRandomAnimalQuestion(@PathVariable String difficulty) {
+        DifficultyLevel d = DifficultyLevel.valueOf(difficulty);
         // Retrieve a random question by difficulty level from the service
-        AnimalQuestionModel animalQuestion = animalQuestionService.getRandomAnimalQuestion(difficulty);
+        AnimalQuestionModel animalQuestion = animalQuestionService.getRandomAnimalQuestion(d);
 
         // If no question was found for the given difficulty, return a 404 status
         if (animalQuestion == null) {
