@@ -33,6 +33,14 @@ public class AnimalQuestionController {
         this.animalQuestionService = animalQuestionService;
     }
 
+      // Endpoint to get all animal questions
+      /*
+       * NOT WORKING!!!!!!!!!!
+       */
+      @GetMapping("api/v1/animals")
+      public List<AnimalQuestionModel> getAllQuestions() {
+          return animalQuestionService.getAllAnimalQuestions();
+      }
    
     /**
      * Endpoint to retrieve a random animal question based on difficulty level.
