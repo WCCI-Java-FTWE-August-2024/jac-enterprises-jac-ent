@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 // User database entity class representing the user model
@@ -15,6 +16,11 @@ import jakarta.validation.constraints.Size;
 public class UserModel {
 
     // ###### Constructor
+
+    public UserModel() {
+        super();
+    }
+
     // Constructor for creating a new UserModel instance with specified fields
     public UserModel(Long id, String username, String password, int age) {
         this.id = id; // Assigning the user's ID
@@ -37,7 +43,7 @@ public class UserModel {
     @Size(min = 6) // Validation for the minimum length of the password
     private String password; // Password for the user (should be stored hashed in practice)
 
-    @NotBlank // Validation annotation to ensure this field is not empty
+    @NotNull // Validation annotation to ensure this field is not empty
     private int age; // Age of the user
 
     // ###################################### Getters and Setters
