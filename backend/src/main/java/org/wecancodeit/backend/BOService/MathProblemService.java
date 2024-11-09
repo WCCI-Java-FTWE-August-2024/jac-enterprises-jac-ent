@@ -24,7 +24,7 @@ public class MathProblemService {
     }
 
     // Method to calculate the answer for a math problem based on its operation type
-    private float getAnswer(MathProblemDTO problem) {
+    public float getAnswer(MathProblemDTO problem) {
         // Switch statement to handle different mathematical operations
         switch (problem.getOperation()) {
             case Addition: {
@@ -59,7 +59,7 @@ public class MathProblemService {
 
     // Private method to get a random mathematical operation based on difficulty
     // level
-    private Operation getRandomOperation(DifficultyLevel difficulty) {
+    public Operation getRandomOperation(DifficultyLevel difficulty) {
         Operation result = Operation.Addition; // Default operation
         switch (difficulty) {
             case Beginner: { // For beginner level, allow only addition
