@@ -5,7 +5,7 @@ import org.wecancodeit.backend.Enums.*;
 
 public class MathProblemDTO {
     // Fields representing a mathematical problem and its components
-    private String problem; // The math problem as a string
+    // private String problem; // The math problem as a string not Problem String is not needed as of this moment :)
     private DifficultyLevel difficulty; // Enum representing the difficulty level of the problem (e.g., EASY, MEDIUM)
     private Operation operation; // Enum representing the type of mathematical operation (e.g., ADDITION,
                                  // SUBTRACTION)
@@ -24,7 +24,7 @@ public class MathProblemDTO {
     // Constructor that initializes all fields with provided values
     public MathProblemDTO(String problem, DifficultyLevel difficulty, Operation operation, float numerator,
             float denominator) {
-        this.problem = problem; // Set the problem string
+        // this.problem = problem; // Set the problem string
         this.difficulty = difficulty; // Set the difficulty level
         this.operation = operation; // Set the mathematical operation
         this.numerator = numerator; // Set the numerator
@@ -36,14 +36,14 @@ public class MathProblemDTO {
     // #######################################################\\
 
     // Getter for the 'problem' field
-    public String getProblem() {
-        return problem; // Return the problem string
-    }
+    // public String getProblem() {
+    //     return problem; // Return the problem string
+    // }
 
     // Setter for the 'problem' field
-    public void setProblem(String problem) {
-        this.problem = problem; // Update the problem string
-    }
+    // public void setProblem(String problem) {
+    //     this.problem = problem; // Update the problem string
+    // }
 
     // Getter for the 'difficulty' field
     public DifficultyLevel getDifficulty() {

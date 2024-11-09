@@ -5,13 +5,17 @@ import org.wecancodeit.backend.Enums.DifficultyLevel;
 import jakarta.persistence.*;
 
 /**
- * Entity representing a color-related question, including question text, answer choices, 
+ * Entity representing a color-related question, including question text, answer
+ * choices,
  * correct answer, image URL, and difficulty level.
  */
 @Entity
 public class ColorModel {
 
-    /** Unique identifier for each question (auto-generated when saved in a database). */
+    /**
+     * Unique identifier for each question (auto-generated when saved in a
+     * database).
+     */
     @Id
     private Long id;
 
@@ -19,14 +23,16 @@ public class ColorModel {
     @ElementCollection
     private List<String> answerChoices;
 
-    /** Difficulty level of the question (e.g., BEGINNER, INTERMEDIATE, ADVANCED). */
+    /**
+     * Difficulty level of the question (e.g., BEGINNER, INTERMEDIATE, ADVANCED).
+     */
     private DifficultyLevel difficulty;
 
     /** Text of the question being asked. */
     private String questionText;
 
     /** Correct answer for the question. */
-    private String answer;
+    private int answer;
 
     /** URL pointing to an image related to the question, if applicable. */
     private String imageUrl;
@@ -34,7 +40,8 @@ public class ColorModel {
     /**
      * Default constructor required by JPA.
      */
-    public ColorModel() {}
+    public ColorModel() {
+    }
 
     /**
      * Constructs a new ColorModel question with specified details.
@@ -42,11 +49,11 @@ public class ColorModel {
      * @param id            the unique identifier of the question
      * @param questionText  the text of the question
      * @param answerChoices a list of possible answers for the question
-     * @param answer        the correct answer
+     * @param answer        the correct answer option for the arraylist
      * @param imageUrl      the URL of an image related to the question
      * @param difficulty    the difficulty level of the question
      */
-    public ColorModel(Long id, String questionText, List<String> answerChoices, String answer, String imageUrl, DifficultyLevel difficulty) {
+    public ColorModel(Long id, String questionText, List<String> answerChoices, int answer, String imageUrl, DifficultyLevel difficulty) {
         this.id = id;
         this.questionText = questionText;
         this.answerChoices = answerChoices;
@@ -123,7 +130,7 @@ public class ColorModel {
      * 
      * @return the correct answer
      */
-    public String getAnswer() {
+    public int getAnswer() {
         return answer;
     }
 
@@ -132,7 +139,7 @@ public class ColorModel {
      * 
      * @param answer the correct answer
      */
-    public void setAnswer(String answer) {
+    public void setAnswer(int answer) {
         this.answer = answer;
     }
 

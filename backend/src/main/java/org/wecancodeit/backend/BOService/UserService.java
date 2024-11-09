@@ -20,12 +20,10 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-
     public List<UserModel> getAll() {
 
         return userRepository.findAll();
     }
-
 
     // Method to register a new user
     public UserModel registerUser(UserModel user) throws Exception {

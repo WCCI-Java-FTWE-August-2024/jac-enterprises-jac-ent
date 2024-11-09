@@ -1,5 +1,3 @@
 {
-    "cSpell.words": [
-        "Populator"
-    ]
+    "java.compile.nullAnalysis.mode": "automatic"
 }

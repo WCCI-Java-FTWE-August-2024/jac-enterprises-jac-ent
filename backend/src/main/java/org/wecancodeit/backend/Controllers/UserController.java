@@ -10,8 +10,6 @@ import org.wecancodeit.backend.DataModels.UserModel;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.GetMapping;
 
-
-
 // Controller class for managing user-related API endpoints
 @RestController
 @RequestMapping("/api/v1/users") // Base URL for user-related endpoints
@@ -24,15 +22,13 @@ public class UserController {
         this.userService = userService;
     }
 
-
-    @GetMapping  
+    @GetMapping
     public ResponseEntity<?> getAllUsers() {
 
-            return ResponseEntity.ok(userService.getAll());
-        
+        return ResponseEntity.ok(userService.getAll());
+
     }
-    
-    
+
     // Endpoint to register a new user
     @PostMapping("/") // Handles POST requests to /api/v1/users/
     public ResponseEntity<UserModel> register(@RequestBody UserModel user) throws Exception {
@@ -57,8 +53,8 @@ public class UserController {
     public ResponseEntity<UserModel> getUserById(@PathVariable Long id) {
         // Find the user by ID and return the user if found
         return userService.findUserById(id)
-            .map(ResponseEntity::ok) // Return the user if found
-            .orElse(ResponseEntity.notFound().build()); // Return 404 if not found
+                .map(ResponseEntity::ok) // Return the user if found
+                .orElse(ResponseEntity.notFound().build()); // Return 404 if not found
     }
 
     // Endpoint to update a user's information
