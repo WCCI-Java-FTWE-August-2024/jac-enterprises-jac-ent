@@ -76,6 +76,10 @@
   text-shadow: 2px 2px 2px black;
 }
 
+hr {
+  width: 50%;
+}
+
 .about-logo {
   height: 300px;
   filter: drop-shadow(0 0 10px #222);
@@ -147,4 +151,5 @@ footer {
   text-align: center;
   position: fixed;
   bottom: 0;
+  padding: 0;
 }
