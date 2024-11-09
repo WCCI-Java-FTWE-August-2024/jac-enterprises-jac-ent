@@ -35,9 +35,9 @@ public class AnimalQuestionController {
 
       // Endpoint to get all animal questions
       /*
-       * NOT WORKING!!!!!!!!!!
+       * The path was established with the RequestMapping
        */
-      @GetMapping("api/v1/animals")
+      @GetMapping("/all")
       public List<AnimalQuestionModel> getAllQuestions() {
           return animalQuestionService.getAllAnimalQuestions();
       }
