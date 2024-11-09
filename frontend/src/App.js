@@ -9,6 +9,8 @@ import Color from "./color/Color";
 import Animal from "./animal/Animal";
 import EasyMath from "./math/EasyMath";
 import logo from './images/jac-logo-text.png';
+import MediumMath from "./math/MediumMath";
+import HardMath from "./math/HardMath";
 
 function App() {
   return (
@@ -33,9 +35,11 @@ function App() {
             <Route path="/color/Color" element={<Color/>} />
             <Route path="/animal/Animal" element={<Animal/>} />
             <Route path="/math/EasyMath" element={<EasyMath/>}/>
+            <Route path="/math/MediumMath" element={<MediumMath/>}/>
+            <Route path="/math/HardMath" element={<HardMath/>}/>
           </Routes>
         </div>
-        <footer> Jac Enterprises  </footer>
+        <footer><p>&copy;Jac Enterprises</p></footer>
       </div>
     </Router>
   )
