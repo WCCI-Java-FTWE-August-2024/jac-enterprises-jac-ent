@@ -59,6 +59,10 @@
   margin: 2rem;
 }
 
+.about {
+  text-align: center;
+}
+
 .about-text {
   width: 80%;
   padding-left: 10%;
@@ -72,6 +76,11 @@
   text-shadow: 2px 2px 2px black;
 }
 
+.about-logo {
+  height: 300px;
+  filter: drop-shadow(0 0 10px #222);
+}
+
 .page-top h2 {
   font-size: 3rem;
   font-family: "Comic Sans MS", "Comic Sans", cursive;
@@ -83,6 +92,11 @@
 .page-top img {
   height: 5rem;
   position: fixed;
+  filter: drop-shadow(3px 3px 3px #222);
+}
+
+.page-top img:hover {
+  filter: drop-shadow(3px 3px 3px #f7ff8d);
 }
 
 .subject-selection { 
