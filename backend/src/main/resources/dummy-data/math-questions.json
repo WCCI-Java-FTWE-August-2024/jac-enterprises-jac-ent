@@ -1,38 +1,44 @@
 [
     {
+        "difficulty": "beginner",
+        "operation": "addition",
         "numerator": 5,
         "denominator": 3,
-        "operation": "addition",
-        "difficulty": "beginner"
+        "answer": 8
     },
     {
+        "difficulty": "beginner",
+        "operation": "subtraction",
         "numerator": 9,
         "denominator": 4,
-        "operation": "subtraction",
-        "difficulty": "beginner"
+        "answer": 5
     },
     {
+        "difficulty": "intermediate",
+        "operation": "multiplication",
         "numerator": 7,
         "denominator": 8,
-        "operation": "multiplication",
-        "difficulty": "intermediate"
+        "answer": 56
     },
     {
+        "difficulty": "intermediate",
+        "operation": "division",
         "numerator": 12,
         "denominator": 4,
-        "operation": "division",
-        "difficulty": "intermediate"
+        "answer": 3
     },
     {
-        "numerator": 143,
-        "denominator": 57,
+        "difficulty": "advanced",
         "operation": "addition",
-        "difficulty": "advanced"
+        "numerator": 21,
+        "denominator": 16,
+        "answer": 1.31
     },
     {
-        "numerator": 364,
-        "denominator": 91,
+        "difficulty": "advanced",
         "operation": "division",
-        "difficulty": "advanced"
+        "numerator": 23,
+        "denominator": 19,
+        "answer": 1.21
     }
 ]
