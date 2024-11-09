@@ -11,9 +11,7 @@ public class AnimalQuestionModel {
     private int answer; // int containing the answer index in the arraylist
     private String imageUrl; // url for the image source
     private DifficultyLevel difficulty; // this is using the enum to set difficulty
-    
-   
-    
+
     /*
      * Constructor for my animal questions
      */
@@ -24,6 +22,7 @@ public class AnimalQuestionModel {
         this.answerChoices = answerChoices;
         this.answer = answer;
         this.imageUrl = imageUrl;
+
 
         this.difficulty = difficulty;
     }
@@ -42,25 +41,17 @@ public class AnimalQuestionModel {
         this.id = id;
     }
 
-
-
     public String getQuestionText() {
         return questionText;
     }
-
-
 
     public void setQuestionText(String questionText) {
         this.questionText = questionText;
     }
 
-
-
     public List<String> getAnswerChoices() {
         return answerChoices;
     }
-
-
 
     public void setAnswerChoices(List<String> answerChoices) {
         this.answerChoices = answerChoices;
@@ -78,29 +69,20 @@ public class AnimalQuestionModel {
         this.answer = answer;
     }
 
-
-
     public String getImageUrl() {
         return imageUrl;
     }
-
-
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
 
-
-
     public DifficultyLevel getDifficulty() {
         return difficulty;
     }
 
-
-
     public void setDifficulty(DifficultyLevel difficulty) {
         this.difficulty = difficulty;
     }
-    
-    
+
 }

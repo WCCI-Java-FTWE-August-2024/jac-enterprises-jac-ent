@@ -38,10 +38,12 @@ public class ColorController {
      * 
      * Endpoint: GET /api/v1/color/
      * 
-     * @param difficulty the difficulty level of the question (e.g., BEGINNER, INTERMEDIATE, ADVANCED)
+     * @param difficulty the difficulty level of the question (e.g., BEGINNER,
+     *                   INTERMEDIATE, ADVANCED)
      *                   provided as a query parameter.
-     * @return a ResponseEntity containing the ColorModel question. 
-     *         Returns 200 OK with the question if found, or 404 NOT FOUND if no question matches the difficulty.
+     * @return a ResponseEntity containing the ColorModel question.
+     *         Returns 200 OK with the question if found, or 404 NOT FOUND if no
+     *         question matches the difficulty.
      */
     @GetMapping("/{difficulty}")
     public ResponseEntity<ColorModel> getRandomQuestionByDifficulty(@PathVariable String difficulty) {

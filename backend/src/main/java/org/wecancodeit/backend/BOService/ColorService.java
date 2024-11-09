@@ -531,10 +531,8 @@ public class ColorService {
     /**
      * Retrieves a random question of the specified difficulty level.
      * 
-     * @param difficulty the difficulty level of the question (e.g., Beginner,
-     *                   Intermediate, Advanced).
-     * @return a random ColorModel question that matches the specified difficulty
-     *         level,
+     * @param difficulty the difficulty level of the question (e.g., BEGINNER, INTERMEDIATE, ADVANCED).
+     * @return a random ColorModel question that matches the specified difficulty level,
      *         or null if no questions of that difficulty are found.
      */
     public ColorModel getRandomQuestionByDifficulty(DifficultyLevel difficulty) {
