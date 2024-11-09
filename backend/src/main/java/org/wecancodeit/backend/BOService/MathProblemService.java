@@ -42,9 +42,13 @@ public class MathProblemService {
                 return (problem.getNumerator() * problem.getDenominator());
             }
             case Division: {
-                // If the operation is Division, return the result of numerator divided by
-                // denominator
-                return (problem.getNumerator() / problem.getDenominator());
+                // Check if the denominator is not zero to avoid division by zero error
+                if (problem.getDenominator() != 0) {
+                    // Round the result of the division to two decimal places
+                    return Math.round((problem.getNumerator() / problem.getDenominator()) * 100.0f) / 100.0f;
+                } else {
+                    return 0f; // Return 0 if the denominator is zero
+                }
             }
             default: {
                 // If the operation is not recognized, return 0 as a default value
