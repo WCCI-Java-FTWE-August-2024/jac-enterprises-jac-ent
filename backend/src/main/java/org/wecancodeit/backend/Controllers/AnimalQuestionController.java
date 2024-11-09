@@ -8,7 +8,7 @@ import org.wecancodeit.backend.Enums.DifficultyLevel;
 
 import jakarta.annotation.Resource;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
