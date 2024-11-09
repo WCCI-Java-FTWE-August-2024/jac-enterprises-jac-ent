@@ -20,9 +20,10 @@ public class MathProblemController {
      *                   INTERMEDIATE, ADVANCED)
      * @return The generated MathProblemDTO as JSON
      */
-    @GetMapping("/")
-    public MathProblemDTO generateMathProblem(@RequestParam DifficultyLevel difficulty) {
+    @GetMapping("/{difficulty}")
+    public MathProblemDTO generateMathProblem(@PathVariable String difficulty) {
+DifficultyLevel difficultyLevel = DifficultyLevel.valueOf(difficulty);
         // Call the service to generate a math problem
-        return mathProblemService.generateMathProblem(difficulty);
+        return mathProblemService.generateMathProblem(difficultyLevel);
     }
 }

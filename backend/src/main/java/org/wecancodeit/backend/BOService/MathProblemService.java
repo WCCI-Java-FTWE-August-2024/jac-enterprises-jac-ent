@@ -19,8 +19,38 @@ public class MathProblemService {
         mathProblemDTO.setNumerator(getRandomNumber(difficulty, mathProblemDTO.getOperation())); // Set a random
                                                                                                  // numerator
         mathProblemDTO.setDenominator(getRandomNumber(difficulty, mathProblemDTO.getOperation())); // Set a random
-                                                                                                   // denominator
+        mathProblemDTO.setAnswer(getAnswer(mathProblemDTO)); // denominator
         return mathProblemDTO; // Return the generated math problem
+    }
+
+    // Method to calculate the answer for a math problem based on its operation type
+    private float getAnswer(MathProblemDTO problem) {
+        // Switch statement to handle different mathematical operations
+        switch (problem.getOperation()) {
+            case Addition: {
+                // If the operation is Addition, return the sum of the numerator and denominator
+                return (problem.getNumerator() + problem.getDenominator());
+            }
+            case Subtraction: {
+                // If the operation is Subtraction, return the difference between numerator and
+                // denominator
+                return (problem.getNumerator() - problem.getDenominator());
+            }
+            case Multiplication: {
+                // If the operation is Multiplication, return the product of numerator and
+                // denominator
+                return (problem.getNumerator() * problem.getDenominator());
+            }
+            case Division: {
+                // If the operation is Division, return the result of numerator divided by
+                // denominator
+                return (problem.getNumerator() / problem.getDenominator());
+            }
+            default: {
+                // If the operation is not recognized, return 0 as a default value
+                return 0f;
+            }
+        }
     }
 
     // Private method to get a random mathematical operation based on difficulty
@@ -29,14 +59,14 @@ public class MathProblemService {
         Operation result = Operation.Addition; // Default operation
         switch (difficulty) {
             case Beginner: { // For beginner level, allow only addition
-                int i = random.nextInt(0, 1); // Randomly choose an operation index (0 for addition 1 for subtraction)
+                int i = random.nextInt(2); // Randomly choose an operation index (0 for addition 1 for subtraction)
                 result = Operation.values()[i]; // Set the operation
                 break;
             }
             case Advanced:
             case Intermediate: { // For intermediate and advanced levels, allow multiple operations
-                int i = random.nextInt(0, 3); // Randomly choose an operation index (0-3 for addition,
-                                              // subtraction,multiplication and division)
+                int i = random.nextInt(4); // Randomly choose an operation index (0-3 for addition,
+                                           // subtraction,multiplication and division)
 
                 result = Operation.values()[i]; // Set the operation
                 break;
