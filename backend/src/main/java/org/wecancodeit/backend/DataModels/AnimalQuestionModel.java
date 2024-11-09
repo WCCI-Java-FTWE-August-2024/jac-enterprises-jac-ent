@@ -8,7 +8,7 @@ public class AnimalQuestionModel {
     private Long id; // have an ID for the question
     private String questionText; // this will be the question
     private List<String> answerChoices; // this is the answer to the question
-    private String answer; // String containing the answer
+    private int answer; // int containing the answer index in the arraylist
     private String imageUrl; // url for the image source
     private DifficultyLevel difficulty; // this is using the enum to set difficulty
     
@@ -17,7 +17,7 @@ public class AnimalQuestionModel {
     /*
      * Constructor for my animal questions
      */
-    public AnimalQuestionModel(Long id, String questionText, List<String> answerChoices, String answer, String imageUrl,
+    public AnimalQuestionModel(Long id, String questionText, List<String> answerChoices, int answer, String imageUrl,
     DifficultyLevel difficulty) {
         this.id = id;
         this.questionText = questionText;
@@ -68,13 +68,13 @@ public class AnimalQuestionModel {
 
 
 
-    public String getAnswer() {
+    public int getAnswer() {
         return answer;
     }
 
 
 
-    public void setAnswer(String answer) {
+    public void setAnswer(int answer) {
         this.answer = answer;
     }
 

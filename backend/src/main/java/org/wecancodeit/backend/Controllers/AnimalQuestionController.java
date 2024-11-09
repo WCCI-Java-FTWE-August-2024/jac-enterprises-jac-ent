@@ -37,7 +37,7 @@ public class AnimalQuestionController {
       /*
        * The path was established with the RequestMapping
        */
-      @GetMapping("/all")
+      @GetMapping
       public List<AnimalQuestionModel> getAllQuestions() {
           return animalQuestionService.getAllAnimalQuestions();
       }
