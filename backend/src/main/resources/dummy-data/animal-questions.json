@@ -3,48 +3,48 @@
         "id": 1,
         "questionText": "What is the largest mammal?",
         "answerChoices": ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
-        "answer": "Blue Whale",
+        "answer": 1,
         "imageUrl": "https://www.oceanactionhub.org/storage/2024/08/A-blue-whales-heart-dwarfs-a-small-car-in-size-1024x702.jpg",
-        "difficulty": "easy"
+        "difficulty": 0
     },
     {
         "id": 2,
         "questionText": "Which animal is known for having a pouch?",
         "answerChoices": ["Penguin", "Kangaroo", "Elephant", "Panda"],
-        "answer": "Kangaroo",
+        "answer": 1,
         "imageUrl": "https://cdn.mos.cms.futurecdn.net/ETb2xLjvc62eb7PPLspSsU.jpg",
-        "difficulty": "easy"
+        "difficulty": 0
     },
     {
         "id": 3,
         "questionText": "How many legs does a spider have?",
         "answerChoices": ["6", "8", "10", "12"],
-        "answer": "8",
+        "answer": 1,
         "imageUrl": "https://i.natgeofe.com/n/76aea853-00cf-41f4-a618-3a1b0ff2afb4/spiders_07_3x4.jpg",
-        "difficulty": "intermediate"
+        "difficulty": 1
     },
     {
         "id": 4,
         "questionText": "What is a group of lions called?",
         "answerChoices": ["Herd", "Pack", "Flock", "Pride"],
-        "answer": "Pride",
+        "answer": 3,
         "imageUrl": "https://cdn.mos.cms.futurecdn.net/FVqUjfbiHS9imyJiRiM53-1200-80.jpg",
-        "difficulty": "intermediate"
+        "difficulty": 1
     },
     {
         "id": 5,
         "questionText": "What is the fastest land animal?",
         "answerChoices": ["Cheetah", "Horse", "Lion", "Elephant"],
-        "answer": "Cheetah",
+        "answer": 0,
         "imageUrl": "https://seethewild.org/wp-content/uploads/2022/09/Cheetah_Kruger-1024x671-1.jpg",
-        "difficulty": "advanced"
+        "difficulty": 2
     },
     {
         "id": 6,
         "questionText": "Which bird is known for its ability to mimic sounds?",
         "answerChoices": ["Parrot", "Sparrow", "Eagle", "Owl"],
-        "answer": "Parrot",
+        "answer": 0,
         "imageUrl": "https://t4.ftcdn.net/jpg/07/18/12/87/360_F_718128776_nJReWqPkf5qF4Y5na8ZqGWAbdCJTpczZ.jpg",
-        "difficulty": "advanced"
+        "difficulty": 2
     }
 ]
