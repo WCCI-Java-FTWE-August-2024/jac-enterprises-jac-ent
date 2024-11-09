@@ -32,7 +32,7 @@ public class ColorModel {
     private String questionText;
 
     /** Correct answer for the question. */
-    private String answer;
+    private int answer;
 
     /** URL pointing to an image related to the question, if applicable. */
     private String imageUrl;
@@ -49,12 +49,11 @@ public class ColorModel {
      * @param id            the unique identifier of the question
      * @param questionText  the text of the question
      * @param answerChoices a list of possible answers for the question
-     * @param answer        the correct answer
+     * @param answer        the correct answer option for the arraylist
      * @param imageUrl      the URL of an image related to the question
      * @param difficulty    the difficulty level of the question
      */
-    public ColorModel(Long id, String questionText, List<String> answerChoices, String answer, String imageUrl,
-            DifficultyLevel difficulty) {
+    public ColorModel(Long id, String questionText, List<String> answerChoices, int answer, String imageUrl, DifficultyLevel difficulty) {
         this.id = id;
         this.questionText = questionText;
         this.answerChoices = answerChoices;
@@ -131,7 +130,7 @@ public class ColorModel {
      * 
      * @return the correct answer
      */
-    public String getAnswer() {
+    public int getAnswer() {
         return answer;
     }
 
@@ -140,7 +139,7 @@ public class ColorModel {
      * 
      * @param answer the correct answer
      */
-    public void setAnswer(String answer) {
+    public void setAnswer(int answer) {
         this.answer = answer;
     }
 
