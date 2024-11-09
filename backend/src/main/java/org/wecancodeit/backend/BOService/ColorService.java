@@ -22,7 +22,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 1L, // id
                 "What color is the sky on a clear day?", // question text
-                Arrays.asList("Blue", "Green", "Red", "Yellow"), // list of answer choices
+                Arrays.asList("Green", "Blue", "Red", "Yellow"), // list of answer choices
                 "Blue", // answer
                 "https://images.pexels.com/photos/53594/blue-clouds-day-fluffy-53594.jpeg", // image url
                 DifficultyLevel.Beginner)); // difficulty level enum | in this case 0
@@ -30,7 +30,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 2L,
                 "What color do you get when you mix red and white?",
-                Arrays.asList("Pink", "Purple", "Orange", "Brown"),
+                Arrays.asList("Orange", "Purple", "Pink", "Brown"),
                 "Pink",
                 "https://cdn11.bigcommerce.com/s-3uewkq06zr/images/stencil/400x400/products/167/545/fluorescent_pink__88286.1492541116.png?c=2",
                 DifficultyLevel.Beginner));
@@ -38,7 +38,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 3L,
                 "What color are most leaves?",
-                Arrays.asList("Green", "Blue", "Yellow", "Red"),
+                Arrays.asList("Red", "Blue", "Yellow", "Green"),
                 "Green",
                 "https://media.istockphoto.com/id/668288668/photo/green-leaves-background.jpg?s=612x612&w=0&k=20&c=0u4c95Hijsi6ErfMyyRRY7w1jDyeVK_US0TYvnef73Q=",
                 DifficultyLevel.Beginner));
@@ -54,7 +54,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 5L,
                 "What color do you get when you mix blue and yellow?",
-                Arrays.asList("Green", "Orange", "Purple", "Brown"),
+                Arrays.asList("Yellow", "Green", "Purple", "Brown"),
                 "Green",
                 "https://img.freepik.com/premium-vector/abstract-background-small-triangles-yellow-green-blue-colors_444390-7373.jpg",
                 DifficultyLevel.Beginner));
@@ -62,7 +62,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 6L,
                 "What color is the sun often drawn as?",
-                Arrays.asList("Yellow", "Green", "Red", "Purple"),
+                Arrays.asList("Red", "Green", "Yellow", "Purple"),
                 "Yellow",
                 "https://images.ctfassets.net/hrltx12pl8hq/3PHSQUIo1jOzeug2XNNSjk/cb4f9c298aaf7dfc4a68e03d1e11f5fd/sun-images.jpg?fit=fill&w=600&h=400",
                 DifficultyLevel.Beginner));
@@ -70,7 +70,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 7L,
                 "What color are most strawberries?",
-                Arrays.asList("Red", "Blue", "Yellow", "Green"),
+                Arrays.asList("Green", "Blue", "Yellow", "Red"),
                 "Red",
                 "https://media.istockphoto.com/id/477834644/photo/fresh-strawberries-background.jpg?s=612x612&w=0&k=20&c=JwLE9J3zbe9A3zdPmt2oF62moYytxeKTMBY-QCruMas=",
                 DifficultyLevel.Beginner));
@@ -86,7 +86,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 9L,
                 "What color is a pumpkin usually?",
-                Arrays.asList("Orange", "Red", "Green", "Purple"),
+                Arrays.asList("Red", "Orange", "Green", "Purple"),
                 "Orange",
                 "https://hraf.yale.edu/wp-content/uploads/2014/10/pumpkin-4454745_1280.jpg",
                 DifficultyLevel.Beginner));
@@ -94,7 +94,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 10L,
                 "What color is grass?",
-                Arrays.asList("Green", "Yellow", "Blue", "Pink"),
+                Arrays.asList("Blue", "Yellow", "Green", "Pink"),
                 "Green",
                 "https://cdn.britannica.com/22/215522-050-8315BB78/green-grass-close-up.jpg",
                 DifficultyLevel.Beginner));
@@ -102,7 +102,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 11L,
                 "What color do you get when you mix red and yellow?",
-                Arrays.asList("Orange", "Green", "Purple", "Gray"),
+                Arrays.asList("Gray", "Green", "Purple", "Orange"),
                 "Orange",
                 "https://img.freepik.com/premium-photo/red-yellow-gradient-background-with-copy-space-text-image_7954-38041.jpg?semt=ais_hybrid",
                 DifficultyLevel.Beginner));
@@ -118,7 +118,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 13L,
                 "What color are most apples?",
-                Arrays.asList("Red", "Green", "Yellow", "Blue"),
+                Arrays.asList("Green", "Red", "Yellow", "Blue"),
                 "Red",
                 "https://cdn.britannica.com/22/187222-050-07B17FB6/apples-on-a-tree-branch.jpg",
                 DifficultyLevel.Beginner));
@@ -126,7 +126,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 14L,
                 "What color do you get when you mix white and black?",
-                Arrays.asList("Gray", "Pink", "Purple", "Blue"),
+                Arrays.asList("Orange", "Pink", "Gray", "Blue"),
                 "Gray",
                 "https://www.publicdomainpictures.net/pictures/410000/nahled/black-and-white-gradient-background.jpg",
                 DifficultyLevel.Beginner));
@@ -134,7 +134,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 15L,
                 "What color is chocolate typically?",
-                Arrays.asList("Brown", "Red", "Yellow", "Orange"),
+                Arrays.asList("Orange", "Red", "Yellow", "Brown"),
                 "Brown",
                 "https://elavegan.com/wp-content/uploads/2023/01/homemade-chocolate-bars.jpg",
                 DifficultyLevel.Beginner));
@@ -150,7 +150,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 17L,
                 "What color do you get when you mix blue and white?",
-                Arrays.asList("Light Blue", "Purple", "Green", "Gray"),
+                Arrays.asList("Light Green", "Light Blue", "Light Red", "Light Gray"),
                 "Light Blue",
                 "https://www.color-meanings.com/wp-content/uploads/2022/01/blue-white-abstract-pattern.png",
                 DifficultyLevel.Beginner));
@@ -158,7 +158,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 18L,
                 "What color are bananas?",
-                Arrays.asList("Yellow", "Green", "Red", "Purple"),
+                Arrays.asList("Red", "Green", "Yellow", "Purple"),
                 "Yellow",
                 "https://www.foodandwine.com/thmb/4fzQW9u60XlhTk52CIuM1BlLhcc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/amazonfreebananas-em-86304874-2000-5a276309cf1944349fb55818c98c7b1b.jpg",
                 DifficultyLevel.Beginner));
@@ -166,7 +166,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 19L,
                 "What color is a carrot usually?",
-                Arrays.asList("Orange", "Red", "Green", "Yellow"),
+                Arrays.asList("Yellow", "Red", "Green", "Orange"),
                 "Orange",
                 "https://ucarecdn.com/459eb7be-115a-4d85-b1d8-deaabc94c643/-/format/auto/-/preview/3000x3000/-/quality/lighter/",
                 DifficultyLevel.Beginner));
@@ -194,7 +194,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 22L,
                 "What color are emeralds usually?",
-                Arrays.asList("Green", "Blue", "Red", "Yellow"),
+                Arrays.asList("Blue", "Green", "Red", "Yellow"),
                 "Green",
                 "https://pyxis.nymag.com/v1/imgs/e68/cd4/567ced6d821d04a34592a42847eafaf188-20-keeper-gems.2x.rsquare.w536.jpg", 
                 DifficultyLevel.Intermediate));
@@ -202,7 +202,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 23L,
                 "What color do you get when you mix blue and green?",
-                Arrays.asList("Teal", "Purple", "Gray", "Brown"),
+                Arrays.asList("Gray", "Purple", "Teal", "Brown"),
                 "Teal",
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWkVJyCiuGn3HljLrTlgtZOZKQT8qRDceRdg&s", 
                 DifficultyLevel.Intermediate));
@@ -210,7 +210,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 24L,
                 "What color is a ruby?",
-                Arrays.asList("Red", "Blue", "Green", "Yellow"),
+                Arrays.asList("Yellow", "Blue", "Green", "Red"),
                 "Red",
                 "https://pyxis.nymag.com/v1/imgs/e68/cd4/567ced6d821d04a34592a42847eafaf188-20-keeper-gems.2x.rsquare.w536.jpg", 
                 DifficultyLevel.Intermediate));
@@ -226,7 +226,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 26L,
                 "What color do you get when you mix yellow and green?",
-                Arrays.asList("Lime", "Blue", "Orange", "Brown"),
+                Arrays.asList("Light Green", "Lime", "Orange", "Brown"),
                 "Lime",
                 "https://img.freepik.com/free-photo/yellow-green-wall-background_23-2148992854.jpg", 
                 DifficultyLevel.Intermediate));
@@ -234,7 +234,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 27L,
                 "What is the complementary color of purple?",
-                Arrays.asList("Yellow", "Green", "Orange", "Red"),
+                Arrays.asList("Orange", "Green", "Yellow", "Red"),
                 "Yellow",
                 "https://static.wikia.nocookie.net/colors/images/9/9d/Violet_-7F00FF.png/revision/latest?cb=20240706212435", 
                 DifficultyLevel.Intermediate));
@@ -242,7 +242,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 28L,
                 "What color do you get when you mix red and green?",
-                Arrays.asList("Brown", "Orange", "Purple", "Gray"),
+                Arrays.asList("Gray", "Orange", "Purple", "Brown"),
                 "Brown",
                 "https://cdn.prod.website-files.com/5a9ee6416e90d20001b20038/6401dca2db92dbf5a5718b5f_Bandera_Provincia_Boli%CC%81var.svg", 
                 DifficultyLevel.Intermediate));
@@ -258,7 +258,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 30L,
                 "What color is often associated with the ocean?",
-                Arrays.asList("Blue", "Red", "Green", "Yellow"),
+                Arrays.asList("Red", "Blue", "Green", "Yellow"),
                 "Blue",
                 "https://thumbs.dreamstime.com/b/ocean-wave-14582420.jpg", 
                 DifficultyLevel.Intermediate));
@@ -266,7 +266,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 31L,
                 "What color do you get when you mix red and yellow?",
-                Arrays.asList("Orange", "Green", "Purple", "Gray"),
+                Arrays.asList("Light Red", "Green", "Orange", "Gray"),
                 "Orange",
                 "https://karenhaller.com/wp-content/uploads/2011/03/Branding-red-and-yellow-colours-1.jpg", 
                 DifficultyLevel.Intermediate));
@@ -274,7 +274,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 32L,
                 "What two colors do you mix to make green?",
-                Arrays.asList("Blue and Yellow", "Red and Blue", "Yellow and Red", "Green and Yellow"),
+                Arrays.asList("Green and Yellow", "Red and Blue", "Yellow and Red", "Blue and Yellow"),
                 "Blue and Yellow",
                 "https://img.freepik.com/premium-photo/green-background-with-words-name-it_947073-39170.jpg?semt=ais_hybrid", 
                 DifficultyLevel.Intermediate));
@@ -290,7 +290,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 34L,
                 "What is the complementary color of blue?",
-                Arrays.asList("Orange", "Purple", "Green", "Yellow"),
+                Arrays.asList("Purple", "Orange", "Green", "Yellow"),
                 "Orange",
                 "https://static.wikia.nocookie.net/aesthetics/images/a/a3/Pure_blue.png/revision/latest?cb=20210323184329", 
                 DifficultyLevel.Intermediate));
@@ -298,7 +298,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 35L,
                 "What color do you get by mixing all primary colors?",
-                Arrays.asList("Brown", "Purple", "Green", "Black"),
+                Arrays.asList("White", "Purple", "Brown", "Black"),
                 "Brown",
                 "https://i.pinimg.com/736x/c3/05/5b/c3055b37787ced7ea4347470756c5ebe.jpg", 
                 DifficultyLevel.Intermediate));
@@ -306,7 +306,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 36L,
                 "What color is often used to symbolize calmness?",
-                Arrays.asList("Blue", "Red", "Orange", "Yellow"),
+                Arrays.asList("Yellow", "Red", "Orange", "Blue"),
                 "Blue",
                 "https://media.istockphoto.com/id/1432690812/photo/old-wooden-dock-at-the-lake-sunset-shot.jpg?s=612x612&w=0&k=20&c=A9cpzCCO_nN2B0pCpcOGBBzr9WXooLCEOzNB4IE-KNM=", 
                 DifficultyLevel.Intermediate));
@@ -322,7 +322,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 38L,
                 "What colors do you mix to get gray?",
-                Arrays.asList("Black and White", "Red and Green", "Blue and Orange", "Yellow and Green"),
+                Arrays.asList("Blue and Orange", "Red and Green", "Black and White", "Yellow and Green"),
                 "Black and White",
                 "https://johnboyledecorating.com/cdn/shop/products/2121-10-gray_688ab4aa-91b0-46df-8938-ee01544dfd1d_600x.png?v=1618087120", 
                 DifficultyLevel.Intermediate));
@@ -330,7 +330,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 39L,
                 "What color do you get by mixing purple and blue?",
-                Arrays.asList("Indigo", "Green", "Pink", "Gray"),
+                Arrays.asList("Red", "Indigo", "Pink", "Gray"),
                 "Indigo",
                 "https://img.freepik.com/premium-vector/colorful-vector-gradient-abstract-background-design-projects_901408-13188.jpg?semt=ais_hybrid", 
                 DifficultyLevel.Intermediate));
@@ -338,7 +338,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 40L,
                 "What color is associated with danger?",
-                Arrays.asList("Red", "Blue", "Yellow", "Green"),
+                Arrays.asList("Yellow", "White", "Red", "Orange"),
                 "Red",
                 "https://www.shutterstock.com/image-vector/danger-warning-icon-set-alert-260nw-2350286333.jpg", 
                 DifficultyLevel.Intermediate));
@@ -357,7 +357,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 42L,
                 "What is the complementary color of green?",
-                Arrays.asList("Red", "Blue", "Yellow", "Purple"),
+                Arrays.asList("Blue", "Red", "Yellow", "Purple"),
                 "Red",
                 "https://static.vecteezy.com/system/resources/thumbnails/011/168/575/small_2x/color-wheel-illustration-vector.jpg", 
                 DifficultyLevel.Advanced));
@@ -365,7 +365,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 43L,
                 "What color combination creates teal?",
-                Arrays.asList("Blue and Green", "Red and Blue", "Yellow and Green", "Purple and Blue"),
+                Arrays.asList("Yellow and Green", "Red and Blue", "Blue and Green", "Purple and Blue"),
                 "Blue and Green",
                 "https://static.wikia.nocookie.net/colors/images/5/52/Main-qimg-32d8b954f3e15a526660e4afc4c157f2.png/revision/latest?cb=20231102223801", 
                 DifficultyLevel.Advanced));
@@ -373,7 +373,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 44L,
                 "What color do you get by mixing blue and orange pigments?",
-                Arrays.asList("Brown", "Green", "Gray", "Purple"),
+                Arrays.asList("Purple", "Green", "Gray", "Brown"),
                 "Brown",
                 "https://www.creativefabrica.com/wp-content/uploads/2023/01/27/Royal-Blue-And-Orange-Background-With-Paint-59129576-1-1.png", 
                 DifficultyLevel.Advanced));
@@ -381,7 +381,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 45L,
                 "What two colors make purple?",
-                Arrays.asList("Red and Blue", "Yellow and Blue", "Red and Green", "Yellow and Red"),
+                Arrays.asList("Red and Blue", "Red and Blue", "Yellow and Green", "Yellow and Red"),
                 "Red and Blue",
                 "https://media.istockphoto.com/id/1398944176/vector/abstract-blurred-magenta-purple-yellow-orange-magenta-purple-background-soft-gradient.jpg?s=612x612&w=0&k=20&c=MtnCKLfpzstjorkWAMyPdCE29mwuLTTuKEEqJRACk_0=", 
                 DifficultyLevel.Advanced));
@@ -389,7 +389,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 46L,
                 "What is the hexadecimal code for the color white?",
-                Arrays.asList("#FFFFFF", "#000000", "#FF0000", "#FFFF00"),
+                Arrays.asList("#FF0000", "#000000", "#FFFFFF", "#FFFF00"),
                 "#FFFFFF",
                 "https://images.unsplash.com/photo-1638132035918-90a22beaab3b?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8d2hpdGV8ZW58MHx8MHx8fDA%3D", 
                 DifficultyLevel.Advanced));
@@ -397,8 +397,8 @@ public class ColorService {
         questions.add(new ColorModel(
                 47L,
                 "What primary colors of light combine to make white light?",
-                Arrays.asList("Red, Green, and Blue", "Red, Yellow, and Blue", "Green, Yellow, and Blue",
-                        "Red, Green, and Yellow"),
+                Arrays.asList("Red, Green, and Yellow", "Red, Yellow, and Blue", "Green, Yellow, and Blue",
+                        "Red, Green, and Blue"),
                 "Red, Green, and Blue",
                 "https://www.segmation.com/wp-content/uploads/colorwheel.jpg", 
                 DifficultyLevel.Advanced));
@@ -406,7 +406,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 48L,
                 "What color is created by mixing complementary colors on the color wheel?",
-                Arrays.asList("Gray", "Brown", "Black", "White"),
+                Arrays.asList("Brown", "Gray", "Black", "White"),
                 "Gray",
                 "https://i.pinimg.com/564x/c0/37/7c/c0377c3c9d1fbd17bd1c87482e8209bf.jpg", 
                 DifficultyLevel.Advanced));
@@ -414,7 +414,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 49L,
                 "What does the term 'saturation' describe in a color?",
-                Arrays.asList("Intensity", "Brightness", "Hue", "Temperature"),
+                Arrays.asList("Hue", "Brightness", "Intensity", "Temperature"),
                 "Intensity",
                 "https://www.clipstudio.net/wp-content/uploads/2020/06/0087_001.png", 
                 DifficultyLevel.Advanced));
@@ -422,7 +422,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 50L,
                 "In color theory, what color lies directly opposite of blue on the color wheel?",
-                Arrays.asList("Orange", "Green", "Yellow", "Red"),
+                Arrays.asList("Red", "Green", "Yellow", "Orange"),
                 "Orange",
                 "https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2011/7/18/0/HGTV_Color-Wheel-Monochromatic_s4x3.jpg.rend.hgtvcom.476.357.85.suffix/1400966919241.webp", 
                 DifficultyLevel.Advanced));
@@ -430,7 +430,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 51L,
                 "What colors are considered analogous to green on the color wheel?",
-                Arrays.asList("Yellow and Blue", "Red and Yellow", "Blue and Red", "Orange and Purple"),
+                Arrays.asList("Yellow and Green", "Yellow and Blue", "Blue and Red", "Orange and Purple"),
                 "Yellow and Blue",
                 "https://upload.wikimedia.org/wikipedia/commons/b/bb/Linear_RGB_color_wheel.png", 
                 DifficultyLevel.Advanced));
@@ -438,7 +438,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 52L,
                 "What term is used to describe the lightness or darkness of a color?",
-                Arrays.asList("Value", "Hue", "Saturation", "Temperature"),
+                Arrays.asList("Temperature", "Hue", "Saturation", "Value"),
                 "Value",
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUKL8pk2-kr8tm8-TMy3sDQ5t4ttWJHMGPNg&s", 
                 DifficultyLevel.Advanced));
@@ -446,7 +446,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 53L,
                 "What is the complementary color of yellow?",
-                Arrays.asList("Purple", "Red", "Green", "Blue"),
+                Arrays.asList("Red", "Purple", "Green", "Blue"),
                 "Purple",
                 "https://cdn.britannica.com/70/191970-131-A85628DA/Color-wheel-light-color-spectrum.jpg", 
                 DifficultyLevel.Advanced));
@@ -454,7 +454,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 54L,
                 "Which color model is primarily used in digital screens?",
-                Arrays.asList("RGB", "CMYK", "RYB", "HSL"),
+                Arrays.asList("RYB", "CMYK", "RGB", "HSL"),
                 "RGB",
                 "https://i.ytimg.com/vi/ikpTVwlXp7E/maxresdefault.jpg", 
                 DifficultyLevel.Advanced));
@@ -471,7 +471,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 56L,
                 "What two colors combine to make cyan in the CMY color model?",
-                Arrays.asList("Green and Blue", "Red and Blue", "Yellow and Green", "Red and Green"),
+                Arrays.asList("Yellow and Green", "Red and Blue", "Green and Blue", "Red and Green"),
                 "Green and Blue",
                 "https://learn.microsoft.com/en-us/windows/win32/wcs/images/cmyclrs1.png", 
                 DifficultyLevel.Advanced));
@@ -479,7 +479,7 @@ public class ColorService {
         questions.add(new ColorModel(
                 57L,
                 "Which color is created by mixing yellow and purple?",
-                Arrays.asList("Brown", "Gray", "Blue", "Orange"),
+                Arrays.asList("Grey", "Brown", "Violet", "Orange"),
                 "Brown",
                 "https://media.istockphoto.com/id/1340439185/vector/abstract-geometric-background-mosaic-with-triangle-patterns-purple-gradient.jpg?s=612x612&w=0&k=20&c=VrsH6WHo76uc71l2cDmfE6ihrdM7kzID1FPfDwtK5NU=", 
                 DifficultyLevel.Advanced));
@@ -487,8 +487,8 @@ public class ColorService {
         questions.add(new ColorModel(
                 58L,
                 "In art, what colors are often considered 'cool' colors?",
-                Arrays.asList("Blue, Green, and Purple", "Red, Yellow, and Orange", "Green, Yellow, and Red",
-                        "Blue, Orange, and Green"),
+                Arrays.asList("Blue, Orange, and Green", "Red, Yellow, and Orange", "Green, Yellow, and Red",
+                        "Blue, Green, and Purple"),
                 "Blue, Green, and Purple",
                 "https://www.creativeventuresfineart.com/wp-content/uploads/2019/11/36830524_S-300x300.jpg", 
                 DifficultyLevel.Advanced));
@@ -496,8 +496,8 @@ public class ColorService {
         questions.add(new ColorModel(
                 59L,
                 "What does CMYK stand for in printing?",
-                Arrays.asList("Cyan, Magenta, Yellow, Black", "Cyan, Magenta, Yellow, Green",
-                        "Crimson, Magenta, Yellow, Black", "Cyan, Maroon, Yellow, Black"),
+                Arrays.asList("Crimson, Magenta, Yellow, Black", "Cyan, Magenta, Yellow, Green",
+                        "Cyan, Magenta, Yellow, Black", "Cyan, Maroon, Yellow, Black"),
                 "Cyan, Magenta, Yellow, Black",
                 "https://images.squarespace-cdn.com/content/v1/5fe1c9a0013d1b71f8bbe7b0/58c72e6e-9604-487b-ab2d-28400f053d7f/CMYK+Colour+Wheel+Serena+Archetti+Blog", 
                 DifficultyLevel.Advanced));
@@ -505,9 +505,9 @@ public class ColorService {
         questions.add(new ColorModel(
                 60L,
                 "What is the difference between a tint and a shade of a color?",
-                Arrays.asList("Tint is a color mixed with white, shade with black",
+                Arrays.asList("Tint is a color mixed with gray, shade with black",
                         "Tint is a color mixed with black, shade with white",
-                        "Tint is a color mixed with gray, shade with black",
+                        "Tint is a color mixed with white, shade with black",
                         "Tint is a color mixed with green, shade with yellow"),
                 "Tint is a color mixed with white, shade with black",
                 "https://i.pinimg.com/originals/66/60/2e/66602e267be198544af42d3e6e13ae4a.jpg", 

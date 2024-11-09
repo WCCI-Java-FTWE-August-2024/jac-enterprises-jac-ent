@@ -10,7 +10,6 @@ import org.wecancodeit.backend.DataModels.ColorModel;
 import org.wecancodeit.backend.Enums.DifficultyLevel;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * REST controller for handling color-related requests.
