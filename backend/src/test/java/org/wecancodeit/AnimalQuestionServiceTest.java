@@ -52,7 +52,7 @@ public class AnimalQuestionServiceTest {
     void testGetRandomAnimalQuestion_ReturnsQuestionForAdvancedLevel() {
         AnimalQuestionModel question = animalQuestionService.getRandomAnimalQuestion(DifficultyLevel.Advanced);
         assertNotNull(question, "A question should be returned for Advanced level");
-        // assertEquals(DifficultyLevel.Advanced, question.getDifficulty(), "The difficulty of the question should be Advanced");
+        assertEquals(DifficultyLevel.Advanced, question.getDifficulty(), "The difficulty of the question should be Advanced");
     }
 
    
