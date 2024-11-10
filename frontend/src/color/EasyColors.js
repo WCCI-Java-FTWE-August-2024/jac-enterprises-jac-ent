@@ -9,6 +9,10 @@ function EasyColors() {
 
     // Fetch beginner-level question data when the component loads
     useEffect(() => {
+        fetchNewQuestion();
+    }, []);
+
+    const fetchNewQuestion = () => {
         // Use fetch and .then() to retrieve the data
         fetch("http://localhost:8080/api/v1/color/Beginner").then((response) => {
             if(!response.ok) {
@@ -20,7 +24,8 @@ function EasyColors() {
         }).catch((error) => {
             setError(error.message); // Set error message if something goes wrong
         });
-    }, []);
+    };
+
     return (
         <div>
                 <div className="page-top">

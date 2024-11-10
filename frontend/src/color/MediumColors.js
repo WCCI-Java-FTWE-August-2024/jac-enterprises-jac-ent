@@ -9,8 +9,12 @@ function MediumColors() {
 
     // Fetch beginner-level question data when the component loads
     useEffect(() => {
+        fetchNewQuestion();
+    }, []);
+
+    const fetchNewQuestion = () => {
         // Use fetch and .then() to retrieve the data
-        fetch("http://localhost:8080/api/v1/color/Intermediate").then((response) => {
+        fetch("http://localhost:8080/api/v1/color/Advanced").then((response) => {
             if(!response.ok) {
                 throw new Error(`Failed to fetch question`);
             }
@@ -20,7 +24,8 @@ function MediumColors() {
         }).catch((error) => {
             setError(error.message); // Set error message if something goes wrong
         });
-    }, []);
+    };
+
     return (
         <div>
                 <div className="page-top">
