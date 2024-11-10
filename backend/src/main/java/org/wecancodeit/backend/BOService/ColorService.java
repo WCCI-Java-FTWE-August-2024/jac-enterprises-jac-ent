@@ -237,7 +237,7 @@ public class ColorService {
                                 "What is the complementary color of purple?",
                                 Arrays.asList("Orange", "Green", "Yellow", "Red"),
                                 2,
-                                "https://static.wikia.nocookie.net/colors/images/9/9d/Violet_-7F00FF.png/revision/latest?cb=20240706212435",
+                                "https://www.color-meanings.com/wp-content/uploads/color-wheel-primary-secondary-tertiary-colors-1024x806.png",
                                 DifficultyLevel.Intermediate));
 
                 questions.add(new ColorModel(
@@ -254,7 +254,7 @@ public class ColorService {
                                 Arrays.asList("Red, Yellow, and Blue", "Red and Green", "Yellow and Green",
                                                 "Blue and Green"),
                                 0,
-                                "https://static.wikia.nocookie.net/colors/images/c/cf/964b00.png/revision/latest?cb=20240324082303",
+                                "https://www.swiftpublisher.com/assets/img/articles/psychology-of-colors/tetriary-colors@2x.png",
                                 DifficultyLevel.Intermediate));
 
                 questions.add(new ColorModel(
@@ -294,7 +294,7 @@ public class ColorService {
                                 "What is the complementary color of blue?",
                                 Arrays.asList("Purple", "Orange", "Green", "Yellow"),
                                 1,
-                                "https://static.wikia.nocookie.net/aesthetics/images/a/a3/Pure_blue.png/revision/latest?cb=20210323184329",
+                                "https://www.color-hex.com/palettes/10268.png",
                                 DifficultyLevel.Intermediate));
 
                 questions.add(new ColorModel(
@@ -354,7 +354,7 @@ public class ColorService {
                                 "What color is produced when you mix all primary colors of paint?", // question text
                                 Arrays.asList("Brown", "Black", "Gray", "White"), // answer choices
                                 0, // answer
-                                "https://i0.wp.com/bluebeachhouseart.com/wp-content/uploads/2019/10/blog-post-colour-wheel.jpg?fit=1024%2C1024&ssl=1", // image
+                                "https://t3.ftcdn.net/jpg/08/40/07/44/360_F_840074480_vNJw4J5caYyRxeAYhKSPK7CX9IqTHHVG.jpg", // image
                                                                                                                                                        // url
                                 DifficultyLevel.Advanced)); // difficulty level enum | in this case 2
 
@@ -371,7 +371,7 @@ public class ColorService {
                                 "What color combination creates teal?",
                                 Arrays.asList("Yellow and Green", "Red and Blue", "Blue and Green", "Purple and Blue"),
                                 2,
-                                "https://static.wikia.nocookie.net/colors/images/5/52/Main-qimg-32d8b954f3e15a526660e4afc4c157f2.png/revision/latest?cb=20231102223801",
+                                "https://cdn.pixabay.com/photo/2015/08/11/22/43/teal-885329_1280.png",
                                 DifficultyLevel.Advanced));
 
                 questions.add(new ColorModel(
