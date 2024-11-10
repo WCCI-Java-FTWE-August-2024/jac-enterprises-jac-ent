@@ -50,7 +50,7 @@ function EasyAnimals() {
             alt="Back button"
           />
         </Link>
-        <h2>Preschool Animals</h2>
+        <h2> Elementary school Animals</h2>
       </div>
 
       {error && <div className="error-message">{error}</div>} {/* Display error message */}
