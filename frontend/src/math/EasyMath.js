@@ -9,37 +9,43 @@ const Easy = () => {
     const [userAnswer, setUserAnswer] = useState("");
     // State to hold feedback on whether the user's answer is correct or not
     const [feedback, setFeedback] = useState("");
-    // State to track whether the answer is correct or not
-    const [, setAnsweredCorrectly] = useState(false);
-    // State to control the visibility of the "Next Question" button
-    const [showNext, setShowNext] = useState(false);
+    // State to store the selected icon for the math problem
+    const [selectedIcon, setSelectedIcon] = useState(null);
+
+    // List of icons that will be used in the math problem
+    const iconList = [
+        "fa-apple-whole", // Apple icon
+        "fa-candy-cane",  // Candy Cane icon
+        "fa-lemon",       // Lemon icon
+        "fa-heart",       // Heart icon
+        "fa-carrot",      // Carrot icon
+    ];
+
+    // Function to get a random icon from the icon list
+    const getRandomIcon = () => {
+        const randomIcon = iconList[Math.floor(Math.random() * iconList.length)];
+        return randomIcon; // Returns a random icon
+    }
 
     // Fetch a beginner-level math problem from the API when the component loads
     useEffect(() => {
-        fetchNewQuestion(); // Initial question fetch
-    }, []);
-
-    // Function to fetch a new question from the API
-    const fetchNewQuestion = () => {
+        // Fetch the math problem data
         fetch(`http://localhost:8080/api/v1/math/Beginner`)
-            .then(response => response.json()) // Parse the JSON response
+            .then(response => response.json()) // Parse the JSON response from the API
             .then(data => {
-                setMathProblem(data); // Set the fetched math problem in state
-                setUserAnswer(""); // Reset user's answer field
-                setFeedback(""); // Reset feedback message
-                setAnsweredCorrectly(false); // Reset correct answer flag
-                setShowNext(false); // Hide Next button when a new question is fetched
+                setMathProblem(data); // Set the math problem in the state
+                setSelectedIcon(getRandomIcon()); // Set a random icon for the problem
             })
             .catch(error => console.error('Error fetching math problem:', error)); // Log any errors
-    };
+    }, []); // Empty dependency array means this effect runs once after the initial render
 
     // Function to check if the user's answer is correct
     const checkAnswer = () => {
-        if (mathProblem) { // Ensure a math problem is loaded before checking the answer
-            const isCorrect = parseFloat(userAnswer) === mathProblem.answer; // Compare user answer to the API-provided answer
-            setAnsweredCorrectly(isCorrect); // Update the correctness flag
-            setFeedback(isCorrect ? "Correct! Good job!" : "Almost there, don't give up!"); // Update feedback message based on correctness
-            setShowNext(isCorrect); // Only show the "Next Question" button if the answer is correct
+        if (mathProblem) { // Ensure that a math problem has been fetched
+            // Compare the user's answer with the correct answer from the API
+            const isCorrect = parseFloat(userAnswer) === mathProblem.answer;
+            // Update feedback message based on whether the answer is correct or not
+            setFeedback(isCorrect ? "Correct! Good job!" : "Almost there, don't give up!");
         }
     };
 
@@ -50,7 +56,7 @@ const Easy = () => {
                 <Link to="/math/Math">
                     <img
                         src="https://cdn.pixabay.com/photo/2012/04/02/16/03/back-24838_1280.png"
-                        alt="Back button"
+                        alt="Back button" // Image for the back button
                     />
                 </Link>
                 <h2>Preschool Math</h2>
@@ -58,26 +64,39 @@ const Easy = () => {
 
             {/* Display the math problem and answer form */}
             <h1>Easy Math Problem</h1>
-            {mathProblem && ( // Render only if mathProblem data is available
+            {mathProblem && ( // Ensure that mathProblem is loaded before rendering
                 <div>
+                    {/* Display the operation type (e.g., addition, subtraction) */}
                     <p>Operation: {mathProblem.operation}</p>
-                    <p>Numerator: {mathProblem.numerator}</p>
-                    <p>Denominator: {mathProblem.denominator}</p>
+                    {/* Render the same random icon for the numerator */}
+                    <p>
+                        Numerator:{mathProblem.numerator}</p> {" "}
+                    {[...Array(mathProblem.numerator)].map((_, i) => (
+                        <span key={i} role="img" aria-label="icon" style={{ fontSize: "24px" }}>
+                            <i className={`fa-solid ${selectedIcon}`}></i> {/* Render icon */}
+                        </span>
+                    ))}
 
-                    {/* Input for the user to enter their answer */}
+                    {/* Render the same random icon for the denominator */}
+                    <p>
+                        <p>Denominator: {mathProblem.denominator}</p>{" "}
+                        {[...Array(mathProblem.denominator)].map((_, i) => (
+                            <span key={i} role="img" aria-label="icon" style={{ fontSize: "24px" }}>
+                                <i className={`fa-solid ${selectedIcon}`}></i> {/* Render icon */}
+                            </span>
+                        ))}
+                    </p>
+                    {/* Input field for the user to type their answer */}
                     <input
                         type="number"
                         value={userAnswer}
-                        onChange={(e) => setUserAnswer(e.target.value)} // Update userAnswer state on input change
-                        placeholder="Enter your answer"
+                        onChange={(e) => setUserAnswer(e.target.value)} // Update the user's input
+                        placeholder="Enter your answer" // Placeholder text for the input field
                     />
-                    <button onClick={checkAnswer}>Submit Answer</button> {/* Button to check answer */}
-                    <p>{feedback}</p> {/* Display feedback message */}
-
-                    {/* Conditionally render the "Next Question" button */}
-                    {showNext && (
-                        <button onClick={fetchNewQuestion}>Next Question</button>
-                    )}
+                    {/* Button to submit the user's answer */}
+                    <button onClick={checkAnswer}>Submit Answer</button>
+                    {/* Display feedback message based on the user's answer */}
+                    <p>{feedback}</p>
                 </div>
             )}
         </div>

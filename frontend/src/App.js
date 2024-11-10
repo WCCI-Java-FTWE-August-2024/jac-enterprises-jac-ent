@@ -12,6 +12,14 @@ import logo from './images/jac-logo-text.png';
 import MediumMath from "./math/MediumMath";
 import HardMath from "./math/HardMath";
 
+import EasyColors from "./color/EasyColors";
+import MediumColors from "./color/MediumColors";
+import HardColors from "./color/HardColors";
+
+import EasyAnimals from "./animal/EasyAnimals";
+import MediumAnimals from "./animal/MediumAnimals";
+import HardAnimals from "./animal/HardAnimals";
+
 function App() {
   return (
     <Router>
@@ -34,9 +42,18 @@ function App() {
             <Route path="/math/Math" element={<Math/>} />
             <Route path="/color/Color" element={<Color/>} />
             <Route path="/animal/Animal" element={<Animal/>} />
+
             <Route path="/math/EasyMath" element={<EasyMath/>}/>
             <Route path="/math/MediumMath" element={<MediumMath/>}/>
             <Route path="/math/HardMath" element={<HardMath/>}/>
+
+            <Route path="/color/EasyColors" element={<EasyColors/>}/>
+            <Route path="/color/MediumColors" element={<MediumColors/>}/>
+            <Route path="/color/HardColors" element={<HardColors/>}/>
+
+            <Route path="/animal/EasyAnimals" element={<EasyAnimals/>}/>
+            <Route path="/animal/MediumAnimals" element={<MediumAnimals/>}/>
+            <Route path="/animal/HardAnimals" element={<HardAnimals/>}/>
           </Routes>
         </div>
         <footer><p>&copy;Jac Enterprises</p></footer>
