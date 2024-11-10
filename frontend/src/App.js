@@ -51,7 +51,7 @@ function App() {
             <Route path="/color/MediumColors" element={<MediumColors/>}/>
             <Route path="/color/HardColors" element={<HardColors/>}/>
 
-            <Route path="/animal/EasyAniamls" element={<EasyAnimals/>}/>
+            <Route path="/animal/EasyAnimals" element={<EasyAnimals/>}/>
             <Route path="/animal/MediumAnimals" element={<MediumAnimals/>}/>
             <Route path="/animal/HardAnimals" element={<HardAnimals/>}/>
           </Routes>
