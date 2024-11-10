@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Quiz</title>
+    <link rel="stylesheet" href="Animal.css">
+</head>
+<body>
+    <div id="quiz-container">
+        <h1>Animal Quiz</h1>
+        <div id="difficulty-selection">
+            <button onclick="setDifficulty('Beginner')">Beginner</button>
+            <button onclick="setDifficulty('Intermediate')">Intermediate</button>
+            <button onclick="setDifficulty('Advanced')">Advanced</button>
+        </div>
+        <div id="question-container">
+            <h2 id="question-text"></h2>
+            <ul id="options-list"></ul>
+            <button id="submit-answer" onclick="submitAnswer()">Submit Answer</button>
+        </div>
+    </div>
+    <script src="AnimalQuiz.js"></script>
+</body>
+</html>
