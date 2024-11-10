@@ -9,20 +9,38 @@ const Advanced = () => {
     const [userAnswer, setUserAnswer] = useState("");
     // State to hold feedback on whether the user's answer is correct or not
     const [feedback, setFeedback] = useState("");
+    // State to track if the answer is correct or not
+    const [answeredCorrectly, setAnsweredCorrectly] = useState(false);
+    // State to control the visibility of the "Next Question" button
+    const [showNext, setShowNext] = useState(false);
 
     // Fetch an advanced-level math problem from the API when the component loads
     useEffect(() => {
-        fetch(`http://localhost:8080/api/v1/math/Advanced`)
-            .then(response => response.json()) // Parse the JSON response
-            .then(data => setMathProblem(data)) // Set the fetched math problem in state
-            .catch(error => console.error('Error fetching math problem:', error)); // Log any errors
+        fetchNewQuestion(); // Initial fetch when the component loads
     }, []);
+
+    // Function to fetch a new question from the API
+    const fetchNewQuestion = () => {
+        fetch('http://localhost:8080/api/v1/math/Advanced')
+            .then(response => response.json()) // Parse the JSON response
+            .then(data => {
+                setMathProblem(data); // Set the new problem
+                setUserAnswer(""); // Reset user answer field
+                setFeedback(""); // Reset feedback
+                setAnsweredCorrectly(false); // Reset the answer check
+                setShowNext(false); // Hide "Next Question" button
+            })
+            .catch(error => console.error('Error fetching math problem:', error)); // Log any errors
+    };
 
     // Function to check if the user's answer is correct
     const checkAnswer = () => {
-        if (mathProblem) { // Ensure a math problem is loaded before checking the answer
-            const isCorrect = parseFloat(userAnswer) === mathProblem.answer; // Compare user answer to the API-provided answer
-            setFeedback(isCorrect ? "Correct! Good job!!" : "Almost there, don't give up"); // Update feedback message based on correctness
+        if (mathProblem) {
+            // Check if the user's answer is correct
+            const isCorrect = parseFloat(userAnswer) === mathProblem.answer;
+            setAnsweredCorrectly(isCorrect); // Update correctness state
+            setFeedback(isCorrect ? "Correct! Good job!!" : "Almost there, don't give up");
+            setShowNext(isCorrect); // Show "Next Question" button only if the answer is correct
         }
     };
 
@@ -41,12 +59,11 @@ const Advanced = () => {
 
             {/* Display the math problem and answer form */}
             <h1>Advanced Math Problem</h1>
-            {mathProblem && ( // Render only if mathProblem data is available
+            {mathProblem && (
                 <div>
                     <p>Operation: {mathProblem.operation}</p>
                     <p>Numerator: {mathProblem.numerator}</p>
                     <p>Denominator: {mathProblem.denominator}</p>
-                    <p>Answer: {mathProblem.answer}</p>
 
                     {/* Input for the user to enter their answer */}
                     <input
@@ -57,6 +74,11 @@ const Advanced = () => {
                     />
                     <button onClick={checkAnswer}>Submit Answer</button> {/* Button to check answer */}
                     <p>{feedback}</p> {/* Display feedback message */}
+
+                    {/* Conditionally render the "Next Question" button */}
+                    {showNext && (
+                        <button onClick={fetchNewQuestion}>Next Question</button>
+                    )}
                 </div>
             )}
         </div>
