@@ -4,7 +4,7 @@ import { BrowserRouter as Routes, Route, Link } from "react-router-dom";
 function EasyAnimals() {
     const [questions, setQuestions] = useState({}); // Initialize as an object
     const [error, setError] = useState(null);
-    // const [feedback, setFeedback] = useState(""); // Feedback for the user
+    const [feedback, setFeedback] = useState(""); // Feedback for the user
 
     // Function to fetch beginner questions from the backend
     useEffect(() => {
@@ -27,13 +27,18 @@ function EasyAnimals() {
             });
     };
 
-    // const checkAnswer = (choice, answer) =>{
-    //     if (choice === questions.answerChoices(answer)) {
-    //         setFeedback ("correct!")
-    //     } else {
-    //         setFeedback("wrong. Try again")
-    //     }
-    //     };
+    const checkAnswer = (choice) => {
+        if (choice === questions.answer) {
+            setFeedback("Correct!");
+            // Move to the next question after a short delay
+            setTimeout(() => {
+                fetchNewQuestion();
+            }, 1000); // 1 second delay for feedback visibility
+        } else {
+            setFeedback("Wrong. Try again.");
+        }
+    };
+
 
     return (
         <div>
