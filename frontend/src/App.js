@@ -1,5 +1,5 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import React from 'react';
 import './App.css';
 import Home from "./Home";
 import About from "./About";
@@ -13,6 +13,8 @@ import MediumMath from "./math/MediumMath";
 import HardMath from "./math/HardMath";
 
 function App() {
+  // const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  // const [isSignedIn, setIsSignedIn] = useState(true);
   return (
     <Router>
       <div className="app-body">
@@ -23,7 +25,19 @@ function App() {
             <li><Link to="color/Color">Color Zone</Link></li><span>|</span>
             <li><Link to="/animal/Animal">Animal Zone</Link></li><span>|</span>
             <li><Link to="/About">About</Link></li><span>|</span>
-            <li><Link to="/SignIn">Sign In</Link></li>
+            {/* {isSignedIn && (
+            <li className="navbar-item"
+            onMouseEnter={() => setIsDropdownOpen(true)}
+            onMouseLeave={() => setIsDropdownOpen(false)}>Sign-In
+              {isDropdownOpen && (
+                <ul className="dropdown-menu">
+                  <li className="dropdown-item">Profile</li>
+                  <li className="dropdown-item">Sign Out</li>
+                </ul>
+              )}
+            </li>
+          )} */}
+            <li><Link to="/SignIn">SignIn</Link></li>
           </ul>
         </nav>
         <div className="content">
