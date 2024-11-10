@@ -19,6 +19,13 @@ public class MathProblemService {
         mathProblemDTO.setNumerator(getRandomNumber(difficulty, mathProblemDTO.getOperation())); // Set a random
                                                                                                  // numerator
         mathProblemDTO.setDenominator(getRandomNumber(difficulty, mathProblemDTO.getOperation())); // Set a random
+        if (difficulty == DifficultyLevel.Beginner && mathProblemDTO.getOperation() == Operation.Subtraction
+                && mathProblemDTO.getDenominator() > mathProblemDTO.getNumerator()) {
+            float newNumerator = mathProblemDTO.getNumerator();
+            float newDenominator = mathProblemDTO.getDenominator();
+            mathProblemDTO.setNumerator(newDenominator);
+            mathProblemDTO.setDenominator(newNumerator);
+        }
         mathProblemDTO.setAnswer(getAnswer(mathProblemDTO)); // denominator
         return mathProblemDTO; // Return the generated math problem
     }
