@@ -2,37 +2,38 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Routes, Route, Link } from "react-router-dom";
 
 function EasyAnimals() {
-    const [questions, setQuestions] = useState([]); // State to hold the fetched questions
-    const [error, setError] = useState(null); // 
+    const [questions, setQuestions] = useState({}); // Initialize as an object
+    const [error, setError] = useState(null);
+    // const [feedback, setFeedback] = useState(""); // Feedback for the user
 
     // Function to fetch beginner questions from the backend
     useEffect(() => {
         fetchNewQuestion();
     }, []);
         
-        // Fetching questions from the backend
-       const fetchNewQuestion = () =>{
-
+    const fetchNewQuestion = () => {
         fetch("http://localhost:8080/api/v1/animals/Beginner")
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Network response was not ok");
                 }
-                return response.json(); // Parse the JSON from the response
+                return response.json();
             })
             .then((data) => {
                 setQuestions(data); // Set the fetched questions to state
-                // setCurrentQuestion(data[0]); // Set the first question as the current question
             })
             .catch((error) => {
                 setError(error.message);
             });
     };
 
-    // // useEffect to fetch questions when the component mounts
-    // useEffect(() => {
-    //     fetchBeginnerQuestions(); // Call the function to fetch questions
-    // }, []); // Empty dependency array means this runs once on mount
+    // const checkAnswer = (choice, answer) =>{
+    //     if (choice === questions.answerChoices(answer)) {
+    //         setFeedback ("correct!")
+    //     } else {
+    //         setFeedback("wrong. Try again")
+    //     }
+    //     };
 
     return (
         <div>
@@ -41,15 +42,14 @@ function EasyAnimals() {
                 <h2>Preschool Animals</h2>
             </div>
 
-            
-            {questions && ( // Check if there is a current question
+            {questions.questionText && ( // Check if questionText exists
                 <div className="question-container">
-                    <h3>{questions.questionText}</h3> {/* Display the question text */}
-                    <div>
-                        {questions.answerChoices.map((option, index) => ( // Map through options
-                            <button key={index}>{option}</button> // Display each option
+                    <h3>{questions.questionText}</h3>
+                    <ul>
+                        {questions.answerChoices && questions.answerChoices.map((choice, index) => ( // Ensure answerChoices exists
+                            <button key={index} onClick={checkAnswer}>{choice}</button>
                         ))}
-                    </div>
+                    </ul>
                 </div>
             )}
         </div>
