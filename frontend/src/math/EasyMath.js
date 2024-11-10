@@ -9,6 +9,10 @@ const Easy = () => {
     const [userAnswer, setUserAnswer] = useState("");
     // State to hold feedback on whether the user's answer is correct or not
     const [feedback, setFeedback] = useState("");
+    // State to track whether the answer is correct or not
+    const [, setAnsweredCorrectly] = useState(false);
+    // State to control the visibility of the "Next Question" button
+    const [showNext, setShowNext] = useState(false);
 
     // Fetch a beginner-level math problem from the API when the component loads
     useEffect(() => {
