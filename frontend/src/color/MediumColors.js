@@ -6,11 +6,17 @@ function MediumColors() {
     // State variables to store question data and any errors
     const [questionData, setQuestionData] = useState(null); // Initially null to check for null
     const [error, setError] = useState(null); // Initially null to check for null
+    const [feedback, setFeedback] = useState("") // To display feedback on answer
 
     // Fetch beginner-level question data when the component loads
     useEffect(() => {
+        fetchNewQuestion();
+    }, []);
+
+    // function to display new question when called
+    const fetchNewQuestion = () => {
         // Use fetch and .then() to retrieve the data
-        fetch("http://localhost:8080/api/v1/color/Intermediate").then((response) => {
+        fetch("http://localhost:8080/api/v1/color/Advanced").then((response) => {
             if(!response.ok) {
                 throw new Error(`Failed to fetch question`);
             }
@@ -20,7 +26,17 @@ function MediumColors() {
         }).catch((error) => {
             setError(error.message); // Set error message if something goes wrong
         });
-    }, []);
+    };
+
+    // Handle the answer button click
+    const checkAnswer = (choice, answerIndex) => {
+        if(choice === questionData.answerChoices[answerIndex]) {
+            setFeedback("Correct!")
+        } else {
+            setFeedback("Wrong. Try again")
+        }
+    };
+
     return (
         <div>
                 <div className="page-top">
@@ -49,9 +65,10 @@ function MediumColors() {
                         {/* Map over the answer choices and display each as a button */}
                         {/* Adds the index as the key of the button, and the choice string as the text of the button */}
                         {questionData.answerChoices.map((choice, index) => (
-                            <button key={index}>{choice}</button>
+                            <button key={index} onClick={() => checkAnswer(choice, questionData.answer)}>{choice}</button>
                         ))}
                     </div>
+                    <p>{feedback}</p>
                 </div>
             )}
         </div>

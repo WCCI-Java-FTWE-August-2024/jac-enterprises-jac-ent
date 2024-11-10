@@ -6,9 +6,14 @@ function EasyColors() {
     // State variables to store question data and any errors
     const [questionData, setQuestionData] = useState(null); // Initially null to check for null
     const [error, setError] = useState(null); // Initially null to check for null
+    const [feedback, setFeedback] = useState("") // Handle the answer button click
 
     // Fetch beginner-level question data when the component loads
     useEffect(() => {
+        fetchNewQuestion();
+    }, []);
+
+    const fetchNewQuestion = () => {
         // Use fetch and .then() to retrieve the data
         fetch("http://localhost:8080/api/v1/color/Beginner").then((response) => {
             if(!response.ok) {
@@ -20,7 +25,17 @@ function EasyColors() {
         }).catch((error) => {
             setError(error.message); // Set error message if something goes wrong
         });
-    }, []);
+    };
+
+    // Handle the answer button click
+    const checkAnswer = (choice, answerIndex) => {
+        if(choice === questionData.answerChoices[answerIndex]) {
+            setFeedback("Correct!")
+        } else {
+            setFeedback("Wrong. Try again")
+        }
+    };
+
     return (
         <div>
                 <div className="page-top">
@@ -49,9 +64,10 @@ function EasyColors() {
                         {/* Map over the answer choices and display each as a button */}
                         {/* Adds the index as the key of the button, and the choice string as the text of the button */}
                         {questionData.answerChoices.map((choice, index) => (
-                            <button key={index}>{choice}</button>
+                            <button key={index} onClick={() => checkAnswer(choice, questionData.answer)}>{choice}</button>
                         ))}
                     </div>
+                    <p>{feedback}</p>
                 </div>
             )}
         </div>
