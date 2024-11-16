@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function EasyAnimals() {
   const [questions, setQuestions] = useState(null); // Initialize as null
   const [error, setError] = useState(null);
   const [feedback, setFeedback] = useState(""); // Feedback for the user
   const [showImage, setShowImage] = useState(false); // State to control the correct answer image
+  const [showNextButton, setShowNextButton] = useState(false); // State for showing the "Next Question" button
 
   // Function to fetch Advanced questions from the backend
   useEffect(() => {
@@ -24,6 +25,7 @@ function EasyAnimals() {
         setQuestions(data); // Set the fetched questions to state
         setFeedback(""); // Clear feedback on new question
         setShowImage(false); // Hide the image when a new question loads
+        setShowNextButton(false); // Hide the "Next Question" button until answered correctly
       })
       .catch((error) => {
         setError(error.message);
@@ -34,11 +36,14 @@ function EasyAnimals() {
     if (choice === questions.answerChoices[answerIndex]) {
       setFeedback("Correct!");
       setShowImage(true); // Show the image when the answer is correct
-      // Move to the next question after a short delay
-      setTimeout(fetchNewQuestion, 5000); // 5-second delay before fetching new question
+      setShowNextButton(true); // Show the "Next Question" button after correct answer
     } else {
       setFeedback("Wrong. Try again.");
     }
+  };
+
+  const handleNextQuestion = () => {
+    fetchNewQuestion(); // Fetch the next question when the button is clicked
   };
 
   return (
@@ -61,8 +66,8 @@ function EasyAnimals() {
           <ul>
             {questions.answerChoices && questions.answerChoices.map((choice, index) => (
               <button key={index}
-              style={{ margin: "10px" }} // Add margin here
-             onClick={() => checkAnswer(choice, questions.answer)}>
+                style={{ margin: "10px" }} // Add margin here
+                onClick={() => checkAnswer(choice, questions.answer)}>
                 {choice}
               </button>
             ))}
@@ -71,12 +76,23 @@ function EasyAnimals() {
           
           {/* Display the image when the answer is correct */}
           {showImage && (
-            <img
-              src={questions.imageUrl}
-              alt="Correct answer celebration"
-              className="correct-answer-image"
-              style={{ width: '300px', height: 'auto' }}
-            />
+            <div>
+              <img
+                src={questions.imageUrl}
+                alt="Correct answer celebration"
+                className="correct-answer-image"
+                style={{ width: '300px', height: 'auto' }}
+              />
+              
+              {/* Show the "Next Question" button below the image */}
+              {showNextButton && (
+                <button 
+                  onClick={handleNextQuestion} 
+                  style={{ marginTop: "20px" }}>
+                  Next Question
+                </button>
+              )}
+            </div>
           )}
         </div>
       ) : (

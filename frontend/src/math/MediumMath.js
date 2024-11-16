@@ -9,20 +9,37 @@ const Intermediate = () => {
     const [userAnswer, setUserAnswer] = useState("");
     // State to hold feedback on whether the user's answer is correct or not
     const [feedback, setFeedback] = useState("");
+    // State to track whether the answer is correct or not
+    const [, setAnsweredCorrectly] = useState(false);
+    // State to control the visibility of the "Next Question" button
+    const [showNext, setShowNext] = useState(false);
 
     // Fetch an intermediate-level math problem from the API when the component loads
     useEffect(() => {
+        fetchNewQuestion(); // Initial question fetch
+    }, []);
+
+    // Function to fetch a new question from the API
+    const fetchNewQuestion = () => {
         fetch(`http://localhost:8080/api/v1/math/Intermediate`)
             .then(response => response.json()) // Parse the JSON response
-            .then(data => setMathProblem(data)) // Set the fetched math problem in state
+            .then(data => {
+                setMathProblem(data); // Set the fetched math problem in state
+                setUserAnswer(""); // Reset user's answer field
+                setFeedback(""); // Reset feedback message
+                setAnsweredCorrectly(false); // Reset correct answer flag
+                setShowNext(false); // Hide Next button when a new question is fetched
+            })
             .catch(error => console.error("Error fetching math problem:", error)); // Log any errors
-    }, []);
+    };
 
     // Function to check if the user's answer is correct
     const checkAnswer = () => {
         if (mathProblem) { // Ensure a math problem is loaded before checking the answer
             const isCorrect = parseFloat(userAnswer) === mathProblem.answer; // Compare user answer to the API-provided answer
+            setAnsweredCorrectly(isCorrect); // Update the correctness flag
             setFeedback(isCorrect ? "Correct! Good job!" : "Almost there, don't give up!"); // Update feedback message based on correctness
+            setShowNext(isCorrect); // Only show the "Next Question" button if the answer is correct
         }
     };
 
@@ -46,7 +63,6 @@ const Intermediate = () => {
                     <p>Operation: {mathProblem.operation}</p>
                     <p>Numerator: {mathProblem.numerator}</p>
                     <p>Denominator: {mathProblem.denominator}</p>
-                    <p>Answer: {mathProblem.answer}</p>
 
                     {/* Input for the user to enter their answer */}
                     <input
@@ -57,6 +73,11 @@ const Intermediate = () => {
                     />
                     <button onClick={checkAnswer}>Submit Answer</button> {/* Button to check answer */}
                     <p>{feedback}</p> {/* Display feedback message */}
+
+                    {/* Conditionally render the "Next Question" button */}
+                    {showNext && (
+                        <button onClick={fetchNewQuestion}>Next Question</button>
+                    )}
                 </div>
             )}
         </div>
