@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+// Helper function to retrieve a cookie by name
+const getCookie = (name) => {
+  const match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
+  return match ? match[2] : null;
+};
+
 function HardAnimals() {
   const [questions, setQuestions] = useState(null); // Initialize as null
   const [error, setError] = useState(null);
@@ -8,13 +14,20 @@ function HardAnimals() {
   const [showImage, setShowImage] = useState(false); // State to control the correct answer image
   const [showNextButton, setShowNextButton] = useState(false); // State for showing the "Next Question" button
 
+  // Retrieve token from cookies
+  const token = getCookie("authToken");
+
   // Function to fetch Advanced questions from the backend
   useEffect(() => {
     fetchNewQuestion();
   }, []);
 
   const fetchNewQuestion = () => {
-    fetch("http://localhost:8080/api/v1/animals/Advanced")
+    fetch("http://localhost:8080/api/v1/animals/Advanced", {
+      headers: {
+        Authorization: `Bearer ${token}`, // Use the retrieved token
+      },
+    })
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -57,23 +70,25 @@ function HardAnimals() {
         </Link>
         <h2>Middle School Animals</h2>
       </div>
-
-      {error && <div className="error-message">{error}</div>} {/* Display error message */}
-      
+      {error && <div className="error-message">{error}</div>}{" "}
+      {/* Display error message */}
       {questions ? ( // Check if questions is not null
         <div className="question-container">
           <h3>{questions.questionText}</h3>
           <ul>
-            {questions.answerChoices && questions.answerChoices.map((choice, index) => (
-              <button key={index}
-                style={{ margin: "10px" }} // Add margin here
-                onClick={() => checkAnswer(choice, questions.answer)}>
-                {choice}
-              </button>
-            ))}
+            {questions.answerChoices &&
+              questions.answerChoices.map((choice, index) => (
+                <button
+                  key={index}
+                  style={{ margin: "10px" }} // Add margin here
+                  onClick={() => checkAnswer(choice, questions.answer)}
+                >
+                  {choice}
+                </button>
+              ))}
           </ul>
-          {feedback && <div className="feedback">{feedback}</div>} {/* Display feedback */}
-          
+          {feedback && <div className="feedback">{feedback}</div>}{" "}
+          {/* Display feedback */}
           {/* Display the image when the answer is correct */}
           {showImage && (
             <div>
@@ -81,14 +96,15 @@ function HardAnimals() {
                 src={questions.imageUrl}
                 alt="Correct answer celebration"
                 className="correct-answer-image"
-                style={{ width: '300px', height: 'auto' }}
+                style={{ width: "300px", height: "auto" }}
               />
-              
+
               {/* Show the "Next Question" button below the image */}
               {showNextButton && (
-                <button 
-                  onClick={handleNextQuestion} 
-                  style={{ marginTop: "20px" }}>
+                <button
+                  onClick={handleNextQuestion}
+                  style={{ marginTop: "20px" }}
+                >
                   Next Question
                 </button>
               )}

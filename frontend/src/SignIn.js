@@ -1,67 +1,47 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const SignIn = () => {
-    // const [token, setToken] = useState(null); // State to store the Bearer token
-    const [data, setData] = useState(null); // State to store API response data
-    const [username, setUsername] = useState(''); // State for username input
-    const [password, setPassword] = useState(''); // State for password input
+    const [username, setUsername] = useState(""); // State for username input
+    const [password, setPassword] = useState(""); // State for password input
+    const [error, setError] = useState(""); // State for error messages
 
-    const [token, setToken] = useState("mattboy115");
-
-    // Fetch the Bearer token when the component mounts
-    useEffect(() => {
-        fetch('http://localhost:8080/api/v1/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ username: 'user', password: 'pass' }), // Placeholder credentials
-        })
-            .then((response) => response.json())
-            .then((result) => {
-                setToken(result.token); // Save the token in state
-            })
-            .catch((error) => {
-                console.error('Error fetching token:', error);
-            });
-    }, []);
-
-    // Fetch data using the Bearer token
-    useEffect(() => {
-        if (token) {
-            fetch('http://localhost:8080/api/v1/users', {
-                method: 'GET',
+    const handleSignIn = async () => {
+        setError(""); // Clear previous errors
+        try {
+            const response = await fetch("http://localhost:8080/api/v1/users/login", {
+                method: "POST",
                 headers: {
-                    Authorization: `Bearer ${token}`, // Add the Bearer token to the header
+                    "Content-Type": "application/json",
                 },
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    setData(data); // Save the data in state
-                })
-                .catch((error) => {
-                    console.error('Error fetching data:', error);
-                });
-        }
-    }, [token]);
+                body: JSON.stringify({ username, password }), // Send username and password
+            });
 
-    const submitUser = () => {
-        console.log(`Username: ${username}, Password: ${password}`);
-        // Add your form submission logic here
+            if (!response.ok) {
+                throw new Error("Invalid credentials. Please try again.");
+            }
+
+            const token = await response.text(); // Retrieve token
+            alert(`Token received: ${token}`); // Display token in an alert
+            document.cookie = `authToken=${token}; path=/; Secure; SameSite=Strict`;
+        } catch (err) {
+            setError("Failed to sign in. Please check your credentials."); // Display error message
+        }
     };
 
     return (
-        <div className="page-top">
-            <Link to="/">
-                <img
-                    src="https://cdn.pixabay.com/photo/2012/04/02/16/03/back-24838_1280.png"
-                    alt="Back button"
-                />
-            </Link>
-            <h2>Sign In</h2>
+        <div className="sign-in-container">
+            <div className="page-top">
+                <Link to="/">
+                    <img
+                        src="https://cdn.pixabay.com/photo/2012/04/02/16/03/back-24838_1280.png"
+                        alt="Back button"
+                    />
+                </Link>
+                <h2>Sign In</h2>
+            </div>
+
             <div className="sign-container">
-                {data ? <pre>{JSON.stringify(data, null, 2)}</pre> : <p>Loading...</p>}
                 <div>
                     <input
                         type="text"
@@ -70,14 +50,14 @@ const SignIn = () => {
                         placeholder="Enter your username"
                     />
                     <input
-                        type="password" // Password input
+                        type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)} // Update password state
                         placeholder="Enter your password"
                     />
-                    <button onClick={submitUser}>Submit</button>
-                    <p>Don't have an account? <Link to="/SignUp">Sign Up!</Link></p>
+                    <button onClick={handleSignIn}>Sign In</button>
                 </div>
+                {error && <p className="error-message">{error}</p>} {/* Display errors */}
             </div>
         </div>
     );

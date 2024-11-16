@@ -1,6 +1,11 @@
 import React, {useState, useEffect} from "react";
 import { BrowserRouter as Routes, Route, Link } from "react-router-dom";
 
+// Helper function to retrieve a cookie by name
+const getCookie = (name) => {
+    const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    return match ? match[2] : null;
+};
 
 function MediumColors() {
     // State variables to store question data and any errors
@@ -10,6 +15,9 @@ function MediumColors() {
     const [answeredCorrectly, setAnsweredCorrectly] = useState(false); // Track if the answer is correct
     const [showNext, setShowNext] = useState(false); // Control visibility of "Next Question" button
 
+    // Retrieve token from cookies
+    const token = getCookie("authToken");
+
     // Fetch beginner-level question data when the component loads
     useEffect(() => {
         fetchNewQuestion();
@@ -17,7 +25,11 @@ function MediumColors() {
 
     const fetchNewQuestion = () => {
         // Use fetch and .then() to retrieve the data
-        fetch("http://localhost:8080/api/v1/color/Intermediate")
+        fetch("http://localhost:8080/api/v1/color/Intermediate", {
+            headers: {
+                Authorization: `Bearer ${token}`, // Use the retrieved token
+            },
+        })
             .then((response) => {
                 if (!response.ok) {
                     throw new Error(`Failed to fetch question`);

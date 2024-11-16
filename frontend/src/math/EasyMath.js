@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+// Helper function to retrieve a cookie by name
+const getCookie = (name) => {
+    const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    return match ? match[2] : null;
+};
+
 // Easy component for displaying a beginner-level math problem
 const Easy = () => {
     // State to hold the math problem data fetched from the API
@@ -25,6 +31,9 @@ const Easy = () => {
         "fa-carrot",      // Carrot icon
     ];
 
+        // Retrieve token from cookies
+        const token = getCookie("authToken");
+
     // Function to get a random icon from the icon list
     const getRandomIcon = () => {
         const randomIcon = iconList[Math.floor(Math.random() * iconList.length)];
@@ -38,7 +47,11 @@ const Easy = () => {
 
     // Function to fetch a new question from the API
     const fetchNewQuestion = () => {
-        fetch('http://localhost:8080/api/v1/math/Beginner')
+        fetch("http://localhost:8080/api/v1/math/Beginner", {
+            headers: {
+                Authorization: `Bearer ${token}`, // Use the retrieved token
+            },
+        })
             .then(response => response.json()) // Parse the JSON response
             .then(data => {
                 setMathProblem(data); // Set the new problem

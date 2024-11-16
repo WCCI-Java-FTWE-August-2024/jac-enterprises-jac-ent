@@ -27,7 +27,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class CorsConfig implements WebMvcConfigurer {
 
     // Allowed client origin for CORS requests
-    private final String allowedClientAddress = "http://localhost:3000";
+    private final String allowedClientAddress = "http://localhost:3001";
 
     /**
      * Configures CORS mappings, setting allowed origins for specified endpoints.
