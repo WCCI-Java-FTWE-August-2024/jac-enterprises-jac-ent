@@ -234,3 +234,131 @@ footer {
   padding: 6px;
   font-family: 'Baloo 2', cursive;
 }
+
+@media only screen and (max-width: 1020px) {
+  .subject-selection h2 {
+    font-size: large;
+  }
+
+  .about-text {
+    font-size: larger;
+  }
+
+  .about-logo {
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .app-body {
+    height: fit-content;
+  }
+
+  .subject-selection h2 {
+    font-size: medium;
+  }
+
+  footer {
+    position: relative;
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+
+  .page-top {
+    margin-bottom: 0;
+    border: none;
+  }
+
+  .subject-selection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .subject-selection h2 {
+    font-size: 2rem;
+  }
+
+  .subject-selection li {
+    margin: 0;
+    width: 80%;
+    min-width: 10rem;
+    max-width: 30rem;
+  }
+
+  .subject-selection p {
+    font-size: 1.5rem;
+  }
+
+  .nav-list li {
+    display: block;
+    padding: 0;
+  }
+
+  .nav-list span {
+    display: none;
+  }
+
+  .page-top img {
+    height: 3.5rem;
+    margin-top: 7rem;
+    margin-left: .5rem;
+    top: 0;
+    opacity: 50%;
+  }
+
+  .about-text {
+    font-size: large;
+  }
+
+  .about-logo {
+    width: 60%;
+    margin-bottom: 40px;
+  }
+
+}
+
+@media only screen and (max-width: 600px) {
+
+
+}
+
+@media (max-width: 340px) {
+
+  .app-body {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+  }
+/*-----------------NavBar--------------------*/
+  .nav {
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .nav-list img {
+    position: relative;
+    float: left;
+  }
+
+  .page-top img {
+    height: 5rem;
+    position: fixed;
+    top: 0;
+    margin-top: 7rem;
+    filter: drop-shadow(3px 3px 3px #222);
+  }
+
+/*-----------------About-------------------*/
+.about img {
+  width: 80%;
+  height: none;
+}
+
+}
