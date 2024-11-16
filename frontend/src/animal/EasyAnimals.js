@@ -54,7 +54,7 @@ function EasyAnimals() {
       </div>
 
       {error && <div className="error-message">{error}</div>} {/* Display error message */}
-      
+      <div className="problem-content">
       {questions ? ( // Check if questions is not null
         <div className="question-container">
           <h3>{questions.questionText}</h3>
@@ -82,6 +82,7 @@ function EasyAnimals() {
       ) : (
         <div>Loading...</div> // Loading state
       )}
+      </div>
     </div>
   );
 }

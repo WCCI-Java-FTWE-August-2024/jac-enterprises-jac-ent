@@ -52,7 +52,7 @@ function EasyAnimals() {
         </Link>
         <h2> Elementary school Animals</h2>
       </div>
-
+      <div className="problem-content">
       {error && <div className="error-message">{error}</div>} {/* Display error message */}
       
       {questions ? ( // Check if questions is not null
@@ -82,6 +82,7 @@ function EasyAnimals() {
       ) : (
         <div>Loading...</div> // Loading state
       )}
+      </div>
     </div>
   );
 }

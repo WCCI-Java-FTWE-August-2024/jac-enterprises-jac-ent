@@ -38,7 +38,7 @@ const Intermediate = () => {
                 </Link>
                 <h2>Elementary School Math</h2>
             </div>
-
+            <div className="problem-content">
             {/* Display the math problem and answer form */}
             <h1>Intermediate Math Problem</h1>
             {mathProblem && ( // Render only if mathProblem data is available
@@ -59,6 +59,7 @@ const Intermediate = () => {
                     <p>{feedback}</p> {/* Display feedback message */}
                 </div>
             )}
+            </div>
         </div>
     );
 };

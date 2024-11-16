@@ -38,7 +38,7 @@ const Advanced = () => {
                 </Link>
                 <h2>Middle School Math</h2>
             </div>
-
+            <div className="problem-content">
             {/* Display the math problem and answer form */}
             <h1>Advanced Math Problem</h1>
             {mathProblem && ( // Render only if mathProblem data is available
@@ -59,6 +59,7 @@ const Advanced = () => {
                     <p>{feedback}</p> {/* Display feedback message */}
                 </div>
             )}
+            </div>
         </div>
     );
 };
