@@ -22,6 +22,7 @@ import HardColors from "./color/HardColors";
 import EasyAnimals from "./animal/EasyAnimals";
 import MediumAnimals from "./animal/MediumAnimals";
 import HardAnimals from "./animal/HardAnimals";
+import ErrorPage from "./ErrorPage";
 
 // Main App function
 function App() {
@@ -63,6 +64,9 @@ function App() {
             <Route path="/animal/EasyAnimals" element={<EasyAnimals/>}/>
             <Route path="/animal/MediumAnimals" element={<MediumAnimals/>}/>
             <Route path="/animal/HardAnimals" element={<HardAnimals/>}/>
+
+            {/* Catch-all route for undefined URLs */}
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         </div>
         {/* Footer */}
