@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const SignIn = () => {
-    // const [token, setToken] = useState(null); // State to store the Bearer token
+const SignUp = () => {
+    const [token, setToken] = useState(null); // State to store the Bearer token
     const [data, setData] = useState(null); // State to store API response data
     const [username, setUsername] = useState(''); // State for username input
     const [password, setPassword] = useState(''); // State for password input
-
-    const [token, setToken] = useState("mattboy115");
+    const [age, setAge] = useState(''); // State for password input
 
     // Fetch the Bearer token when the component mounts
     useEffect(() => {
@@ -59,28 +58,32 @@ const SignIn = () => {
                     alt="Back button"
                 />
             </Link>
-            <h2>Sign In</h2>
+            <h2>Create Account</h2>
             <div className="sign-container">
                 {data ? <pre>{JSON.stringify(data, null, 2)}</pre> : <p>Loading...</p>}
-                <div>
-                    <input
-                        type="text"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)} // Update username state
-                        placeholder="Enter your username"
-                    />
-                    <input
-                        type="password" // Password input
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)} // Update password state
-                        placeholder="Enter your password"
-                    />
-                    <button onClick={submitUser}>Submit</button>
-                    <p>Don't have an account? <Link to="/SignUp">Sign Up!</Link></p>
-                </div>
+                <input
+                    type="text"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)} // Update username state
+                    placeholder="Enter your username"
+                />
+                <input
+                    type="password" // Password input
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)} // Update password state
+                    placeholder="Enter your password"
+                />
+                            <input
+                    type="number" // Password input
+                    value={age}
+                    onChange={(e) => setPassword(e.target.value)} // Update password state
+                    placeholder="Enter your age"
+                />
+                <button onClick={submitUser}>Submit</button>
+                <p>Already have an account? <Link to="/SignIn">Sign In!</Link></p>
             </div>
         </div>
     );
 };
 
-export default SignIn;
+export default SignUp;

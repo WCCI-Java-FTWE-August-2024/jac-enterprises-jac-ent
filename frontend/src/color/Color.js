@@ -17,17 +17,17 @@ function Color() {
                 <li>
                     <h2>Preschool</h2>
                     <Link to="/color/EasyColors"><img src={easyColorsImage} alt="Link for easy Colors."/></Link>
-                    <p>What colors do you see here? Let’s find out!</p>
+                    <p>🌈 What colors do you see? Red, blue, or yellow? Let's explore the rainbow together! 🎨</p>
                 </li>
                 <li>
                     <h2>Elementary School</h2>
                     <Link to="/color/MediumColors"><img src={mediumColorsImage} alt="Link for medium Colors."/></Link>
-                    <p>Can you mix colors to make this one? Let’s experiment!</p>
+                    <p>🎨 What happens when you mix blue and yellow? 🟡🔵 Let's find out with some colorful experiments! ✨</p>
                 </li>
                 <li>
                     <h2>Middle School</h2>
-                    <Link to= "/color/HardColors"><img src={hardColorsImage} alt="Link for hard Colors."/></Link>
-                    <p>Can you identify the primary, secondary, and tertiary colors here?</p>
+                    <Link to="/color/HardColors"><img src={hardColorsImage} alt="Link for hard Colors."/></Link>
+                    <p>🔍 Can you spot the primary, secondary, and tertiary colors? Dive into the science of colors! 🌟</p>
                 </li>
             </ul>
         </div>

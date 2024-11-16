@@ -7,11 +7,11 @@ import org.wecancodeit.backend.Repositories.UserRepository;
 
 import jakarta.annotation.Resource;
 
-@Component  // Marks this class as a Spring Component, making it a Spring-managed bean.
+@Component // Marks this class as a Spring Component, making it a Spring-managed bean.
 public class Populator implements CommandLineRunner {
 
     @Resource
-    private final UserRepository users;  // Inject the UserRepository to interact with the database.
+    private final UserRepository users; // Inject the UserRepository to interact with the database.
 
     // Constructor-based dependency injection for UserRepository
     public Populator(UserRepository users) {
@@ -24,7 +24,7 @@ public class Populator implements CommandLineRunner {
 
         // Create a new UserModel object with sample data and save it to the database
         UserModel user = new UserModel(1L, "testUser1", "password123", 10);
-        users.save(user);  // Persist the user to the repository (database)
+        users.save(user); // Persist the user to the repository (database)
 
         // Repeat for several other test users with different data
         user = new UserModel(2L, "testUser2", "securePass456", 12);
