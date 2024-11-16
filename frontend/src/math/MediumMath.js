@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+// Helper function to retrieve a cookie by name
+const getCookie = (name) => {
+    const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    return match ? match[2] : null;
+};
+
 // Intermediate component for displaying an intermediate-level math problem
 const Intermediate = () => {
     // State to hold the math problem data fetched from the API
@@ -14,6 +20,9 @@ const Intermediate = () => {
     // State to control the visibility of the "Next Question" button
     const [showNext, setShowNext] = useState(false);
 
+    // Retrieve token from cookies
+    const token = getCookie("authToken");
+
     // Fetch an intermediate-level math problem from the API when the component loads
     useEffect(() => {
         fetchNewQuestion(); // Initial question fetch
@@ -21,7 +30,11 @@ const Intermediate = () => {
 
     // Function to fetch a new question from the API
     const fetchNewQuestion = () => {
-        fetch(`http://localhost:8080/api/v1/math/Intermediate`)
+        fetch("http://localhost:8080/api/v1/math/Intermediate", {
+            headers: {
+                Authorization: `Bearer ${token}`, // Use the retrieved token
+            },
+        })
             .then(response => response.json()) // Parse the JSON response
             .then(data => {
                 setMathProblem(data); // Set the fetched math problem in state

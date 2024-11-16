@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Routes, Route, Link } from "react-router-dom";
 
+// Helper function to retrieve a cookie by name
+const getCookie = (name) => {
+  const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+  return match ? match[2] : null;
+};
+
+
 function EasyAnimals() {
   const [questions, setQuestions] = useState(null); // Initialize as null
   const [error, setError] = useState(null);
@@ -8,13 +15,20 @@ function EasyAnimals() {
   const [showImage, setShowImage] = useState(false); // State to control the correct answer image
   const [showNextButton, setShowNextButton] = useState(false); // Control when to show the "Next Question" button
 
+  // Retrieve token from cookies
+  const token = getCookie("authToken");
+
   // Function to fetch beginner questions from the backend
   useEffect(() => {
     fetchNewQuestion();
   }, []);
 
   const fetchNewQuestion = () => {
-    fetch("http://localhost:8080/api/v1/animals/Beginner")
+    fetch("http://localhost:8080/api/v1/animals/Beginner", {
+      headers: {
+          Authorization: `Bearer ${token}`, // Use the retrieved token
+      },
+  })
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
