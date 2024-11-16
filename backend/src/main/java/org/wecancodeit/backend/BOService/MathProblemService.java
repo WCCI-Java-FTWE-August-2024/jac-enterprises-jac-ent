@@ -6,6 +6,7 @@ import org.wecancodeit.backend.Enums.*; // Importing all enums in the package
 import java.util.Random; // Random class for generating random numbers
 import org.springframework.stereotype.Service; // Spring annotation to define a service class
 
+// Service class responsible for generating math problems
 @Service
 public class MathProblemService {
     // Random instance for generating random numbers
@@ -13,26 +14,34 @@ public class MathProblemService {
 
     // Method to generate a math problem based on the specified difficulty level
     public MathProblemDTO generateMathProblem(DifficultyLevel difficulty) {
-        MathProblemDTO mathProblemDTO = new MathProblemDTO(); // Create a new MathProblemDTO instance
-        mathProblemDTO.setDifficulty(difficulty); // Set the difficulty level of the problem
+        // Create a new MathProblemDTO instance to store the math problem details
+        MathProblemDTO mathProblemDTO = new MathProblemDTO();
+        mathProblemDTO.setDifficulty(difficulty); // Set the problem's difficulty level
         mathProblemDTO.setOperation(getRandomOperation(difficulty)); // Set a random operation based on difficulty
         mathProblemDTO.setNumerator(getRandomNumber(difficulty, mathProblemDTO.getOperation())); // Set a random
                                                                                                  // numerator
         mathProblemDTO.setDenominator(getRandomNumber(difficulty, mathProblemDTO.getOperation())); // Set a random
+                                                                                                   // denominator
+
+        // Ensure numerator is greater than denominator for Beginner-level subtraction
+        // problems
         if (difficulty == DifficultyLevel.Beginner && mathProblemDTO.getOperation() == Operation.Subtraction
                 && mathProblemDTO.getDenominator() > mathProblemDTO.getNumerator()) {
+            // Swap numerator and denominator to avoid negative results in beginner-level
+            // problems
             float newNumerator = mathProblemDTO.getNumerator();
             float newDenominator = mathProblemDTO.getDenominator();
             mathProblemDTO.setNumerator(newDenominator);
             mathProblemDTO.setDenominator(newNumerator);
         }
-        mathProblemDTO.setAnswer(getAnswer(mathProblemDTO)); // denominator
-        return mathProblemDTO; // Return the generated math problem
+
+        mathProblemDTO.setAnswer(getAnswer(mathProblemDTO)); // Calculate and set the correct answer
+        return mathProblemDTO; // Return the generated math problem DTO
     }
 
     // Method to calculate the answer for a math problem based on its operation type
     public float getAnswer(MathProblemDTO problem) {
-        // Switch statement to handle different mathematical operations
+        // Use a switch statement to determine the operation and calculate the answer
         switch (problem.getOperation()) {
             case Addition: {
                 // If the operation is Addition, return the sum of the numerator and denominator
@@ -67,18 +76,17 @@ public class MathProblemService {
     // Private method to get a random mathematical operation based on difficulty
     // level
     public Operation getRandomOperation(DifficultyLevel difficulty) {
-        Operation result = Operation.Addition; // Default operation
+        Operation result = Operation.Addition; // Default operation to Addition
         switch (difficulty) {
-            case Beginner: { // For beginner level, allow only addition
-                int i = random.nextInt(2); // Randomly choose an operation index (0 for addition 1 for subtraction)
+            case Beginner: { // For beginner level, allow only addition and subtraction
+                int i = random.nextInt(2); // Randomly choose an operation index (0 for addition, 1 for subtraction)
                 result = Operation.values()[i]; // Set the operation
                 break;
             }
             case Advanced:
             case Intermediate: { // For intermediate and advanced levels, allow multiple operations
-                int i = random.nextInt(4); // Randomly choose an operation index (0-3 for addition,
-                                           // subtraction,multiplication and division)
-
+                int i = random.nextInt(4); // Randomly choose an operation index (0-3 for addition, subtraction,
+                                           // multiplication, division)
                 result = Operation.values()[i]; // Set the operation
                 break;
             }
