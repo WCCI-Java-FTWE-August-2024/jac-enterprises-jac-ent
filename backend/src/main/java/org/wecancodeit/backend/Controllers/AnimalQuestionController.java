@@ -95,29 +95,23 @@ public class AnimalQuestionController extends BaseController {
     /**
      * Endpoint to retrieve a random animal question filtered by difficulty level.
      *
-     * @param difficulty The specified difficulty level (e.g., Beginner, Intermediate, Advanced).
+     * @param difficulty The specified difficulty level (e.g., Beginner,
+     *                   Intermediate, Advanced).
      * @param authHeader The Authorization header containing the token.
      * @return A ResponseEntity containing the animal question if found,
      *         or a NOT_FOUND or UNAUTHORIZED status depending on the scenario.
      */
-    @GetMapping("/{difficulty}") // Handle GET requests to "api/v1/animals/{difficulty}"
-    public ResponseEntity<?> getRandomAnimalQuestion(
-            @PathVariable String difficulty,
-            @RequestHeader(name = "Authorization", required = true) String authHeader) {
-        // Check if the provided Authorization token is valid
-        if (checkToken(authHeader)) {
-            // Convert the difficulty string to the DifficultyLevel enum
-            DifficultyLevel d = DifficultyLevel.valueOf(difficulty);
+    @GetMapping("/{difficulty}") // Mapping for GET requests to "/api/v1/animals/{difficulty}"
+    public ResponseEntity<AnimalQuestionModel> getRandomAnimalQuestion(@PathVariable String difficulty) {
+        DifficultyLevel d = DifficultyLevel.valueOf(difficulty);
+        // Retrieve a random question by difficulty level from the service
+        AnimalQuestionModel animalQuestion = animalQuestionService.getRandomAnimalQuestion(d);
 
-            // Retrieve a random animal question based on the specified difficulty level
-            AnimalQuestionModel animalQuestion = animalQuestionService.getRandomAnimalQuestion(d);
-
-            // If a question is found, return it with a 200 OK response
-            if (animalQuestion != null) {
-                return ResponseEntity.ok(animalQuestion);
-            }
+        // If a question is found, return it with a 200 OK response
+        if (animalQuestion != null) {
+            return ResponseEntity.ok(animalQuestion);
         }
-        // Return a 401 Unauthorized status if the token is invalid
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Missing or invalid Authorization header");
+        // Otherwise, return the question with an OK status
+        return new ResponseEntity<>(animalQuestion, HttpStatus.OK);
     }
 }

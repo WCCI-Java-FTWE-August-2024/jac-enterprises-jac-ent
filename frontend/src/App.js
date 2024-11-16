@@ -7,6 +7,7 @@ import './App.css';
 import Home from "./Home";
 import About from "./About";
 import SignIn from "./SignIn";
+import SignUp from "./SignUp";
 import Math from "./math/Math";
 import Color from "./color/Color";
 import Animal from "./animal/Animal";
@@ -31,17 +32,11 @@ function App() {
         {/* Navigation bar */}
         <nav className="nav">
           <ul className="nav-list">
-            {/* Logo that links to the home page */}
-            <li>
-              <Link to="/">
-                <img src={logo} alt="Home button logo" />
-              </Link>
-            </li>
-            {/* Navigation links to different zones */}
-            <li><Link to="/math/Math">Math Zone</Link></li> |
-            <li><Link to="color/Color">Color Zone</Link></li> |
-            <li><Link to="/animal/Animal">Animal Zone</Link></li> |
-            <li><Link to="/About">About</Link></li> |
+            <li><Link to="/"><img src={logo} alt="Home button logo" /></Link></li>
+            <li><Link to="/math/Math">Math Zone</Link></li><span>|</span> 
+            <li><Link to="color/Color">Color Zone</Link></li><span>|</span> 
+            <li><Link to="/animal/Animal">Animal Zone</Link></li><span>|</span> 
+            <li><Link to="/About">About</Link></li><span>|</span> 
             <li><Link to="/SignIn">Sign In</Link></li>
           </ul>
         </nav>
@@ -52,6 +47,7 @@ function App() {
             <Route path="/" element={<Home/>}/>
             <Route path="/About" element={<About/>}/>
             <Route path="/SignIn" element={<SignIn/>}/>
+            <Route path="/SignUp" element={<SignUp/>}/>
             <Route path="/math/Math" element={<Math/>} />
             <Route path="/color/Color" element={<Color/>} />
             <Route path="/animal/Animal" element={<Animal/>} />

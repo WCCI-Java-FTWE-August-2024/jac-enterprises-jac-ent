@@ -78,6 +78,7 @@ public class UserController extends BaseController{
     @DeleteMapping("/{id}") // Handles DELETE requests to /api/v1/users/{id}
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         getUserService().deleteUser(id); // Delete the user by I
+        getUserService().deleteUser(id); // Delete the user by I
         return ResponseEntity.noContent().build(); // Return 204 No Content
     }
 }
