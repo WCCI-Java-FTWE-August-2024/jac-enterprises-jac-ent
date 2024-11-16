@@ -101,17 +101,23 @@ public class AnimalQuestionController extends BaseController {
      * @return A ResponseEntity containing the animal question if found,
      *         or a NOT_FOUND or UNAUTHORIZED status depending on the scenario.
      */
-    @GetMapping("/{difficulty}") // Mapping for GET requests to "/api/v1/animals/{difficulty}"
-    public ResponseEntity<AnimalQuestionModel> getRandomAnimalQuestion(@PathVariable String difficulty) {
-        DifficultyLevel d = DifficultyLevel.valueOf(difficulty);
-        // Retrieve a random question by difficulty level from the service
-        AnimalQuestionModel animalQuestion = animalQuestionService.getRandomAnimalQuestion(d);
+    @GetMapping("/{difficulty}") // Handle GET requests to "api/v1/animals/{difficulty}"
+    public ResponseEntity<?> getRandomAnimalQuestion(
+            @PathVariable String difficulty,
+            @RequestHeader(name = "Authorization", required = true) String authHeader) {
+        // Check if the provided Authorization token is valid
+        if (checkToken(authHeader)) {
+            // Convert the difficulty string to the DifficultyLevel enum
+            DifficultyLevel d = DifficultyLevel.valueOf(difficulty);
 
-        // If a question is found, return it with a 200 OK response
-        if (animalQuestion != null) {
-            return ResponseEntity.ok(animalQuestion);
-        }
-        // Otherwise, return the question with an OK status
-        return new ResponseEntity<>(animalQuestion, HttpStatus.OK);
-    }
-}
+               // Retrieve a random animal question based on the specified difficulty level
+               AnimalQuestionModel animalQuestion = animalQuestionService.getRandomAnimalQuestion(d);
+               // If a question is found, return it with a 200 OK response
+               if (animalQuestion != null) {
+                   return ResponseEntity.ok(animalQuestion);
+               }
+           }
+           // Return a 401 Unauthorized status if the token is invalid
+           return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Missing or invalid Authorization header");
+       }
+   }
