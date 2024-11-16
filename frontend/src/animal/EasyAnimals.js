@@ -60,7 +60,9 @@ function EasyAnimals() {
           <h3>{questions.questionText}</h3>
           <ul>
             {questions.answerChoices && questions.answerChoices.map((choice, index) => (
-              <button key={index} onClick={() => checkAnswer(choice, questions.answer)}>
+              <button key={index}
+              style={{ margin: "10px" }} // Add margin here
+             onClick={() => checkAnswer(choice, questions.answer)}>
                 {choice}
               </button>
             ))}
@@ -73,6 +75,7 @@ function EasyAnimals() {
               src={questions.imageUrl}
               alt="Correct answer celebration"
               className="correct-answer-image"
+              style={{ width: '300px', height: 'auto' }}
             />
           )}
         </div>
