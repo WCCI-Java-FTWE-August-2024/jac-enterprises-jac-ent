@@ -18,13 +18,17 @@ public class MathProblemService {
         MathProblemDTO mathProblemDTO = new MathProblemDTO();
         mathProblemDTO.setDifficulty(difficulty); // Set the problem's difficulty level
         mathProblemDTO.setOperation(getRandomOperation(difficulty)); // Set a random operation based on difficulty
-        mathProblemDTO.setNumerator(getRandomNumber(difficulty, mathProblemDTO.getOperation())); // Set a random numerator
-        mathProblemDTO.setDenominator(getRandomNumber(difficulty, mathProblemDTO.getOperation())); // Set a random denominator
+        mathProblemDTO.setNumerator(getRandomNumber(difficulty, mathProblemDTO.getOperation())); // Set a random
+                                                                                                 // numerator
+        mathProblemDTO.setDenominator(getRandomNumber(difficulty, mathProblemDTO.getOperation())); // Set a random
+                                                                                                   // denominator
 
-        // Ensure numerator is greater than denominator for Beginner-level subtraction problems
+        // Ensure numerator is greater than denominator for Beginner-level subtraction
+        // problems
         if (difficulty == DifficultyLevel.Beginner && mathProblemDTO.getOperation() == Operation.Subtraction
                 && mathProblemDTO.getDenominator() > mathProblemDTO.getNumerator()) {
-            // Swap numerator and denominator to avoid negative results in beginner-level problems
+            // Swap numerator and denominator to avoid negative results in beginner-level
+            // problems
             float newNumerator = mathProblemDTO.getNumerator();
             float newDenominator = mathProblemDTO.getDenominator();
             mathProblemDTO.setNumerator(newDenominator);
@@ -44,11 +48,13 @@ public class MathProblemService {
                 return (problem.getNumerator() + problem.getDenominator());
             }
             case Subtraction: {
-                // If the operation is Subtraction, return the difference between numerator and denominator
+                // If the operation is Subtraction, return the difference between numerator and
+                // denominator
                 return (problem.getNumerator() - problem.getDenominator());
             }
             case Multiplication: {
-                // If the operation is Multiplication, return the product of numerator and denominator
+                // If the operation is Multiplication, return the product of numerator and
+                // denominator
                 return (problem.getNumerator() * problem.getDenominator());
             }
             case Division: {
@@ -67,7 +73,8 @@ public class MathProblemService {
         }
     }
 
-    // Private method to get a random mathematical operation based on difficulty level
+    // Private method to get a random mathematical operation based on difficulty
+    // level
     public Operation getRandomOperation(DifficultyLevel difficulty) {
         Operation result = Operation.Addition; // Default operation to Addition
         switch (difficulty) {
@@ -78,7 +85,8 @@ public class MathProblemService {
             }
             case Advanced:
             case Intermediate: { // For intermediate and advanced levels, allow multiple operations
-                int i = random.nextInt(4); // Randomly choose an operation index (0-3 for addition, subtraction, multiplication, division)
+                int i = random.nextInt(4); // Randomly choose an operation index (0-3 for addition, subtraction,
+                                           // multiplication, division)
                 result = Operation.values()[i]; // Set the operation
                 break;
             }
@@ -86,7 +94,8 @@ public class MathProblemService {
         return result; // Return the randomly selected operation
     }
 
-    // Private method to generate a random number based on difficulty level and operation type
+    // Private method to generate a random number based on difficulty level and
+    // operation type
     private float getRandomNumber(DifficultyLevel difficulty, Operation operation) {
         float result = 0; // Initialize result
         switch (difficulty) {
