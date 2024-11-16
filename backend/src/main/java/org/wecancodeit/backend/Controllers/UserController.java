@@ -2,9 +2,7 @@ package org.wecancodeit.backend.Controllers;
 
 import java.util.List;
 
-import org.apache.catalina.connector.Response;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.wecancodeit.backend.BOService.UserService;
@@ -20,14 +18,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class UserController extends BaseController{
 
     public UserController(UserService userService) {
-        this.userService = userService;
+        super(userService);
     }
 
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody LoginDTO loginDTO){
         String token = "";
         try {
-            token = this.userService.getLogin(loginDTO.getPassword(), loginDTO.getUsername());
+            token = this.getUserService().getLogin(loginDTO.getPassword(), loginDTO.getUsername());
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid Credentials");
         } return ResponseEntity.ok(token);
@@ -36,23 +34,9 @@ public class UserController extends BaseController{
     @GetMapping
     public ResponseEntity<?> getAllUsers(@RequestHeader(name="Authorization", required = true) String authHeader) {
         if (checkToken(authHeader)) {
-            return ResponseEntity.ok(userService.getAll());
+            return ResponseEntity.ok(getUserService().getAll());
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Missing or invalid authorization header");
-    }
-
-    private boolean checkToken(String authHeader){
-        boolean results = false;
-        try {
-            if (authHeader != null && authHeader.startsWith("Bearer")){
-                String token = authHeader.substring(7);
-                this.userService.getToken(token);
-                results = true;
-            }
-        } catch (Exception e) {
-            return false;
-        } 
-        return results;
     }
 
     // Endpoint to register a new user
@@ -94,7 +78,7 @@ public class UserController extends BaseController{
     // Endpoint to delete a user by ID
     @DeleteMapping("/{id}") // Handles DELETE requests to /api/v1/users/{id}
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
-        userService.deleteUser(id); // Delete the user by I
+        getUserService().deleteUser(id); // Delete the user by I
         return ResponseEntity.noContent().build(); // Return 204 No Content
     }
 }
