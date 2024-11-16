@@ -1,5 +1,7 @@
 package org.wecancodeit.backend.DataModels;
 
+import java.util.UUID;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -30,6 +32,8 @@ public class UserModel {
     }
 
     // ############### Objects
+
+    private String token = UUID.randomUUID().toString(); // gets a random unique token
 
     @Id // Marks this field as the primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generates the ID value
@@ -79,4 +83,14 @@ public class UserModel {
     public void setAge(int age) {
         this.age = age; // Sets the user's age
     }
+
+    public String getToken() {
+        return token; // Returns the user's token
+    }
+
+    public void setToken(String token) {
+        this.token = token; // Sets the user's token
+    }
+
+    
 }

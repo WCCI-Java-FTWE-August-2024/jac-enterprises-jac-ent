@@ -1,7 +1,6 @@
 package org.wecancodeit.backend.BOService;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import org.springframework.stereotype.Service;
 import org.wecancodeit.backend.DataModels.UserModel;
@@ -60,4 +59,60 @@ public class UserService {
         // Delete the user from the database
         userRepository.deleteById(id);
     }
+
+    /**
+ * Service method to authenticate a user based on their username and password.
+ * If authentication is successful, a unique token is generated and returned.
+ *
+ * @param password The password provided by the user for authentication.
+ * @param username The username provided by the user for authentication.
+ * @return A unique token if the login is successful.
+ * @throws Exception If login credentials are invalid or user does not exist.
+ */
+public String getLogin(String password, String username) throws Exception {
+    // Retrieve the list of users matching the provided username
+    ArrayList<UserModel> userList = new ArrayList<>(findUserByUsername(username));
+
+    // Check if any users were found with the provided username
+    if (userList.size() >= 1) {
+        // Get the first user from the list (assuming usernames are unique)
+        UserModel user = userList.get(0);
+
+        // Verify that the provided password matches the stored password
+        if (!user.getPassword().equals(password)) {
+            throw new Exception("Invalid Login"); // Throw an exception if password is incorrect
+        }
+
+        // Generate a new unique token for the user upon successful login
+        user.setToken(UUID.randomUUID().toString());
+
+        // Save the updated user information with the new token
+        userRepository.save(user);
+
+        // Return the generated token to the caller
+        return user.getToken();
+    } else {
+        throw new Exception("Invalid Login Password"); // Throw an exception if no user is found
+    }
+}
+
+/**
+ * Service method to retrieve a user's token if valid.
+ *
+ * @param token The token provided by the user for validation.
+ * @return The token if it is valid and associated with an existing user.
+ * @throws Exception If the token is invalid or does not match any user.
+ */
+public String getToken(String token) throws Exception {
+    // Look up a user by their token
+    UserModel user = userRepository.findByToken(token);
+
+    // If no user is found with the given token, throw an exception
+    if (user == null) {
+        throw new Exception("Invalid Login Token");
+    }
+
+    // Return the validated token if user is found
+    return user.getToken();
+}
 }
