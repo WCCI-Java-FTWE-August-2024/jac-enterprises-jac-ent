@@ -2,16 +2,22 @@
   text-align: center;
   margin: 0;
   padding: 0;
+  
 }
 .app-body {
-  background-color: #9acd32;
   height: 100vh;
+  background-color: #9acd32;
 }
 
+.content {
+  background-color: #9acd32;
+  height: fit-content;
+}
+
+/*-----------------NavBar--------------------*/
 .nav {
   background-image: linear-gradient(rgb(0, 183, 255), rgb(0, 103, 129));
   margin: 0;
-  padding: 1.5rem;
   text-align: right;
   color: white;
   font-size: 1.5rem;
@@ -23,6 +29,7 @@
 .nav-list {
   list-style: none;
   margin: 0;
+  padding: 1.5rem;
 }
 
 .nav-list li {
@@ -43,11 +50,9 @@
 
 .nav-list img {
   height: 6rem;
-  position: fixed;
-  left: 0;
-  top: 0;
-  margin: 1.5rem;
-  margin-top: .25rem;
+  position: relative;
+  float: left;
+  margin-top: -1rem;
   filter: drop-shadow(5px 5px 5px #222);
 }
 
@@ -55,10 +60,7 @@
   filter: drop-shadow(5px 5px 5px #fff890);
 }
 
-.content {
-  margin: 2rem;
-}
-
+/*----------------------AboutPage--------------------*/
 .about {
   text-align: center;
 }
@@ -81,8 +83,16 @@ hr {
 }
 
 .about-logo {
-  height: 300px;
+  width: 70%;
+  max-width: 35rem;
   filter: drop-shadow(0 0 10px #222);
+  margin-bottom: 120px;
+}
+
+/*----------------------PageTop--------------------*/
+.page-top {
+  margin-bottom: -4rem;
+  border: rgba(255, 0, 0, 0) solid 1px;
 }
 
 .page-top h2 {
@@ -102,30 +112,32 @@ hr {
 .page-top img:hover {
   filter: drop-shadow(3px 3px 3px #f7ff8d);
 }
-
+/*-----------------------SubjectButtons----------------*/
 .subject-selection { 
   display: flex;
+  margin-left: -4%;
+  flex-direction: row;
   justify-content: center;
+  align-items:flex-start;
   text-align: center;
   list-style: none;
-  align-items: baseline;
 }
 
 .subject-selection li {
-  display: inline-block;
-  margin: 3rem;
+  margin: 3%;
+  max-width: 15rem;
 }
 
 .subject-selection li h2 {
   color: white;
+  width: 100%;
   font-family: "Comic Sans MS", "Comic Sans", cursive;
   text-shadow: 2px 2px 2px #222;
 }
 
 .subject-selection img {
-  width: 20rem;
+  width: 100%;
   border-radius: 2rem;
-  height: 15rem;
   border: solid grey 6px;
   box-shadow: 3px 3px 3px rgb(73, 73, 73);
 }
@@ -140,7 +152,7 @@ hr {
   font-size: 1rem;
   font-family: "Comic Sans MS", "Comic Sans", cursive;
   text-shadow: 1px 1px 1px #222;
-  width: 20rem;
+  width: 100%;
 }
 
 footer {
@@ -149,7 +161,146 @@ footer {
   width: 100%;
   height: 4rem;
   text-align: center;
+  padding-top: 1rem;
   position: fixed;
   bottom: 0;
-  padding: 0;
+}
+.dropdown-menu {
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  background-image: linear-gradient(rgb(0, 183, 255), rgb(0, 103, 129));
+  padding-right: 2rem;
+  margin-top: 1.7rem;
+}
+
+
+@media only screen and (max-width: 1020px) {
+  .subject-selection h2 {
+    font-size: large;
+  }
+
+  .about-text {
+    font-size: larger;
+  }
+
+  .about-logo {
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .app-body {
+    height: fit-content;
+  }
+
+  .subject-selection h2 {
+    font-size: medium;
+  }
+
+  footer {
+    position: relative;
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+
+  .page-top {
+    margin-bottom: 0;
+    border: none;
+  }
+
+  .subject-selection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .subject-selection h2 {
+    font-size: 2rem;
+  }
+
+  .subject-selection li {
+    margin: 0;
+    width: 80%;
+    min-width: 10rem;
+    max-width: 30rem;
+  }
+
+  .subject-selection p {
+    font-size: 1.5rem;
+  }
+
+  .nav-list li {
+    display: block;
+    padding: 0;
+  }
+
+  .nav-list span {
+    display: none;
+  }
+
+  .page-top img {
+    margin-top: 7.5rem;
+    top: 0;
+  }
+
+  .about-text {
+    font-size: large;
+  }
+
+  .about-logo {
+    width: 60%;
+    margin-bottom: 40px;
+  }
+
+}
+
+@media only screen and (max-width: 600px) {
+
+
+}
+
+@media (max-width: 340px) {
+
+  .app-body {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+  }
+/*-----------------NavBar--------------------*/
+  .nav {
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .nav-list img {
+    position: relative;
+    float: left;
+  }
+
+  .page-top img {
+    height: 5rem;
+    position: fixed;
+    top: 0;
+    margin-top: 7rem;
+    filter: drop-shadow(3px 3px 3px #222);
+  }
+
+/*-----------------About-------------------*/
+.about img {
+  width: 80%;
+  height: none;
+}
+
+
 }

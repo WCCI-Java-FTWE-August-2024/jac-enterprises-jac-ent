@@ -27,10 +27,10 @@ function App() {
         <nav className="nav">
           <ul className="nav-list">
             <li><Link to="/"><img src={logo} alt="Home button logo" /></Link></li>
-            <li><Link to="/math/Math">Math Zone</Link></li> |
-            <li><Link to="color/Color">Color Zone</Link></li> |
-            <li><Link to="/animal/Animal">Animal Zone</Link></li> |
-            <li><Link to="/About">About</Link></li> |
+            <li><Link to="/math/Math">Math Zone</Link></li><span>|</span> 
+            <li><Link to="color/Color">Color Zone</Link></li><span>|</span> 
+            <li><Link to="/animal/Animal">Animal Zone</Link></li><span>|</span> 
+            <li><Link to="/About">About</Link></li><span>|</span> 
             <li><Link to="/SignIn">Sign In</Link></li>
           </ul>
         </nav>
