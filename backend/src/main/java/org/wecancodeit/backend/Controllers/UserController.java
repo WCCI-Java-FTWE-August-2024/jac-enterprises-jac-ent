@@ -6,8 +6,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.wecancodeit.backend.BOService.UserService;
-import org.wecancodeit.backend.DTOs.LoginDTO;
-import org.wecancodeit.backend.DTOs.LoginDTO;
 import org.wecancodeit.backend.DataModels.UserModel;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -78,6 +76,7 @@ public class UserController extends BaseController{
     // Endpoint to delete a user by ID
     @DeleteMapping("/{id}") // Handles DELETE requests to /api/v1/users/{id}
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
+        getUserService().deleteUser(id); // Delete the user by I
         getUserService().deleteUser(id); // Delete the user by I
         return ResponseEntity.noContent().build(); // Return 204 No Content
     }
