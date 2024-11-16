@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Routes, Route, Link } from "react-router-dom";
 
-function EasyAnimals() {
+function HardAnimals() {
   const [questions, setQuestions] = useState(null); // Initialize as null
   const [error, setError] = useState(null);
   const [feedback, setFeedback] = useState(""); // Feedback for the user
@@ -86,4 +86,4 @@ function EasyAnimals() {
   );
 }
 
-export default EasyAnimals;
+export default HardAnimals;
