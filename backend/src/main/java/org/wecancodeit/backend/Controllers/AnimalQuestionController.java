@@ -165,7 +165,7 @@ public class AnimalQuestionController extends BaseController {
      * Endpoint to retrieve a random animal question filtered by difficulty level.
      * Endpoint to retrieve a random animal question filtered by difficulty level.
      *
-     * @param difficulty The specified difficulty level (e.g., EASY, MEDIUM, HARD).
+     * @param difficulty The specified difficulty level (e.g., Beginner, Intermediate, Advanced).
      * @param authHeader The Authorization header containing the token.
      * @return A ResponseEntity containing the animal question if found,
      *         or a NOT_FOUND or UNAUTHORIZED status depending on the scenario.
