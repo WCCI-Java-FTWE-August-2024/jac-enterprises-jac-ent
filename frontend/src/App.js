@@ -4,6 +4,7 @@ import './App.css';
 import Home from "./Home";
 import About from "./About";
 import SignIn from "./SignIn";
+import SignUp from "./SignUp";
 import Math from "./math/Math";
 import Color from "./color/Color";
 import Animal from "./animal/Animal";
@@ -39,6 +40,7 @@ function App() {
             <Route path="/" element={<Home/>}/>
             <Route path="/About" element={<About/>}/>
             <Route path="/SignIn" element={<SignIn/>}/>
+            <Route path="/SignUp" element={<SignUp/>}/>
             <Route path="/math/Math" element={<Math/>} />
             <Route path="/color/Color" element={<Color/>} />
             <Route path="/animal/Animal" element={<Animal/>} />

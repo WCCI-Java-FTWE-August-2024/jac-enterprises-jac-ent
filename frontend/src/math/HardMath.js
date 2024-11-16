@@ -9,10 +9,10 @@ const Advanced = () => {
     const [userAnswer, setUserAnswer] = useState("");
     // State to hold feedback on whether the user's answer is correct or not
     const [feedback, setFeedback] = useState("");
-
+    const [token, setToken] = useState("whatever");
     // Fetch an advanced-level math problem from the API when the component loads
     useEffect(() => {
-        fetch(`http://localhost:8080/api/v1/math/Advanced`)
+        fetch(`http://localhost:8080/api/v1/math/Advanced`, {method: "GET", headers: {"Authorization": 'Bearer ${token}', }} )
             .then(response => response.json()) // Parse the JSON response
             .then(data => setMathProblem(data)) // Set the fetched math problem in state
             .catch(error => console.error('Error fetching math problem:', error)); // Log any errors

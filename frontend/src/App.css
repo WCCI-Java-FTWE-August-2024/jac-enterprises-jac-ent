@@ -106,6 +106,9 @@ hr {
 .page-top img {
   height: 5rem;
   position: fixed;
+  left: 0;
+  margin-left: 1.5rem;
+  margin-top: 3rem;
   filter: drop-shadow(3px 3px 3px #222);
 }
 
@@ -115,7 +118,7 @@ hr {
 /*-----------------------SubjectButtons----------------*/
 .subject-selection { 
   display: flex;
-  margin-left: -4%;
+  margin-left: -6%;
   flex-direction: row;
   justify-content: center;
   align-items:flex-start;
@@ -176,6 +179,15 @@ footer {
   background-image: linear-gradient(rgb(0, 183, 255), rgb(0, 103, 129));
   padding-right: 2rem;
   margin-top: 1.7rem;
+}
+
+.sign-container {
+  width: 40%;
+  margin-left: 30%;
+}
+
+.sign-container div {
+  text-align: center;
 }
 
 
@@ -249,8 +261,11 @@ footer {
   }
 
   .page-top img {
-    margin-top: 7.5rem;
+    height: 3.5rem;
+    margin-top: 7rem;
+    margin-left: .5rem;
     top: 0;
+    opacity: 50%;
   }
 
   .about-text {
@@ -301,6 +316,5 @@ footer {
   width: 80%;
   height: none;
 }
-
 
 }
