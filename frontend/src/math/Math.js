@@ -18,17 +18,17 @@ function Math() {
                 <li>
                     <h2>Preschool</h2>
                     <Link to="/math/EasyMath"><img src={easyMathImage} alt="Link for easy Math."/></Link>
-                    <p>Can you count to 10? Do you know what numbers add up to 10? Let's see!</p>
+                    <p>🎉 Let's count together! Can you count to 10? What numbers make 10? 🧮 Let's explore and have fun!</p>
                 </li>
                 <li>
                     <h2>Elementary School</h2>
                     <Link to="/math/MediumMath"><img src={mediumMathImage} alt="Link for Colors section."/></Link>
-                    <p>How about Addition? Can you divide? Let's do some math problems!</p>
+                    <p>🚀 Ready for a challenge? Practice addition, subtraction, and even division! 🎯 Show off your math skills!</p>
                 </li>
                 <li>
                     <h2>Middle School</h2>
                     <Link to="/math/HardMath"><img src={hardMathImage} alt="Link for Animals section."/></Link>
-                    <p>How about something a little harder? How about double digit math?</p>
+                    <p>💡 Think you've got what it takes? Solve tricky problems with double digits and test your brainpower! 🧠</p>
                 </li>
             </ul>
         </div>
