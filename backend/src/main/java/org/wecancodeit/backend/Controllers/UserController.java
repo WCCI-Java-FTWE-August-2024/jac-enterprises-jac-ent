@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.wecancodeit.backend.BOService.UserService;
+import org.wecancodeit.backend.DTOs.LoginDTO;
 import org.wecancodeit.backend.DataModels.UserModel;
 
 import org.springframework.web.bind.annotation.GetMapping;

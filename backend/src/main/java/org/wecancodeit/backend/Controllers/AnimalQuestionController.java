@@ -95,7 +95,8 @@ public class AnimalQuestionController extends BaseController {
     /**
      * Endpoint to retrieve a random animal question filtered by difficulty level.
      *
-     * @param difficulty The specified difficulty level (e.g., Beginner, Intermediate, Advanced).
+     * @param difficulty The specified difficulty level (e.g., Beginner,
+     *                   Intermediate, Advanced).
      * @param authHeader The Authorization header containing the token.
      * @return A ResponseEntity containing the animal question if found,
      *         or a NOT_FOUND or UNAUTHORIZED status depending on the scenario.
@@ -106,14 +107,11 @@ public class AnimalQuestionController extends BaseController {
         // Retrieve a random question by difficulty level from the service
         AnimalQuestionModel animalQuestion = animalQuestionService.getRandomAnimalQuestion(d);
 
-            // If a question is found, return it with a 200 OK response
-            if (animalQuestion != null) {
-                return ResponseEntity.ok(animalQuestion);
-            }
+        // If a question is found, return it with a 200 OK response
+        if (animalQuestion != null) {
+            return ResponseEntity.ok(animalQuestion);
         }
         // Otherwise, return the question with an OK status
-        else {
-            return new ResponseEntity<>(animalQuestion, HttpStatus.OK);
-        }
+        return new ResponseEntity<>(animalQuestion, HttpStatus.OK);
     }
 }
