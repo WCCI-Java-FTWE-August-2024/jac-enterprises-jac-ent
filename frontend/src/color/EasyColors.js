@@ -14,6 +14,9 @@ function EasyColors() {
     const [feedback, setFeedback] = useState(""); // Handle the answer button click
     const [answeredCorrectly, setAnsweredCorrectly] = useState(false); // Track if the answer is correct
     const [showNext, setShowNext] = useState(false); // Control visibility of "Next Question" button
+    const [incorrectAttempts, setIncorrectAttempts] = useState(0); // Track incorrect attempts
+    const [showGiveUp, setShowGiveUp] = useState(false); // Control visibility of "Give Up" button
+    const [revealAnswer, setRevealAnswer] = useState(false); // Track if the answer should be revealed
 
     // Retrieve token from cookies
     const token = getCookie("authToken");
@@ -24,6 +27,14 @@ function EasyColors() {
     }, []);
 
     const fetchNewQuestion = () => {
+        // Reset states for the new question
+        setIncorrectAttempts(0);
+        setShowGiveUp(false);
+        setRevealAnswer(false);
+        setFeedback("");
+        setAnsweredCorrectly(false);
+        setShowNext(false);
+
         // Use fetch and .then() to retrieve the data
         fetch("http://localhost:8080/api/v1/color/Beginner", {
             headers: {
@@ -38,9 +49,6 @@ function EasyColors() {
             })
             .then((data) => {
                 setQuestionData(data); // Store the fetched data in state
-                setAnsweredCorrectly(false); // Reset answer correctness for the new question
-                setShowNext(false); // Hide "Next Question" button initially
-                setFeedback(""); // Reset feedback message
             })
             .catch((error) => {
                 setError(error.message); // Set error message if something goes wrong
@@ -53,11 +61,22 @@ function EasyColors() {
             setAnsweredCorrectly(true); // Set as correct answer
             setFeedback("Correct!"); // Provide feedback
             setShowNext(true); // Show "Next Question" button
+            setShowGiveUp(false); // Hide "Give Up" button
         } else {
             setAnsweredCorrectly(false); // Set as incorrect answer
             setFeedback("Wrong. Try again"); // Provide feedback
-            setShowNext(false); // Hide "Next Question" button
+            setIncorrectAttempts((prev) => {
+                const newCount = prev + 1;
+                if (newCount >= 2) setShowGiveUp(true); // Show "Give Up" button after 2 wrong attempts
+                return newCount;
+            });
         }
+    };
+
+    // Handle the "Give Up" button click
+    const handleGiveUp = () => {
+        setRevealAnswer(true); // Reveal the correct answer
+        setShowNext(true); // Allow the user to proceed to the next question
     };
 
     return (
@@ -72,6 +91,10 @@ function EasyColors() {
                 <h2>Preschool Colors</h2>
             </div>
             <div className="problem-content">
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/main
             {/* Show loading state if questionData is still null and there’s no error */}
             {!questionData && !error && <p>Loading question...</p>}
 
@@ -96,6 +119,7 @@ function EasyColors() {
                             <button
                                 key={index}
                                 onClick={() => checkAnswer(choice, questionData.answer)}
+                                disabled={revealAnswer} // Disable buttons if the answer is revealed
                             >
                                 {choice}
                             </button>
@@ -105,13 +129,30 @@ function EasyColors() {
                     {/* Display feedback message based on the user's answer */}
                     <p>{feedback}</p>
 
-                    {/* Show "Next Question" button only if the answer is correct */}
+                    {/* Show "Give Up" button after 3 wrong attempts */}
+                    {showGiveUp && !answeredCorrectly && !revealAnswer && (
+                        <button onClick={handleGiveUp}>Give Up</button>
+                    )}
+
+                    {/* Reveal the correct answer if the user gives up */}
+                    {revealAnswer && (
+                        <p>
+                            The correct answer is:{" "}
+                            {questionData.answerChoices[questionData.answer]}
+                        </p>
+                    )}
+
+                    {/* Show "Next Question" button only if the answer is correct or user gives up */}
                     {showNext && (
                         <button onClick={fetchNewQuestion}>Next Question</button>
                     )}
                 </div>
+<<<<<<< HEAD
             )}
             </div>
+=======
+            )}</div>
+>>>>>>> origin/main
         </div>
     );
 }

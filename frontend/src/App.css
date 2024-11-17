@@ -26,7 +26,7 @@
 .nav-list {
   list-style: none;
   margin: 0;
-  padding: 1.5rem;
+  padding: 0;
 }
 
 .nav-list li {
@@ -94,6 +94,7 @@ hr {
   margin-bottom: 90px;
   max-width: 35rem;
   filter: drop-shadow(0 0 10px #222);
+  margin-bottom: 90px;
 }
 
 /* Updated Title and Subtitle Styling */
@@ -142,7 +143,7 @@ hr {
 .page-top h2 {
   font-size: 3rem;
   font-family: 'Baloo 2', cursive;
-  color: white;
+  color: rgb(255, 255, 255);
   text-align: center;
   text-shadow: 2px 2px 2px black;
 }
@@ -185,9 +186,11 @@ hr {
   transform: scale(1.05);
   background-color: rgba(255, 255, 255, 0.2);
 }
+.subject-selection li:hover h2{
+  color: rgb(255, 238, 0);
+}
 
 .subject-selection li h2 {
-  color: white;
   font-family: 'Baloo 2', cursive;
   text-shadow: 2px 2px 2px #222;
 }
@@ -215,6 +218,18 @@ hr {
   font-family: 'Baloo 2', cursive;
   text-shadow: 1px 1px 2px #222;
   max-width: 26rem;
+}
+/* Problem Content */
+.problem-content {
+  width: 40%;
+  margin-left: 30%;
+  text-align: center;
+}
+
+.sign-container {
+  width: 40%;
+  margin-left: 30%;
+  text-align: center;
 }
 
 .sign-container {
@@ -319,7 +334,6 @@ footer {
 }
 
 @media only screen and (max-width: 768px) {
-
   .page-top {
     margin-bottom: 0;
     border: none;
@@ -379,11 +393,6 @@ footer {
     width: 60%;
     margin-bottom: 40px;
   }
-
-}
-
-@media only screen and (max-width: 600px) {
-
 
 }
 
