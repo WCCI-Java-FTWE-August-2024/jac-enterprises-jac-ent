@@ -113,7 +113,6 @@ const Easy = () => {
             {mathProblem && ( // Ensure that mathProblem is loaded before rendering
             <div className="problem-content">
 
-<<<<<<< HEAD
             {mathProblem && ( // Ensure that mathProblem is loaded before rendering
                 <div>
                     {/* Display the operation type (e.g., addition, subtraction) */}
@@ -122,13 +121,10 @@ const Easy = () => {
                     {/* Render the same random icon for the numerator */}
                     <div>
                     <p>{mathProblem.numerator}</p><br/>
-=======
->>>>>>> d53a2414f21671dcfcd134a32cf1d77d68a2f469
             {/* Display the math problem and answer form */}
             <h1>Easy Math Problem</h1>
             {mathProblem && (
                 <div>
-<<<<<<< HEAD
                     {/* Display the operation type (e.g., addition, subtraction) */}
                     
                     {/* Display the operation type */}
@@ -139,13 +135,6 @@ const Easy = () => {
                     <p>{mathProblem.numerator}</p><br/>
                     {/* Render the numerator icons */}
                     <p>Numerator: {mathProblem.numerator}</p>
-=======
-                    {/* Display the operation type */}
-                    <p>Operation: {mathProblem.operation}</p>
-
-                    {/* Render the numerator icons */}
-                    <p>Numerator: {mathProblem.numerator}</p>
->>>>>>> origin/main
 >>>>>>> d53a2414f21671dcfcd134a32cf1d77d68a2f469
                     {[...Array(mathProblem.numerator)].map((_, i) => (
                         <span key={i} role="img" aria-label="icon" style={{ fontSize: "24px" }}>
