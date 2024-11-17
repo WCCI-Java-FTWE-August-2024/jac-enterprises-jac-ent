@@ -26,17 +26,12 @@ const getCookie = (name) => {
   return match ? match[2] : null;
 };
 
-// Function to handle sign out
-const handleSignOut = () => {
-  document.cookie = "authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-  window.location.reload(); // Reload the page to reflect changes
-};
 
 // Main App function
 function App() {
   // Retrieve token from cookies
   const token = getCookie("authToken");
-  
+  const username = getCookie("username");
   return (
     <Router>
       <div className="app-body">
@@ -49,7 +44,7 @@ function App() {
             <li><Link to="/About">About</Link></li><span>|</span>
             {/* Conditional rendering for Sign In/Sign Out */}
             {token ? (
-              <li><Link to="/SignIn">Sign Out</Link></li>
+              <li><Link to="/SignIn">{username}</Link></li>
             ) : (
               <li><Link to="/SignIn">Sign In</Link></li>
             )}
