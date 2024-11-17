@@ -1,57 +1,50 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
-    const [token, setToken] = useState(null); // State to store the Bearer token
-    const [data, setData] = useState(null); // State to store API response data
-    const [username, setUsername] = useState(''); // State for username input
-    const [password, setPassword] = useState(''); // State for password input
-    const [age, setAge] = useState(''); // State for password input
+    // State declarations
+    const [username, setUsername] = useState(""); // State for username input
+    const [password, setPassword] = useState(""); // State for password input
+    const [age, setAge] = useState(""); // State for age input
+    const [error, setError] = useState(""); // State for error messages
+    const [successMessage, setSuccessMessage] = useState(""); // State for success messages
 
-    // Fetch the Bearer token when the component mounts
-    useEffect(() => {
-        fetch('http://localhost:8080/api/v1/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ username: 'user', password: 'pass' }), // Placeholder credentials
-        })
-            .then((response) => response.json())
-            .then((result) => {
-                setToken(result.token); // Save the token in state
-            })
-            .catch((error) => {
-                console.error('Error fetching token:', error);
-            });
-    }, []);
-
-    // Fetch data using the Bearer token
-    useEffect(() => {
-        if (token) {
-            fetch('http://localhost:8080/api/v1/users', {
-                method: 'GET',
+    /**
+     * handleSignUp
+     * Handles the sign-up process by sending a POST request with username, password, and age.
+     * If successful, displays a success message or redirects the user to the sign-in page.
+     * If an error occurs, sets an error message for display.
+     */
+    const handleSignUp = async () => {
+        setError(""); // Clear previous errors
+        setSuccessMessage(""); // Clear previous success messages
+        try {
+            // Send user credentials to the backend API for sign-up
+            const response = await fetch("http://localhost:8080/api/v1/users/", {
+                method: "POST", // POST request to create a new user
                 headers: {
-                    Authorization: `Bearer ${token}`, // Add the Bearer token to the header
+                    "Content-Type": "application/json", // Set the content type to JSON
                 },
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    setData(data); // Save the data in state
-                })
-                .catch((error) => {
-                    console.error('Error fetching data:', error);
-                });
-        }
-    }, [token]);
+                body: JSON.stringify({ username, password, age }), // Include username, password, and age as JSON body
+            });
 
-    const submitUser = () => {
-        console.log(`Username: ${username}, Password: ${password}`);
-        // Add your form submission logic here
+            if (!response.ok) {
+                // Handle errors (e.g., username already taken)
+                throw new Error("Failed to sign up. Please check your details and try again.");
+            }
+
+            const result = await response.json(); // Parse the response to get the result
+            setSuccessMessage("Account created successfully! You can now sign in."); // Display success message
+        } catch (err) {
+            // Handle sign-up failure
+            setError("Failed to sign up. Please check your details and try again."); // Set error message for display
+        }
     };
 
+    // Render the sign-up UI
     return (
         <div className="page-top">
+            {/* Page header with a back link */}
             <Link to="/">
                 <img
                     src="https://cdn.pixabay.com/photo/2012/04/02/16/03/back-24838_1280.png"
@@ -59,28 +52,41 @@ const SignUp = () => {
                 />
             </Link>
             <h2>Create Account</h2>
+
+            {/* Main content: Sign-up form */}
             <div className="sign-container">
-                {data ? <pre>{JSON.stringify(data, null, 2)}</pre> : <p>Loading...</p>}
+                {/* Display success message if available */}
+                {successMessage && <p className="success-message">{successMessage}</p>}
+                {/* Display error message if available */}
+                {error && <p className="error-message">{error}</p>}
+
+                {/* Username input field */}
                 <input
                     type="text"
                     value={username}
-                    onChange={(e) => setUsername(e.target.value)} // Update username state
+                    onChange={(e) => setUsername(e.target.value)} // Update username state on input change
                     placeholder="Enter your username"
                 />
+                {/* Password input field */}
                 <input
-                    type="password" // Password input
+                    type="password"
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)} // Update password state
+                    onChange={(e) => setPassword(e.target.value)} // Update password state on input change
                     placeholder="Enter your password"
                 />
-                            <input
-                    type="number" // Password input
+                {/* Age input field */}
+                <input
+                    type="number"
                     value={age}
-                    onChange={(e) => setPassword(e.target.value)} // Update password state
+                    onChange={(e) => setAge(e.target.value)} // Update age state on input change
                     placeholder="Enter your age"
                 />
-                <button onClick={submitUser}>Submit</button>
-                <p>Already have an account? <Link to="/SignIn">Sign In!</Link></p>
+                {/* Submit button to trigger sign-up */}
+                <button onClick={handleSignUp}>Sign Up</button>
+                {/* Link to sign-in page if the user already has an account */}
+                <p>
+                    Already have an account? <Link to="/SignIn">Sign In!</Link>
+                </p>
             </div>
         </div>
     );
