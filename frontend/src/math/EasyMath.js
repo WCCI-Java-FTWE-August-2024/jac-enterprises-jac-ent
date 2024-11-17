@@ -92,7 +92,7 @@ const Easy = () => {
                 </Link>
                 <h2>Preschool Math</h2>
             </div>
-
+            <div className="problem-content">
             {/* Display the math problem and answer form */}
             <h1>Easy Math Problem</h1>
             {mathProblem && ( // Ensure that mathProblem is loaded before rendering
@@ -138,6 +138,7 @@ const Easy = () => {
                     )}
                 </div>
             )}
+            </div>
         </div>
     );
 };
