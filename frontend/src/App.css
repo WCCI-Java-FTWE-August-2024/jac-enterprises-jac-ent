@@ -8,7 +8,6 @@
 
 .app-body {
   background-color: #0da371;
-  height: 125vh;
 }
 
 /* Navigation Bar */
@@ -21,7 +20,7 @@
   font-family: 'Baloo 2', cursive;
   font-weight: bold;
   box-shadow: 0 2px 4px rgb(82, 82, 82);
-  border-radius: 10px;
+  border-radius: 0 0 10px 10px;
 }
 
 .nav-list {
@@ -50,10 +49,8 @@
 
 .nav-list img {
   height: 6rem;
-  position: fixed;
-  left: 0;
-  top: 0;
-  margin: 1.5rem 0.5rem;
+  float: left;
+  margin: -1rem;
   filter: drop-shadow(5px 5px 5px #222);
   transition: transform 0.3s ease;
 }
@@ -94,6 +91,7 @@ hr {
 /* About Logo Styling */
 .about-logo {
   width: 70%;
+  margin-bottom: 90px;
   max-width: 35rem;
   filter: drop-shadow(0 0 10px #222);
 }
@@ -151,10 +149,8 @@ hr {
 
 .page-top img {
   height: 5rem;
-  position: fixed;
+  float: left;
   left: 0;
-  margin-left: 1.5rem;
-  margin-top: 3rem;
   filter: drop-shadow(3px 3px 3px #222);
 }
 
@@ -232,6 +228,47 @@ hr {
   width: 40%;
   margin-left: 30%;
   text-align: center;
+  font-family: 'Baloo 2', cursive;
+  font-size: 3rem;
+  font-weight: bolder;
+}
+
+.problem-content p {
+  display: inline;
+  padding: 1rem;
+  color: white;
+  text-shadow: 2px 2px 2px #222;
+}
+
+.problem-content div {
+  display: inline;
+  text-align: center;
+}
+
+.problem-content input {
+  border-radius: .5rem;
+  font-size: 1.5rem;
+  padding: 1rem;
+  border: 2px solid green;
+  width: 16rem;
+  margin: 2rem;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.555);
+}
+
+.problem-content button {
+  height: 3.5rem;
+  border-radius: .5rem;
+  font-size: 1rem;
+  height: 3.8rem;
+  width: 8rem;
+  color: white;
+  border: 2px solid green;
+  background-color: #0da371;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.555);
+}
+
+.submit-stuff {
+  
 }
 
 .sign-container {
@@ -247,10 +284,8 @@ footer {
   width: 100%;
   height: 3rem;
   text-align: center;
-  padding-top: 1rem;
-  position: fixed;
   bottom: 0;
-  padding: 6px;
+  padding-top: 2px;
   font-family: 'Baloo 2', cursive;
 }
 
@@ -288,6 +323,11 @@ footer {
   .page-top {
     margin-bottom: 0;
     border: none;
+  }
+
+  .page-top img {
+    position: fixed;
+    margin: -3rem;
   }
 
   .subject-selection {

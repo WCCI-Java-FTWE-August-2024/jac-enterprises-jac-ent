@@ -69,13 +69,12 @@ const Intermediate = () => {
                 <h2>Elementary School Math</h2>
             </div>
             <div className="problem-content">
-            {/* Display the math problem and answer form */}
-            <h1>Intermediate Math Problem</h1>
             {mathProblem && ( // Render only if mathProblem data is available
                 <div>
-                    <p>Operation: {mathProblem.operation}</p>
-                    <p>Numerator: {mathProblem.numerator}</p>
-                    <p>Denominator: {mathProblem.denominator}</p>
+                    
+                    <p>{mathProblem.numerator}</p>
+                    <p>{mathProblem.operation}</p>
+                    <p>{mathProblem.denominator}</p><br/>
 
                     {/* Input for the user to enter their answer */}
                     <input

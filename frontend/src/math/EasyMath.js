@@ -93,31 +93,35 @@ const Easy = () => {
                 <h2>Preschool Math</h2>
             </div>
             <div className="problem-content">
-            {/* Display the math problem and answer form */}
-            <h1>Easy Math Problem</h1>
             {mathProblem && ( // Ensure that mathProblem is loaded before rendering
                 <div>
                     {/* Display the operation type (e.g., addition, subtraction) */}
-                    <p>Operation: {mathProblem.operation}</p>
+                    
 
                     {/* Render the same random icon for the numerator */}
-                    <p>Numerator: {mathProblem.numerator}</p>
+                    <div>
+                    <p>{mathProblem.numerator}</p><br/>
                     {[...Array(mathProblem.numerator)].map((_, i) => (
                         <span key={i} role="img" aria-label="icon" style={{ fontSize: "24px" }}>
                             <i className={`fa-solid ${selectedIcon}`}></i> {/* Render icon */}
                         </span>
                     ))}
-
+                    </div>
+                    <div>
+                    <p>{mathProblem.operation}</p>
+                    </div>
+                    <div>
                     {/* Render the same random icon for the denominator */}
-                    <p>Denominator: {mathProblem.denominator}</p>
+                    <p>{mathProblem.denominator}</p><br/>
                     {[...Array(mathProblem.denominator)].map((_, i) => (
                         <span key={i} role="img" aria-label="icon" style={{ fontSize: "24px" }}>
                             <i className={`fa-solid ${selectedIcon}`}></i> {/* Render icon */}
                         </span>
                     ))}
+                    </div><br/>
 
                     {/* **Answer Input & Submit Button** below denominator */}
-                    <div>
+                    <div className='submit-stuff'>
                         {/* Input field for the user to type their answer */}
                         <input
                             type="number"
