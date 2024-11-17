@@ -66,7 +66,7 @@ function MediumColors() {
                 <Link to="/color/Color"><img src="https://cdn.pixabay.com/photo/2012/04/02/16/03/back-24838_1280.png" alt="Back button"/></Link>
                 <h2>Elementary School Colors</h2>
             </div>
-
+            <div className="problem-content">
             {/* Show loading state if questionData is still null and there’s no error */}
             {/* If there is no question data, it moves to next condition. Same with if there is no error. Only displays the <p> tag if both questionData and error are false*/}
             {!questionData && !error && <p>Loading question...</p>}
@@ -98,6 +98,7 @@ function MediumColors() {
                     )}
                 </div>
             )}
+            </div>
         </div>
     );
 }

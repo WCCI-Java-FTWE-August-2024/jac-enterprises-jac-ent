@@ -70,6 +70,7 @@ function MediumAnimals() {
         </Link>
         <h2>Elementary School Animals</h2>
       </div>
+      <div className="problem-content">
       {error && <div className="error-message">{error}</div>}{" "}
       {/* Display error message */}
       {questions ? ( // Check if questions is not null
@@ -114,6 +115,7 @@ function MediumAnimals() {
       ) : (
         <div>Loading...</div> // Loading state
       )}
+      </div>
     </div>
   );
 }

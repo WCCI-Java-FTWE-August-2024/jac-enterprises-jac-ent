@@ -71,7 +71,7 @@ function EasyColors() {
                 </Link>
                 <h2>Preschool Colors</h2>
             </div>
-
+            <div className="problem-content">
             {/* Show loading state if questionData is still null and there’s no error */}
             {!questionData && !error && <p>Loading question...</p>}
 
@@ -111,6 +111,7 @@ function EasyColors() {
                     )}
                 </div>
             )}
+            </div>
         </div>
     );
 }

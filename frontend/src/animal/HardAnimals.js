@@ -70,6 +70,7 @@ function HardAnimals() {
         </Link>
         <h2>Middle School Animals</h2>
       </div>
+      <div className="problem-content">
       {error && <div className="error-message">{error}</div>}{" "}
       {/* Display error message */}
       {questions ? ( // Check if questions is not null
@@ -114,6 +115,7 @@ function HardAnimals() {
       ) : (
         <div>Loading...</div> // Loading state
       )}
+      </div>
     </div>
   );
 }
