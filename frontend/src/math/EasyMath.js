@@ -109,10 +109,10 @@ const Easy = () => {
                 <h2>Preschool Math</h2>
             </div>
             <div className="problem-content">
-<<<<<<< HEAD
+
             {mathProblem && ( // Ensure that mathProblem is loaded before rendering
             <div className="problem-content">
-=======
+
 <<<<<<< HEAD
             {mathProblem && ( // Ensure that mathProblem is loaded before rendering
                 <div>
