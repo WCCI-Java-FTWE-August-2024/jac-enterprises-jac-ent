@@ -90,9 +90,18 @@ const Intermediate = () => {
                 <h2>Elementary School Math</h2>
             </div>
             <div className="problem-content">
+<<<<<<< HEAD
             
             {/* Display the math problem and answer form */}
             <h1>Intermediate Math Problem</h1>
+=======
+<<<<<<< HEAD
+=======
+            
+            {/* Display the math problem and answer form */}
+            <h1>Intermediate Math Problem</h1>
+>>>>>>> origin/main
+>>>>>>> d53a2414f21671dcfcd134a32cf1d77d68a2f469
             {mathProblem && ( // Render only if mathProblem data is available
                 <div>
                     
@@ -125,7 +134,16 @@ const Intermediate = () => {
                         <button onClick={fetchNewQuestion}>Next Question</button>
                     )}
                 </div>
+<<<<<<< HEAD
             )}</div>
+=======
+<<<<<<< HEAD
+            )}
+            </div>
+=======
+            )}</div>
+>>>>>>> origin/main
+>>>>>>> d53a2414f21671dcfcd134a32cf1d77d68a2f469
         </div>
         
     );

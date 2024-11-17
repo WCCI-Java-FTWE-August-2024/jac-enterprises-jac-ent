@@ -92,7 +92,16 @@ function HardAnimals() {
         <h2>Middle School Animals</h2>
       </div>
       <div className="problem-content">
+<<<<<<< HEAD
       {error && <div className="error-message">{error}</div>} {/* Display error message */}
+=======
+<<<<<<< HEAD
+      {error && <div className="error-message">{error}</div>}{" "}
+      {/* Display error message */}
+=======
+      {error && <div className="error-message">{error}</div>} {/* Display error message */}
+>>>>>>> origin/main
+>>>>>>> d53a2414f21671dcfcd134a32cf1d77d68a2f469
       {questions ? ( // Check if questions is not null
         <div className="question-container">
           <h3>{questions.questionText}</h3>
@@ -147,7 +156,15 @@ function HardAnimals() {
         <div>Loading...</div> // Loading state
       )}
       </div>
+<<<<<<< HEAD
       </div>
+=======
+<<<<<<< HEAD
+    </div>
+=======
+      </div>
+>>>>>>> origin/main
+>>>>>>> d53a2414f21671dcfcd134a32cf1d77d68a2f469
   );
 }
 

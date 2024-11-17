@@ -143,7 +143,16 @@ function MediumColors() {
                         <button onClick={fetchNewQuestion}>Next Question</button>
                     )}
                 </div>
+<<<<<<< HEAD
             )}</div>
+=======
+<<<<<<< HEAD
+            )}
+            </div>
+=======
+            )}</div>
+>>>>>>> origin/main
+>>>>>>> d53a2414f21671dcfcd134a32cf1d77d68a2f469
         </div>
         
     );

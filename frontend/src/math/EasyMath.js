@@ -109,12 +109,26 @@ const Easy = () => {
                 <h2>Preschool Math</h2>
             </div>
             <div className="problem-content">
+<<<<<<< HEAD
             {mathProblem && ( // Ensure that mathProblem is loaded before rendering
             <div className="problem-content">
+=======
+<<<<<<< HEAD
+            {mathProblem && ( // Ensure that mathProblem is loaded before rendering
+                <div>
+                    {/* Display the operation type (e.g., addition, subtraction) */}
+                    
+
+                    {/* Render the same random icon for the numerator */}
+                    <div>
+                    <p>{mathProblem.numerator}</p><br/>
+=======
+>>>>>>> d53a2414f21671dcfcd134a32cf1d77d68a2f469
             {/* Display the math problem and answer form */}
             <h1>Easy Math Problem</h1>
             {mathProblem && (
                 <div>
+<<<<<<< HEAD
                     {/* Display the operation type (e.g., addition, subtraction) */}
                     
                     {/* Display the operation type */}
@@ -125,11 +139,23 @@ const Easy = () => {
                     <p>{mathProblem.numerator}</p><br/>
                     {/* Render the numerator icons */}
                     <p>Numerator: {mathProblem.numerator}</p>
+=======
+                    {/* Display the operation type */}
+                    <p>Operation: {mathProblem.operation}</p>
+
+                    {/* Render the numerator icons */}
+                    <p>Numerator: {mathProblem.numerator}</p>
+>>>>>>> origin/main
+>>>>>>> d53a2414f21671dcfcd134a32cf1d77d68a2f469
                     {[...Array(mathProblem.numerator)].map((_, i) => (
                         <span key={i} role="img" aria-label="icon" style={{ fontSize: "24px" }}>
                             <i className={`fa-solid ${selectedIcon}`}></i>
                         </span>
                     ))}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> d53a2414f21671dcfcd134a32cf1d77d68a2f469
                     </div>
                     <div>
                     <p>{mathProblem.operation}</p>
@@ -137,9 +163,17 @@ const Easy = () => {
                     <div>
                     {/* Render the same random icon for the denominator */}
                     <p>{mathProblem.denominator}</p><br/>
+<<<<<<< HEAD
 
                     {/* Render the denominator icons */}
                     <p>Denominator: {mathProblem.denominator}</p>
+=======
+=======
+
+                    {/* Render the denominator icons */}
+                    <p>Denominator: {mathProblem.denominator}</p>
+>>>>>>> origin/main
+>>>>>>> d53a2414f21671dcfcd134a32cf1d77d68a2f469
                     {[...Array(mathProblem.denominator)].map((_, i) => (
                         <span key={i} role="img" aria-label="icon" style={{ fontSize: "24px" }}>
                             <i className={`fa-solid ${selectedIcon}`}></i>
@@ -147,11 +181,22 @@ const Easy = () => {
                     ))}
                     </div><br/>
 
+<<<<<<< HEAD
                     {/* **Answer Input & Submit Button** below denominator */}
                     <div className='submit-stuff'>
                         {/* Input field for the user to type their answer */}
                     {/* Input field for the user to type their answer */}
                     <div>
+=======
+<<<<<<< HEAD
+                    {/* **Answer Input & Submit Button** below denominator */}
+                    <div className='submit-stuff'>
+                        {/* Input field for the user to type their answer */}
+=======
+                    {/* Input field for the user to type their answer */}
+                    <div>
+>>>>>>> origin/main
+>>>>>>> d53a2414f21671dcfcd134a32cf1d77d68a2f469
                         <input
                             type="number"
                             value={userAnswer}
@@ -180,9 +225,18 @@ const Easy = () => {
                         <button onClick={fetchNewQuestion}>Next Question</button>
                     )}
                 </div>
+<<<<<<< HEAD
             )}
             </div>
             )}</div>
+=======
+<<<<<<< HEAD
+            )}
+            </div>
+=======
+            )}</div>
+>>>>>>> origin/main
+>>>>>>> d53a2414f21671dcfcd134a32cf1d77d68a2f469
         </div>
         
     );

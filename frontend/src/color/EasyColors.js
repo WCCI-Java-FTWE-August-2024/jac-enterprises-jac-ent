@@ -91,7 +91,14 @@ function EasyColors() {
                 <h2>Preschool Colors</h2>
             </div>
             <div className="problem-content">
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/main
+>>>>>>> d53a2414f21671dcfcd134a32cf1d77d68a2f469
             {/* Show loading state if questionData is still null and there’s no error */}
             {!questionData && !error && <p>Loading question...</p>}
 
@@ -144,7 +151,16 @@ function EasyColors() {
                         <button onClick={fetchNewQuestion}>Next Question</button>
                     )}
                 </div>
+<<<<<<< HEAD
             )}</div>
+=======
+<<<<<<< HEAD
+            )}
+            </div>
+=======
+            )}</div>
+>>>>>>> origin/main
+>>>>>>> d53a2414f21671dcfcd134a32cf1d77d68a2f469
         </div>
     );
 }
