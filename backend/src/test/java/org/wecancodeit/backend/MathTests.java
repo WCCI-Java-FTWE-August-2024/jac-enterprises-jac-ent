@@ -4,15 +4,11 @@ package org.wecancodeit.backend;
 // Import necessary classes for assertions and testing
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import java.util.EnumSet;
 import java.util.Set;
-
 import org.junit.jupiter.api.Test;
 import org.wecancodeit.backend.BOService.MathProblemService;
 import org.wecancodeit.backend.DTOs.MathProblemDTO;
 import org.wecancodeit.backend.Enums.DifficultyLevel;
-import org.wecancodeit.backend.Enums.Operation;
 
 public class MathTests {
 
@@ -86,47 +82,45 @@ public class MathTests {
                 "The division operation should return the quotient of numerator divided by denominator.");
     }
 
-    // @Test
-    // public void testGetRandomOperationForBeginner() {
-    //     // Define the expected set of operations for Beginner level
-    //     Set<Operation> expectedOperations = EnumSet.of(, Operation.Subtraction);
+    @Test
+    public void testGetRandomOperationForBeginner() {
+        Set<String> expectedOperations = Set.of("+", "-");
 
-    //     // Run the random operation generation multiple times to verify it only produces
-    //     // the allowed operations
-    //     for (int i = 0; i < 100; i++) { // Run the test multiple times to account for randomness
-    //         Operation operation = mathProblemService.getRandomOperation(DifficultyLevel.Beginner);
-    //         assertTrue(expectedOperations.contains(operation),
-    //                 "Beginner level should only produce Addition or Subtraction operations.");
-    //     }
-    // }
+        // Run the random operation generation multiple times to verify it includes all
+        // allowed operations
 
-    // @Test
-    // public void testGetRandomOperationForIntermediate() {
-    //     // Define the expected set of operations for Intermediate level
-    //     Set<Operation> expectedOperations = EnumSet.of(Operation.Addition, Operation.Subtraction,
-    //             Operation.Multiplication, Operation.Division);
+        for (int i = 0; i < 100; i++) {
+            String operation = mathProblemService.getRandomOperation(DifficultyLevel.Beginner);
+            assertTrue(expectedOperations.contains(operation),
+                    "Beginner level should produce any of Addition, Subtraction");
+        }
+    }
 
-    //     // Run the random operation generation multiple times to verify it includes all
-    //     // allowed operations
-    //     for (int i = 0; i < 100; i++) { // Run the test multiple times to account for randomness
-    //         Operation operation = mathProblemService.getRandomOperation(DifficultyLevel.Intermediate);
-    //         assertTrue(expectedOperations.contains(operation),
-    //                 "Intermediate level should produce any of Addition, Subtraction, Multiplication, or Division operations.");
-    //     }
-    // }
+    @Test
+    public void testGetRandomOperationForIntermediate() {
+        // Define the expected set of operations for Intermediate level
+        Set<String> expectedOperations = Set.of("+", "-", "*", "/");
 
-    // @Test
-    // public void testGetRandomOperationForAdvanced() {
-    //     // Define the expected set of operations for Advanced level
-    //     Set<String> expectedOperations = EnumSet.of(Operation.Addition, Operation.Subtraction,
-    //             Operation.Multiplication, Operation.Division);
+        // Run the random operation generation multiple times to verify it includes all
+        // allowed operations
+        for (int i = 0; i < 100; i++) { // Run the test multiple times to account for randomness
+            String operation = mathProblemService.getRandomOperation(DifficultyLevel.Intermediate);
+            assertTrue(expectedOperations.contains(operation),
+                    "Intermediate level should produce any of Addition, Subtraction, Multiplication, or Division operations.");
+        }
+    }
 
-    //     // Run the random operation generation multiple times to verify it includes all
-    //     // allowed operations
-    //     for (int i = 0; i < 100; i++) { // Run the test multiple times to account for randomness
-    //         Operation operation = mathProblemService.getRandomOperation(DifficultyLevel.Advanced);
-    //         assertTrue(expectedOperations.contains(operation),
-    //                 "Advanced level should produce any of Addition, Subtraction, Multiplication, or Division operations.");
-    //     }
-    // }
+    @Test
+    public void testGetRandomOperationForAdvanced() {
+        // Define the expected set of operations for Advanced level
+        Set<String> expectedOperations = Set.of("+", "-", "*", "/");
+
+        // Run the random operation generation multiple times to verify it includes all
+        // allowed operations
+        for (int i = 0; i < 100; i++) { // Run the test multiple times to account for randomness
+            String operation = mathProblemService.getRandomOperation(DifficultyLevel.Advanced);
+            assertTrue(expectedOperations.contains(operation),
+                    "Advanced level should produce any of Addition, Subtraction, Multiplication, or Division operations.");
+        }
+    }
 }

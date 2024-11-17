@@ -8,7 +8,6 @@
 
 .app-body {
   background-color: #0da371;
-  height: 125vh;
 }
 
 /* Navigation Bar */
@@ -21,13 +20,13 @@
   font-family: 'Baloo 2', cursive;
   font-weight: bold;
   box-shadow: 0 2px 4px rgb(82, 82, 82);
-  border-radius: 10px;
+  border-radius: 0 0 10px 10px;
 }
 
 .nav-list {
   list-style: none;
   margin: 0;
-  padding: 1.5rem;
+  padding: 0;
 }
 
 .nav-list li {
@@ -50,10 +49,8 @@
 
 .nav-list img {
   height: 6rem;
-  position: fixed;
-  left: 0;
-  top: 0;
-  margin: 1.5rem 0.5rem;
+  float: left;
+  margin: -1rem;
   filter: drop-shadow(5px 5px 5px #222);
   transition: transform 0.3s ease;
 }
@@ -94,8 +91,10 @@ hr {
 /* About Logo Styling */
 .about-logo {
   width: 70%;
+  margin-bottom: 90px;
   max-width: 35rem;
   filter: drop-shadow(0 0 10px #222);
+  margin-bottom: 90px;
 }
 
 /* Updated Title and Subtitle Styling */
@@ -144,17 +143,15 @@ hr {
 .page-top h2 {
   font-size: 3rem;
   font-family: 'Baloo 2', cursive;
-  color: white;
+  color: rgb(255, 255, 255);
   text-align: center;
   text-shadow: 2px 2px 2px black;
 }
 
 .page-top img {
   height: 5rem;
-  position: fixed;
+  float: left;
   left: 0;
-  margin-left: 1.5rem;
-  margin-top: 3rem;
   filter: drop-shadow(3px 3px 3px #222);
 }
 
@@ -189,9 +186,11 @@ hr {
   transform: scale(1.05);
   background-color: rgba(255, 255, 255, 0.2);
 }
+.subject-selection li:hover h2{
+  color: rgb(255, 238, 0);
+}
 
 .subject-selection li h2 {
-  color: white;
   font-family: 'Baloo 2', cursive;
   text-shadow: 2px 2px 2px #222;
 }
@@ -232,6 +231,47 @@ hr {
   width: 40%;
   margin-left: 30%;
   text-align: center;
+  font-family: 'Baloo 2', cursive;
+  font-size: 3rem;
+  font-weight: bolder;
+}
+
+.problem-content p {
+  display: inline;
+  padding: 1rem;
+  color: white;
+  text-shadow: 2px 2px 2px #222;
+}
+
+.problem-content div {
+  display: inline;
+  text-align: center;
+}
+
+.problem-content input {
+  border-radius: .5rem;
+  font-size: 1.5rem;
+  padding: 1rem;
+  border: 2px solid green;
+  width: 16rem;
+  margin: 2rem;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.555);
+}
+
+.problem-content button {
+  height: 3.5rem;
+  border-radius: .5rem;
+  font-size: 1rem;
+  height: 3.8rem;
+  width: 8rem;
+  color: white;
+  border: 2px solid green;
+  background-color: #0da371;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.555);
+}
+
+.submit-stuff {
+  
 }
 
 .sign-container {
@@ -247,10 +287,8 @@ footer {
   width: 100%;
   height: 3rem;
   text-align: center;
-  padding-top: 1rem;
-  position: fixed;
   bottom: 0;
-  padding: 6px;
+  padding-top: 2px;
   font-family: 'Baloo 2', cursive;
 }
 
@@ -284,10 +322,14 @@ footer {
 }
 
 @media only screen and (max-width: 768px) {
-
   .page-top {
     margin-bottom: 0;
     border: none;
+  }
+
+  .page-top img {
+    position: fixed;
+    margin: -3rem;
   }
 
   .subject-selection {
@@ -339,11 +381,6 @@ footer {
     width: 60%;
     margin-bottom: 40px;
   }
-
-}
-
-@media only screen and (max-width: 600px) {
-
 
 }
 
