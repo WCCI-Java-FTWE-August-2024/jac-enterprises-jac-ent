@@ -11,18 +11,16 @@ const getCookie = (name) => {
 const Easy = () => {
     // State to hold the math problem data fetched from the API
     const [mathProblem, setMathProblem] = useState(null);
-    // State to hold the user's answer input
-    const [userAnswer, setUserAnswer] = useState("");
-    // State to hold feedback on whether the user's answer is correct or not
-    const [feedback, setFeedback] = useState("");
-    // State to store the selected icon for the math problem
-    const [selectedIcon, setSelectedIcon] = useState(null);
-    // State to track if the answer is correct or not
-    const [answeredCorrectly, setAnsweredCorrectly] = useState(false);
-    // State to control the visibility of the "Next Question" button
-    const [showNext, setShowNext] = useState(false);
+    const [userAnswer, setUserAnswer] = useState(""); // User's answer input
+    const [feedback, setFeedback] = useState(""); // Feedback for correctness
+    const [selectedIcon, setSelectedIcon] = useState(null); // Random icon for the problem
+    const [answeredCorrectly, setAnsweredCorrectly] = useState(false); // Track if the answer is correct
+    const [showNext, setShowNext] = useState(false); // Show "Next Question" button
+    const [incorrectAttempts, setIncorrectAttempts] = useState(0); // Count incorrect attempts
+    const [showGiveUp, setShowGiveUp] = useState(false); // Show "Give Up" button
+    const [revealAnswer, setRevealAnswer] = useState(false); // Reveal the correct answer
 
-    // List of icons that will be used in the math problem
+    // List of icons for math problems
     const iconList = [
         "fa-apple-whole", // Apple icon
         "fa-candy-cane",  // Candy Cane icon
@@ -31,18 +29,16 @@ const Easy = () => {
         "fa-carrot",      // Carrot icon
     ];
 
-        // Retrieve token from cookies
-        const token = getCookie("authToken");
+    // Retrieve token from cookies
+    const token = getCookie("authToken");
 
     // Function to get a random icon from the icon list
     const getRandomIcon = () => {
-        const randomIcon = iconList[Math.floor(Math.random() * iconList.length)];
-        return randomIcon; // Returns a random icon
+        return iconList[Math.floor(Math.random() * iconList.length)];
     };
 
     useEffect(() => {
         fetchNewQuestion(); // Initial fetch when the component loads
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     // Function to fetch a new question from the API
@@ -52,32 +48,52 @@ const Easy = () => {
                 Authorization: `Bearer ${token}`, // Use the retrieved token
             },
         })
-            .then(response => response.json()) // Parse the JSON response
-            .then(data => {
-                setMathProblem(data); // Set the new problem
-                setSelectedIcon(getRandomIcon());
-                setUserAnswer(""); // Reset user answer field
-                setFeedback(""); // Reset feedback
-                setAnsweredCorrectly(false); // Reset the answer check
-                setShowNext(false); // Hide "Next Question" button initially
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Failed to fetch question.");
+                }
+                return response.json();
             })
-            .catch(error => console.error('Error fetching math problem:', error)); // Log any errors
+            .then(data => {
+                setMathProblem(data);
+                setSelectedIcon(getRandomIcon());
+                setUserAnswer("");
+                setFeedback("");
+                setAnsweredCorrectly(false);
+                setShowNext(false);
+                setIncorrectAttempts(0);
+                setShowGiveUp(false);
+                setRevealAnswer(false);
+            })
+            .catch(error => console.error('Error fetching math problem:', error));
     };
 
-    // Function to check if the user's answer is correct
+    // Function to check the user's answer
     const checkAnswer = () => {
-        if (mathProblem) { // Ensure that a math problem has been fetched
+        if (mathProblem) {
             const isCorrect = parseFloat(userAnswer) === mathProblem.answer;
-            setAnsweredCorrectly(isCorrect); // Update the answer correctness state
+            setAnsweredCorrectly(isCorrect);
             setFeedback(isCorrect ? "Correct! Good job!" : "Almost there, don't give up!");
-            
-            // Only show "Next Question" if the answer is correct
+
             if (isCorrect) {
-                setShowNext(true); // Show the "Next Question" button
+                setShowNext(true); // Show "Next Question" button
+                setShowGiveUp(false); // Hide "Give Up" button
             } else {
-                setShowNext(false); // Hide it if the answer is incorrect
+                setIncorrectAttempts(prev => {
+                    const newAttempts = prev + 1;
+                    if (newAttempts >= 3) {
+                        setShowGiveUp(true); // Show "Give Up" button after 3 wrong attempts
+                    }
+                    return newAttempts;
+                });
             }
         }
+    };
+
+    // Function to handle "Give Up" action
+    const handleGiveUp = () => {
+        setRevealAnswer(true); // Reveal the correct answer
+        setShowNext(true); // Allow moving to the next question
     };
 
     return (
@@ -92,52 +108,61 @@ const Easy = () => {
                 </Link>
                 <h2>Preschool Math</h2>
             </div>
-
+            <div className="problem-content">
             {/* Display the math problem and answer form */}
             <h1>Easy Math Problem</h1>
-            {mathProblem && ( // Ensure that mathProblem is loaded before rendering
+            {mathProblem && (
                 <div>
-                    {/* Display the operation type (e.g., addition, subtraction) */}
+                    {/* Display the operation type */}
                     <p>Operation: {mathProblem.operation}</p>
 
-                    {/* Render the same random icon for the numerator */}
+                    {/* Render the numerator icons */}
                     <p>Numerator: {mathProblem.numerator}</p>
                     {[...Array(mathProblem.numerator)].map((_, i) => (
                         <span key={i} role="img" aria-label="icon" style={{ fontSize: "24px" }}>
-                            <i className={`fa-solid ${selectedIcon}`}></i> {/* Render icon */}
+                            <i className={`fa-solid ${selectedIcon}`}></i>
                         </span>
                     ))}
 
-                    {/* Render the same random icon for the denominator */}
+                    {/* Render the denominator icons */}
                     <p>Denominator: {mathProblem.denominator}</p>
                     {[...Array(mathProblem.denominator)].map((_, i) => (
                         <span key={i} role="img" aria-label="icon" style={{ fontSize: "24px" }}>
-                            <i className={`fa-solid ${selectedIcon}`}></i> {/* Render icon */}
+                            <i className={`fa-solid ${selectedIcon}`}></i>
                         </span>
                     ))}
 
-                    {/* **Answer Input & Submit Button** below denominator */}
+                    {/* Input field for the user to type their answer */}
                     <div>
-                        {/* Input field for the user to type their answer */}
                         <input
                             type="number"
                             value={userAnswer}
-                            onChange={(e) => setUserAnswer(e.target.value)} // Update the user's input
-                            placeholder="Enter your answer" // Placeholder text for the input field
+                            onChange={(e) => setUserAnswer(e.target.value)}
+                            placeholder="Enter your answer"
                         />
-                        {/* Button to submit the user's answer */}
-                        <button onClick={checkAnswer}>Submit Answer</button>
+                        {/* Submit button for checking the answer */}
+                        <button onClick={checkAnswer} disabled={revealAnswer}>Submit Answer</button>
                     </div>
 
-                    {/* Display feedback message based on the user's answer */}
+                    {/* Display feedback message */}
                     <p>{feedback}</p>
 
-                    {/* Conditionally render the "Next Question" button only if the answer is correct */}
+                    {/* Display the correct answer if "Give Up" is clicked */}
+                    {revealAnswer && (
+                        <p>The correct answer is: {mathProblem.answer}</p>
+                    )}
+
+                    {/* Show "Give Up" button after 3 incorrect attempts */}
+                    {showGiveUp && !revealAnswer && (
+                        <button onClick={handleGiveUp}>Give Up</button>
+                    )}
+
+                    {/* Show "Next Question" button after correct answer or "Give Up" */}
                     {showNext && (
                         <button onClick={fetchNewQuestion}>Next Question</button>
                     )}
                 </div>
-            )}
+            )}</div>
         </div>
     );
 };
