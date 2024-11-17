@@ -70,14 +70,8 @@ function HardAnimals() {
         </Link>
         <h2>Middle School Animals</h2>
       </div>
-<<<<<<< HEAD
       <div className="problem-content">
       {error && <div className="error-message">{error}</div>} {/* Display error message */}
-      
-=======
-      {error && <div className="error-message">{error}</div>}{" "}
-      {/* Display error message */}
->>>>>>> origin/main
       {questions ? ( // Check if questions is not null
         <div className="question-container">
           <h3>{questions.questionText}</h3>
