@@ -42,12 +42,19 @@ function App() {
             <li><Link to="/color/Color">Color Zone</Link></li><span>|</span> 
             <li><Link to="/animal/Animal">Animal Zone</Link></li><span>|</span> 
             <li><Link to="/About">About</Link></li><span>|</span>
-            {/* Conditional rendering for Sign In/Sign Out */}
-            {token ? (
-              <li><Link to="/SignIn">{username}</Link></li>
-            ) : (
-              <li><Link to="/SignIn">Sign In</Link></li>
-            )}
+           {/* Conditional rendering for Sign In/Sign Out */}
+{token ? (
+    <>
+        <li><Link to="/SignIn">{username}</Link></li>
+        <span>|</span> {/* Add separator only if user is signed in */}
+    </>
+) : (
+    <>
+        <li><Link to="/SignIn">Sign In</Link></li>
+        <span>|</span> {/* Add separator for sign-up */}
+        <li><Link to="/SignUp">Sign Up</Link></li>
+    </>
+)}
           </ul>
         </nav>
         <div className="content">
