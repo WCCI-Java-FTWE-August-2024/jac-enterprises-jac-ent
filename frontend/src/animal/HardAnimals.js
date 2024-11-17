@@ -148,7 +148,6 @@ function HardAnimals() {
       )}
       </div>
       </div>
-    </div>
   );
 }
 
