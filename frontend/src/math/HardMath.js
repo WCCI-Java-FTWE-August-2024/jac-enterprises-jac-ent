@@ -92,6 +92,7 @@ const Advanced = () => {
                 <h2>Middle School Math</h2>
             </div>
             <div className="problem-content">
+            <div className="problem-content">
             {/* Display the math problem and answer form */}
             <h1>Advanced Math Problem</h1>
             {mathProblem && (

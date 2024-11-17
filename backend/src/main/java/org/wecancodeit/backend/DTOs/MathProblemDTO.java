@@ -7,7 +7,7 @@ public class MathProblemDTO {
     // Fields representing a mathematical problem and its components
     // private String problem; // The math problem as a string not Problem String is not needed as of this moment :)
     private DifficultyLevel difficulty; // Enum representing the difficulty level of the problem (e.g., EASY, MEDIUM)
-    private Operation operation; // Enum representing the type of mathematical operation (e.g., ADDITION,
+    private String operation; // Enum representing the type of mathematical operation (e.g., ADDITION,
                                  // SUBTRACTION)
     private float numerator; // The numerator for fraction problems
     private float denominator; // The denominator for fraction problems
@@ -22,7 +22,7 @@ public class MathProblemDTO {
     }
 
     // Constructor that initializes all fields with provided values
-    public MathProblemDTO(String problem, DifficultyLevel difficulty, Operation operation, float numerator,
+    public MathProblemDTO(String problem, DifficultyLevel difficulty, String operation, float numerator,
             float denominator) {
         // this.problem = problem; // Set the problem string
         this.difficulty = difficulty; // Set the difficulty level
@@ -56,12 +56,12 @@ public class MathProblemDTO {
     }
 
     // Getter for the 'operation' field
-    public Operation getOperation() {
+    public String getOperation() {
         return operation; // Return the mathematical operation
     }
 
     // Setter for the 'operation' field
-    public void setOperation(Operation operation) {
+    public void setOperation(String operation) {
         this.operation = operation; // Update the mathematical operation
     }
 

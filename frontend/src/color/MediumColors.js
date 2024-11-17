@@ -91,6 +91,7 @@ function MediumColors() {
                 <h2>Elementary School Colors</h2>
             </div>
             <div className="problem-content">
+            <div className="problem-content">
             {/* Show loading state if questionData is still null and there’s no error */}
             {!questionData && !error && <p>Loading question...</p>}
 

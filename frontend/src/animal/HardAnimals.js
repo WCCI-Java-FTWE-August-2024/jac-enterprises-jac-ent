@@ -147,6 +147,7 @@ function HardAnimals() {
         <div>Loading...</div> // Loading state
       )}
       </div>
+      </div>
     </div>
   );
 }
